@@ -33,7 +33,7 @@
   "close":                false,
 
   "component-animations": false,
-  "dropdowns":            false,
+  "dropdowns":            true,
   "tooltip":              false,
   "popovers":             false,
   "carousel":             false,

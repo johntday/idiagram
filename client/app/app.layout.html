@@ -1,0 +1,54 @@
+<head>
+  <title>workflow-routing</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<template name="mainLayout">
+  <div id="mainLayout">
+    <header>
+      {{> yield region='header' }}
+    </header>
+      <aside>
+          {{> yield region='west' }}
+      </aside>
+    <aside>
+      {{> yield region='east' }}
+    </aside>
+    <main id="mainPanel">
+      {{> yield }}
+    </main>
+    <footer>
+      {{> yield region='footer' }}
+    </footer>
+  </div>
+</template>
+
+<head>
+    <title>Panel Layout</title>
+</head>
+
+<template name="westPanel">
+    <aside id="westPanel" class="ui sidebar with-navbar-offset">
+        <div class="padded">
+            <a id="westPanelButtonA" href="#" class="fullwidth btn btn-info">west panel button A</a>
+        </div>
+        <div class="padded">
+            <a id="westPanelButtonB" href="#" class="fullwidth btn btn-info">west panel button B</a>
+        </div>
+    </aside>
+</template>
+
+<template name="eastPanel">
+    <aside id="eastPanel" class="padded ui right sidebar with-navbar-offset">
+        <div id="eastPanelInfo" class="panel panel-info">
+            <div class="panel-heading">
+                east panel info!
+            </div>
+            <div class="panel-body">
+                lorem ipsum solar et...
+            </div>
+        </div>
+    </aside>
+</template>
