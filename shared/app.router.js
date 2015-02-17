@@ -12,9 +12,11 @@ Router.configure({
       to: 'footer'
     },
       'eastPanel': {
-          to: 'aside'
+          to: 'east'
+      },
+      'westPanel': {
+          to: 'west'
       }
-
   }
 });
 
