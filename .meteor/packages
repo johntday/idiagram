@@ -21,3 +21,5 @@ email
 iron:router
 benjaminrh:event-hooks
 mrt:nprogress
+reactive-dict
+

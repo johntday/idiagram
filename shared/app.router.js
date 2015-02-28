@@ -8,9 +8,9 @@ Router.configure({
     'navbarHeader': {
       to: 'header'
     },
-    'navbarFooter': {
-      to: 'footer'
-    },
+    //'navbarFooter': {
+    //  to: 'footer'
+    //},
       'eastPanel': {
           to: 'east'
       },
@@ -78,7 +78,7 @@ checkUserHasEmployer = function(scope) {
       scope.next();
     } else {
       scope.render("navbarHeader", {to: 'header'});
-      scope.render("navbarFooter", {to: 'footer'});
+      //scope.render("navbarFooter", {to: 'footer'});
       //scope.render("sidebarTemplate",{to: 'aside'});
       scope.next();
     }
@@ -233,6 +233,35 @@ Router.map(function() {
       document.title = "About";
     }
   });
+    this.route('seqRoute', {
+        path: '/sequenceDiagram',
+        template: 'seqDgmPage',
+        //waitOn: function () {
+        //    Session.set('has_sidebar', false);
+        //    Session.set('selected_diagram_id', this.params._id);
+        //    return Meteor.subscribe('pubsub_selected_diagram', this.params._id);
+        //},
+        data  : function () {
+            //var diagram = Diagrams.findOne(this.params._id);
+            //Session.set('form_update', false);
+            //if ( diagram && !diagram.code )
+            //    Session.set('form_update', true);
+            //Session.set('breadcrumbs', {breadcrumbs: [
+            //    {title:"home", link:"/", isActive:false},
+            //    {title:"Diagrams", link:"/diagrams", isActive:false},
+            //    {title:diagram.title, link:"", isActive:true}
+            //]});
+            var diagram = {
+                code: "a->b: get me some!"
+                ,style: "hand"
+                ,title: "My title"
+            };
+            return diagram;
+        },
+        onAfterAction: function(){
+            document.title = "Sequence Diagram";
+        }
+    });
 
 
 

@@ -11,7 +11,7 @@ Meteor.startup(function(){
     Session.set("resize", new Date());
   });
 
-  bowser = BrowserObserver.init();
+  //bowser = BrowserObserver.init();
 
 });
 setWallpaper = function(){
