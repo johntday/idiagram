@@ -23,11 +23,15 @@ var drawDiagram = function(code, manual){
 
         $('#redraw').addClass('disabled');
         setDirty(false);
-        throwSuccess('Diagram redrawn');
     } catch (err) {
-        if (manual)
-            throwError("Sorry, I cannot understand your diagram text");
-        getLineOfFirstError(code);
+        if (manual) {
+            var $element = $('#codeID').get(0);
+            var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
+            if (lineNum)
+                throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text");
+            else
+                throwError("Sorry, I cannot understand your diagram text");
+        }
     }
     $('#codeID').focus();
     return true;

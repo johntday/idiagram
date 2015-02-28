@@ -6,19 +6,19 @@
  * messageType can be 'w' (warning) or 'i' (info) or 's' (success) DEFAULT is (danger)
  */
 throwError = function(message) {
-    Common.scrollToTopOfPageFast();
+    CommonClient.scrollToTopOfPageFast();
 	//Meteor.MyClientModule.scrollToTopOfPageFast();
 	growl( message, {type:'d'} );
 }
 
 throwInfo = function(message) {
-    Common.scrollToTopOfPageFast();
+    CommonClient.scrollToTopOfPageFast();
     //Meteor.MyClientModule.scrollToTopOfPageFast();
     growl( message, {type:'i'} );
 }
 
 throwSuccess = function(message) {
-    Common.scrollToTopOfPageFast();
+    CommonClient.scrollToTopOfPageFast();
     //Meteor.MyClientModule.scrollToTopOfPageFast();
     growl( message, {type:'s'} );
 }
@@ -109,9 +109,9 @@ var growl_default_options = {
 	ele: 'body',
 	type: 'd',
 	offset: {from: 'top', amount: 60},
-	align: 'right', // (left, right, or center)
+	align: 'center', // (left, right, or center)
 	width: 400,
-	delay: 4000,
+	delay: 5000,
 	allow_dismiss: true,
 	stackup_spacing: 10
 };

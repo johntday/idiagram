@@ -253,7 +253,7 @@ Router.map(function() {
             //]});
             var diagram = {
                 code: "a->b: get me some!"
-                ,style: "hand"
+                ,style: "simple"
                 ,title: "My title"
             };
             return diagram;
