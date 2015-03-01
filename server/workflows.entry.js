@@ -1,6 +1,6 @@
 Meteor.startup(function() {
   return AccountsEntry.config({
-    signupCode: 'clouds',
+    signupCode: 'photon',
     defaultProfile: {
       someDefault: 'homePage'
     }

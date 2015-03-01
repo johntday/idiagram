@@ -2,13 +2,22 @@ var reactiveDict = new ReactiveDict();
 
 var _setIntervalID;
 var _dirty = true;
+var _saved = true;
 var setDirty = function(dirty){
     _dirty = dirty;
     if (_dirty)
-        $('#redraw').removeClass('disabled');
+        $('#redrawBtnID').removeClass('disabled');
 };
 var isDirty = function(){
     return _dirty
+};
+var setSaved = function(saved){
+    _saved = saved;
+    if (_saved)
+        $('#saveBtnID').removeClass('disabled');
+};
+var isSaved = function(){
+    return _saved
 };
 var drawDiagram = function(code, manual){
     if (!isDirty()) return false;
@@ -21,7 +30,7 @@ var drawDiagram = function(code, manual){
         diagram.drawSVG('diagram', options);
         console.log('finished drawDiagram');
 
-        $('#redraw').addClass('disabled');
+        $('#redrawBtnID').addClass('disabled');
         setDirty(false);
     } catch (err) {
         if (manual) {
@@ -50,12 +59,10 @@ Template.seqDgmPage.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.created = function() {
-    console.log('created');
     //creditPurchase = new CreditPurchase();
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.destroyed = function() {
-    console.log('destroyed');
     Meteor.clearTimeout( _setIntervalID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -70,8 +77,11 @@ Template.seqDgmPage.events({
         if (isDirty() && e.which == 13) {
             drawDiagram($(e.target).val(), false);
             setDirty(false);
-        } else if (e.which != 13)
+            setSaved(false);
+        } else if (e.which != 13) {
             setDirty(true);
+            setSaved(true);
+        }
     },
     'keyup #titleID': function(e) {
         e.preventDefault();
@@ -84,30 +94,33 @@ Template.seqDgmPage.events({
         reactiveDict.set('style', name);
         drawDiagram(null, true);
     },
-    'click #redraw': function(e) {
+    'click #redrawBtnID': function(e) {
         e.preventDefault();
         drawDiagram(null, true);
     },
-    'click #save': function(e) {
+    'click #saveBtnID': function(e) {
         e.preventDefault();
         $(e.target).addClass('disabled');
 
-        //if(!Meteor.user()){
-        //    throwError('You must login to update a diagram');
-        //    $(e.target).removeClass('disabled');
-        //    return false;
-        //}
+        if(!Meteor.user()){
+            throwError('You must login to save a diagram');
+            $(e.target).removeClass('disabled');
+            return false;
+        }
 
         // GET INPUT
-        //var _id = this._id;
+        var _id = this._id;
+        var isInsert = !_id;
 
         // CREATE OBJECT
-        //var properties = {
-        //    title: $('#title').val()
-        //    , description: $('#description').val()
-        //    , theme: $('#theme').val()
-        //    , code: $('#codeID').val()
-        //};
+        var properties = {
+            title: reactiveDict.get('title')
+            , description: ''
+            , style: reactiveDict.get('style')
+            , code: $('#codeID').val()
+            , projectId: 'test'
+            //, tags: []
+        };
 
         //if ( isAdmin(Meteor.user()) ) {
         //    _.extend(properties, {
@@ -122,16 +135,30 @@ Template.seqDgmPage.events({
         //    return false;
         //}
 
-        //Meteor.call('updateDiagram', _id, properties, function(error, diagram) {
-        //    if(error){
-        //        console.log("diagram_details.js/1", "updated diagram", {'error': error, 'diagram': diagram});
-        //        throwError(error.reason);
-        //        $(e.target).removeClass('disabled');
-        //    }else{
-        //        Session.set('form_update', false);
-        //        console.log("diagram_details.js/1", "updated diagram", {'_id': _id, 'diagram': diagram});
-        //    }
-        //});
+        if (isInsert) {
+            Meteor.call('Diagrams.insert', properties, function(error, retValue) {
+                if(error){
+                    console.log("diagram_details.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
+                    throwError(error.reason);
+                }else{
+                    throwSuccess('Diagram saved');
+                    $('#saveBtnID').addClass('disabled');
+                    setSaved(false);
+                }
+            });
+        } else {
+            Meteor.call('Diagrams.update', _id, properties, function(error, retValue) {
+                if(error){
+                    console.log("diagram_details.js/1", "Diagrams.update", {'error': error, 'retValue': retValue});
+                    throwError(error.reason);
+                }else{
+                    throwSuccess('Diagram saved');
+                    $('#saveBtnID').addClass('disabled');
+                    setSaved(false);
+                }
+            });
+        }
+        $('#codeID').focus();
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -144,6 +171,9 @@ Template.seqDgmPage.rendered = function() {
 
     _setIntervalID = Meteor.setInterval(
         function(){drawDiagram(null, false)}, DefaultProperties.SequenceDiagram.updateTimeMilliSeconds );
+
+    setDirty(true);
+    $('#saveBtnID').addClass('disabled');
 
     drawDiagram(this.data.code, true);
 };

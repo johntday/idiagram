@@ -9,7 +9,7 @@ AccountsEntry = {
 
 Meteor.startup(function() {
   return AccountsEntry.config({
-    signupCode: 'clouds'
+    signupCode: 'photon'
   });
 });
 
@@ -22,8 +22,6 @@ Meteor.methods({
   entryValidateSignupCode: function(signupCode) {
     console.log('received: ' + signupCode);
     console.log('should be: ' + AccountsEntry.settings.signupCode);
-
-    //check(signupCode, String);
 
     return signupCode === AccountsEntry.settings.signupCode;
   },
@@ -60,6 +58,7 @@ Accounts.onCreateUser(function(options, user) {
 
   return user;
 });
+
 Meteor.startup(function(){
 
   var dataCursor = Meteor.users.find();
