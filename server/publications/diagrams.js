@@ -13,3 +13,7 @@ Meteor.publishComposite("diagrams", function() {
 // ]
 }
 });
+
+Meteor.publish('diagram_id', function(id) {
+    return Diagrams.find(id);
+});

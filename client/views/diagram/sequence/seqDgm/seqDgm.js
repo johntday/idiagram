@@ -86,6 +86,7 @@ Template.seqDgmPage.events({
     'keyup #titleID': function(e) {
         e.preventDefault();
         reactiveDict.set('title',  $(e.target).val() );
+        setSaved(true);
     },
     'click .styleID': function(e){
         var name = $(e.target).attr('name');

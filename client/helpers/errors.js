@@ -111,7 +111,7 @@ var growl_default_options = {
 	offset: {from: 'top', amount: 60},
 	align: 'center', // (left, right, or center)
 	width: 400,
-	delay: 5000,
+	delay: 4000,
 	allow_dismiss: true,
 	stackup_spacing: 10
 };
