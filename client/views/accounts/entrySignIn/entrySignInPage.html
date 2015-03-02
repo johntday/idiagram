@@ -1,45 +1,47 @@
 <template name='entrySignInPage'>
-  <div id="entrySignInPage">
-    <div class="container">
-      <div class="row">
-        <div class="entry-logo col-offset-md-2 col-md-4">
-<!--           <a href="/"><img src="/img/logo_blue.png" alt="logo"></a> -->
+    <div id="entrySignInPage">
+        <div class="container">
+            <div class="row">
+                {{#if logo}}
+                    <div class="entry-logo">
+                        <a href="/"><img src="{{logo}}" alt="logo"></a>
+                    </div>
+                {{/if}}
+                <div class="entry col-md-4 col-md-offset-4">
+                    {{#if otherLoginServices}}
+                        <div class="entry-social">
+                            {{#each loginServices}}
+                                {{> entrySocial}}
+                            {{/each}}
+                            <div class="email-option">
+                                <strong class="line-thru or-sign-in">OR</strong>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{> entryError}}
+                    {{#unless otherLoginServices}}
+                        <div class="email-option">
+                            <h3>Sign In</h3>
+                        </div>
+                    {{/unless}}
+
+                    <form class="entry-form" id='signIn'>
+                        <div class="form-group">
+                            <input id="emailInput" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
+                        </div>
+                        <div class="form-group">
+                            <input id="passwordInput" type="password" class="form-control" value='{{password}}' placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <a id="forgotPasswordLink" class="btn btn-primary" href="/forgot-password">Forgot password?</a>
+                            <a class="btn btn-success" href="/sign-up">Create Account</a>
+                        </div>
+
+                        <div id="entrySignInButton" class="fullwidth submit btn btn-info">Sign in</div>
+                    </form>
+
+                </div>
+            </div>
         </div>
-        <div class="entry col-md-4 col-md-offset-4">
-          {{#if otherLoginServices}}
-          <div class="entry-social">
-            {{#each loginServices}}
-            {{> entrySocial}}
-            {{/each}}
-            <div class="email-option">
-              <strong class="line-thru or-sign-in">OR</strong>
-            </div>
-          </div>
-          {{/if}}
-          {{> entryError}}
-          {{#unless otherLoginServices}}
-          <div class="email-option">
-            <h3>Sign In</h3>
-          </div>
-          {{/unless}}
-
-          <form class="entry-form" id='signIn'>
-            <div class="form-group">
-              <input id="emailInput" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
-            </div>
-            <div class="form-group">
-              <input id="passwordInput" type="password" class="form-control" value='{{password}}' placeholder="Password">
-            </div>
-            <div class="form-group">
-              <a id="forgotPasswordLink" class="btn btn-primary" href="/forgot-password">Forgot password?</a>
-              <a class="btn btn-success" href="/sign-up">Create Account</a>
-            </div>
-
-            <div id="entrySignInButton" class="fullwidth submit btn btn-info">Sign in</div>
-          </form>
-
-        </div>
-      </div>
     </div>
-  </div>
 </template>
