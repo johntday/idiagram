@@ -20,7 +20,31 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {{#if currentUser}}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i> {{ getUserName }} <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/eula">End User License</a></li>
+                                    <li><a href="/privacy">Privacy Page</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/glossary">Glossary</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/sign-out" data-action="logout"><i class="fa fa-lock"></i> Sign Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {{else}}
+                        <div class="navbar-right">
+                            <a href="/sign-in" class="btn btn-default navbar-btn">Sign in</a>
+                            <a href="/sign-up" class="btn btn-primary navbar-btn">Register</a>
+                        </div>
+                    {{/if}}
+
                     <ul class="nav navbar-nav">
+                        {{#if isAdmin}}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Flow <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -52,14 +76,11 @@
                                 {{/if}}
                             </ul>
                         </li>
-                        <li><a href="/diagram/add">Create Diagram</a></li>
-                        <li><a href="/diagrams">Search Diagrams</a></li>
+                        {{/if}}
+                        <li><a href="/diagram/add">Create</a></li>
+                        <li><a href="/diagrams">Search</a></li>
                         <li><a id="westPanelToggleLink" href="#">West</a></li>
                         <li><a id="eastPanelToggleLink" href="#">East</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/sign-in">{{getUserName}}</a></li>
                     </ul>
 
                 </div>

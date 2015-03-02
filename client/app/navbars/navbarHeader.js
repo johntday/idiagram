@@ -1,11 +1,6 @@
 
 // ---------------------------------------------------------------
-// template events
-
 Template.navbarHeader.events({
-  'click #logOutLink':function(){
-    Router.go('/sign-out');
-  },
     'click #eastPanelToggleLink':function(){
         toggleEastPanel();
     },
@@ -16,10 +11,11 @@ Template.navbarHeader.events({
 });
 
 // ---------------------------------------------------------------
-// template helpers
-
 Template.navbarHeader.helpers({
-  getUserName: function(){
-      return getDisplayUsername(Meteor.user());
-  }
+    getUserName: function(){
+        return getDisplayUsername(Meteor.user());
+    },
+    isAdmin: function(){
+        return isAdmin(Meteor.user());
+    }
 });
