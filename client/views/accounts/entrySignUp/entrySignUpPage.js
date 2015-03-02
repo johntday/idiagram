@@ -9,7 +9,7 @@ Template.entrySignUpPage.helpers({
     return _.contains(['USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY'], fields);
   },
   showSignupCode: function() {
-    return AccountsEntry.settings.showSignupCode;
+    return AccountsEntry.settings.showSignupCode && DefaultProperties.showSignUpCode;
   },
   logo: function() {
     return AccountsEntry.settings.logo;
@@ -83,7 +83,7 @@ Template.entrySignUpPage.events({
       Session.set('entryError', 'Email is required');
       return;
     }
-    if (AccountsEntry.settings.showSignupCode && signupCode.length === 0) {
+    if (DefaultProperties.showSignUpCode && AccountsEntry.settings.showSignupCode && signupCode.length === 0) {
       Session.set('entryError', 'Signup code is required');
       return;
     }

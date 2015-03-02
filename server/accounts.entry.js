@@ -23,7 +23,7 @@ Meteor.methods({
     console.log('received: ' + signupCode);
     console.log('should be: ' + AccountsEntry.settings.signupCode);
 
-    return signupCode === AccountsEntry.settings.signupCode;
+    return (DefaultProperties.showSignUpCode) ? signupCode === AccountsEntry.settings.signupCode : true;
   },
   accountsCreateUser: function(username, email, password) {
     if (username) {
