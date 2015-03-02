@@ -6,9 +6,6 @@ Template.seqDgmListItem.helpers({
     updatedAgo: function(){
         return (this.updatedAt) ? moment(this.updatedAt).fromNow() : 'never';
     },
-    owner: function(){
-        return (this.username) ? this.username : 'unknown';
-    },
     hasUpdateInfo: function(){
         return (this.updateUserId);
     }

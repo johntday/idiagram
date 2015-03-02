@@ -9,7 +9,7 @@ AccountsEntry = {
 
 Meteor.startup(function() {
   return AccountsEntry.config({
-    signupCode: 'photon'
+    signupCode: DefaultProperties.signupcode
   });
 });
 

@@ -1,9 +1,11 @@
 <template name="seqDgmListItem">
     <a href="/diagram/{{_id}}" class="list-group-item">
         <h4 class="list-group-item-heading">{{title}}</h4>
-        <p class="list-group-item-text"><strong>created</strong> <small>{{createdAgo}}</small> <strong>owner</strong> <small>{{owner}}</small></p>
+        <p class="list-group-item-text"><strong>created</strong> <small>{{createdAgo}}</small> by <strong>owner</strong> <small>{{username}}</small></p>
+        <p class="list-group-item-text">
         {{#if hasUpdateInfo}}
-            <p class="list-group-item-text"><strong>updated</strong> <small>{{updatedAgo}}</small> <strong>updatedBy</strong> <small>{{updateUsername}}</small></p>
+            <strong>updated</strong> <small>{{updatedAgo}}</small> by <strong>updatedBy</strong> <small>{{updateUsername}}</small>
         {{/if}}
+        </p>
     </a>
 </template>

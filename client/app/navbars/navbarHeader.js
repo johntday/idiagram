@@ -20,15 +20,6 @@ Template.navbarHeader.events({
 
 Template.navbarHeader.helpers({
   getUserName: function(){
-    if(Meteor.userId()){
-      if(Meteor.user()){
-        //return Meteor.user().emails[0].address;
-        return Meteor.user().username;
-      }else{
-        return "---";
-      }
-    }else{
-      return "Sign In";
-    }
+      return getDisplayUsername(Meteor.user());
   }
 });
