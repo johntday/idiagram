@@ -1,6 +1,9 @@
 <template name="seqDgmListItem">
     <a href="/diagram/{{_id}}" class="list-group-item">
         <h4 class="list-group-item-heading">{{title}}</h4>
-        <p class="list-group-item-text">created {{createdAgo}} updated {{updatedAgo}} owner {{owner}}</p>
+        <p class="list-group-item-text"><strong>created</strong> <small>{{createdAgo}}</small> <strong>owner</strong> <small>{{owner}}</small></p>
+        {{#if hasUpdateInfo}}
+            <p class="list-group-item-text"><strong>updated</strong> <small>{{updatedAgo}}</small> <strong>updatedBy</strong> <small>{{updateUsername}}</small></p>
+        {{/if}}
     </a>
 </template>

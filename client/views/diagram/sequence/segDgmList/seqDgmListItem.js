@@ -1,13 +1,16 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmListItem.helpers({
     createdAgo: function(){
-        return (this.createdAt) ? moment(this.createdAt).fromNow() : null;
+        return (this.createdAt) ? moment(this.createdAt).fromNow() : 'unknown';
     },
     updatedAgo: function(){
-        return (this.updatedAt) ? moment(this.updatedAt).fromNow() : null;
-    //},
-    //owner: function(){
-    //    return (this.ownerId) ? Meteor.u : null;
+        return (this.updatedAt) ? moment(this.updatedAt).fromNow() : 'never';
+    },
+    owner: function(){
+        return (this.username) ? this.username : 'unknown';
+    },
+    hasUpdateInfo: function(){
+        return (this.updateUserId);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

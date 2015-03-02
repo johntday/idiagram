@@ -28,7 +28,7 @@ var drawDiagram = function(code, manual){
         var diagram = Diagram.parse( code );
         $('#diagram').html('');
         diagram.drawSVG('diagram', options);
-        console.log('finished drawDiagram');
+        //console.log('finished drawDiagram');
 
         $('#redrawBtnID').addClass('disabled');
         setDirty(false);
@@ -94,6 +94,7 @@ Template.seqDgmPage.events({
             setDirty(true);
         reactiveDict.set('style', name);
         drawDiagram(null, true);
+        setSaved(true);
     },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
@@ -130,6 +131,10 @@ Template.seqDgmPage.events({
         //}
 
         // VALIDATE
+        if (validateDiagram(properties)){
+            $('#codeID').focus();
+            return false;
+        }
         //var isInputError = validateDiagram(properties);
         //if (isInputError) {
         //    $(e.target).removeClass('disabled');
@@ -137,20 +142,22 @@ Template.seqDgmPage.events({
         //}
 
         if (isInsert) {
-            Meteor.call('Diagrams.insert', properties, function(error, retValue) {
+            Meteor.call('Diagrams.insert', properties, function(error, _id) {
                 if(error){
-                    console.log("diagram_details.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
+                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
                     throwError(error.reason);
                 }else{
                     throwSuccess('Diagram saved');
                     $('#saveBtnID').addClass('disabled');
                     setSaved(false);
+
+                    Router.go('/diagram/' + _id);
                 }
             });
         } else {
             Meteor.call('Diagrams.update', _id, properties, function(error, retValue) {
                 if(error){
-                    console.log("diagram_details.js/1", "Diagrams.update", {'error': error, 'retValue': retValue});
+                    console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
                     throwError(error.reason);
                 }else{
                     throwSuccess('Diagram saved');
@@ -160,13 +167,30 @@ Template.seqDgmPage.events({
             });
         }
         $('#codeID').focus();
+        return true;
+    },
+    'click #deleteBtnID': function(e) {
+        e.preventDefault();
+
+        // GET INPUT
+        var _id = this._id;
+
+        Meteor.call('Diagrams.delete', _id, function(error, retValue) {
+            if(error){
+                console.log("seqDgm.js/3", "Diagrams.deleted", {'error': error, 'retValue': retValue});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram deleted');
+
+                Router.go('/diagrams');
+            }
+        });
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
-    console.log('rendered');
+    //console.log('rendered');
 
-    //reactiveDict.set('code', this.data.code);
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
 

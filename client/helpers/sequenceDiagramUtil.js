@@ -8,10 +8,9 @@ SequenceDiagramUtils = function () {
         }
 
         var code = tarea.value;
-        console.log('code = '+ code);
         var lineNum = getLineOfFirstError(code);
         if (lineNum == 0){
-            console.log('No Problems found with SequenceDiagramUtils.getLineOfFirstError');
+            //console.log('No Problems found with SequenceDiagramUtils.getLineOfFirstError');
             return false;
         }
 
@@ -21,15 +20,15 @@ SequenceDiagramUtils = function () {
     getLineOfFirstError = function(code){
         //var lines = code.split(/\r?\n/);
         var lines = code.split(/\r?\n/);
-        console.log('found ' + lines.length + ' lines');
+        //console.log('found ' + lines.length + ' lines');
 
         for (i=0; lines.length; i++){
-            console.log('Parsing line '+i+': ' + lines[i]);
+            //console.log('Parsing line '+i+': ' + lines[i]);
             try {
                 Diagram.parse( lines[i] );
-                console.log('finished parsing line ' + i);
+                //console.log('finished parsing line ' + i);
             } catch (err) {
-                console.log('failed parsing line ' + i);
+                //console.log('failed parsing line ' + i);
                 return i;
             }
         }
