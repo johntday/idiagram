@@ -1,7 +1,7 @@
 Meteor.startup(function() {
     var admin = Meteor.users.findOne({username: 'johntday'});
     if (!admin){
-        Meteor.call('accountsCreateUser', 'johntday', 'johntday@gmail.com', 'Passw0rd', function(error, retValue) {
+        Meteor.call('accountsCreateUser', 'johntday', 'johntday@gmail.com', '877669', function(error, retValue) {
             if(error){
                 console.log("app.bootstrap.js/2", "accountsCreateUser", {'error': error, 'retValue': retValue});
             }

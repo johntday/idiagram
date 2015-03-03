@@ -18,7 +18,7 @@ var setSaved = function(saved){
 var isSaved = function(){
     return _saved
 };
-var drawDiagram = function(code, manual){
+var drawDiagram = function(code, manual, refocus){
     if (!isDirty()) return false;
     if (!code) code = $('#codeID').val();
     try {
@@ -27,7 +27,6 @@ var drawDiagram = function(code, manual){
         var diagram = Diagram.parse( code );
         $('#diagram').html('');
         diagram.drawSVG('diagram', options);
-        //console.log('finished drawDiagram');
 
         $('#redrawBtnID').addClass('disabled');
         setDirty(false);
@@ -41,7 +40,8 @@ var drawDiagram = function(code, manual){
                 throwError("Sorry, I cannot understand your diagram text");
         }
     }
-    $('#codeID').focus();
+    if (refocus)
+        $('#codeID').focus();
     return true;
 };
 var adjustTextArea = function($textarea){
@@ -80,7 +80,7 @@ Template.seqDgmPage.events({
         adjustTextArea( $(e.target) );
 
         if (isDirty() && e.which == 13) {
-            drawDiagram($(e.target).val(), false);
+            drawDiagram($(e.target).val(), false, true);
             setDirty(false);
             setSaved(false);
         } else if (e.which != 13) {
@@ -98,7 +98,7 @@ Template.seqDgmPage.events({
         if (name != reactiveDict.get('style'))
             setDirty(true);
         reactiveDict.set('style', name);
-        drawDiagram(null, true);
+        drawDiagram(null, true, false);
         setSaved(true);
     },
     'click #privateID': function(e) {
@@ -106,7 +106,7 @@ Template.seqDgmPage.events({
     },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
-        drawDiagram(null, true);
+        drawDiagram(null, true, true);
     },
     'click #saveBtnID': function(e) {
         e.preventDefault();
@@ -166,7 +166,6 @@ Template.seqDgmPage.events({
             });
         }
         adjustTextArea( $('#codeID') );
-        //$('#codeID').focus();
         return true;
     },
     'click #deleteBtnID': function(e) {
@@ -197,13 +196,13 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('isUpdate', (!!this.data._id));
 
     _setIntervalID = Meteor.setInterval(
-        function(){drawDiagram(null, false)}, DefaultProperties.SequenceDiagram.updateTimeMilliSeconds );
+        function(){drawDiagram(null, false, false)}, DefaultProperties.SequenceDiagram.updateTimeMilliSeconds );
 
     setDirty(true);
     $('#saveBtnID').addClass('disabled');
     adjustTextArea( $('#codeID') );
 
-    drawDiagram(this.data.code, true);
+    drawDiagram(this.data.code, true, true);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*
