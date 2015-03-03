@@ -1,4 +1,4 @@
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 Template.entrySignInPage.helpers({
   emailInputType: function() {
     if (Accounts.ui._options.passwordSignupFields === 'EMAIL_ONLY') {
@@ -28,7 +28,7 @@ Template.entrySignInPage.helpers({
     return 0;
   }
 });
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 Template.entrySignInPage.events({
   'click #entrySignInButton': function() {
     Session.set('email', $('#emailInput').val());
@@ -49,3 +49,7 @@ Template.entrySignInPage.events({
     }
   }
 });
+/*------------------------------------------------------------------------------------------------------------------------------*/
+Template.entrySignInPage.rendered = function() {
+    $('#emailInput').focus();
+};

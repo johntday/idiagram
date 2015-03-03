@@ -1,4 +1,4 @@
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 Template.entrySignUpPage.helpers({
   showEmail: function() {
     var fields = Accounts.ui._options.passwordSignupFields;
@@ -31,7 +31,7 @@ Template.entrySignUpPage.helpers({
     return _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields);
   }
 });
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 Template.entrySignUpPage.events({
   'submit #signUp': function(event, t) {
     var email, emailRequired, fields, password, passwordErrors, signupCode, trimInput, username, usernameRequired;
@@ -116,3 +116,7 @@ Template.entrySignUpPage.events({
     });
   }
 });
+/*------------------------------------------------------------------------------------------------------------------------------*/
+Template.entrySignUpPage.rendered = function() {
+    $('#username').focus();
+};

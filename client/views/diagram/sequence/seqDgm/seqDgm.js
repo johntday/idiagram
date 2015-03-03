@@ -1,5 +1,4 @@
 var reactiveDict = new ReactiveDict();
-
 var _setIntervalID;
 var _dirty = true;
 var _saved = true;
@@ -55,6 +54,9 @@ Template.seqDgmPage.helpers({
     },
     simpleButtonActive: function(){
         return reactiveDict.get('style') == 'simple' ? 'active' : '';
+    },
+    isUpdate: function(){
+        return reactiveDict.get('isUpdate');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -96,6 +98,9 @@ Template.seqDgmPage.events({
         drawDiagram(null, true);
         setSaved(true);
     },
+    'click #privateID': function(e) {
+        setSaved(true);
+    },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
         drawDiagram(null, true);
@@ -112,7 +117,6 @@ Template.seqDgmPage.events({
 
         // GET INPUT
         var _id = this._id;
-        var isInsert = !_id;
 
         // CREATE OBJECT
         var properties = {
@@ -120,28 +124,15 @@ Template.seqDgmPage.events({
             , description: ''
             , style: reactiveDict.get('style')
             , code: $('#codeID').val()
-            , projectId: 'test'
-            //, tags: []
-        };
-
-        //if ( isAdmin(Meteor.user()) ) {
-        //    _.extend(properties, {
-        //        status: $('#status').val()
-        //    });
-        //}
+            , private: $('#privateID').prop('checked')
+            };
 
         // VALIDATE
         if (validateDiagram(properties)){
             $('#codeID').focus();
             return false;
         }
-        //var isInputError = validateDiagram(properties);
-        //if (isInputError) {
-        //    $(e.target).removeClass('disabled');
-        //    return false;
-        //}
-
-        if (isInsert) {
+        if (!reactiveDict.get('isUpdate')) {
             Meteor.call('Diagrams.insert', properties, function(error, _id) {
                 if(error){
                     console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
@@ -155,12 +146,17 @@ Template.seqDgmPage.events({
                 }
             });
         } else {
+            //var properties2 = _.extend(properties, {
+            //    updatedAt:  moment().valueOf(),
+            //    updateUserId: Meteor.userId(),
+            //    updateUsername: Meteor.user().username
+            //});
             Meteor.call('Diagrams.update', _id, properties, function(error, retValue) {
                 if(error){
                     console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
                     throwError(error.reason);
                 }else{
-                    throwSuccess('Diagram saved');
+                    throwSuccess('Diagram updated');
                     $('#saveBtnID').addClass('disabled');
                     setSaved(false);
                 }
@@ -193,6 +189,7 @@ Template.seqDgmPage.rendered = function() {
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
+    reactiveDict.set('isUpdate', (!!this.data._id));
 
     _setIntervalID = Meteor.setInterval(
         function(){drawDiagram(null, false)}, DefaultProperties.SequenceDiagram.updateTimeMilliSeconds );

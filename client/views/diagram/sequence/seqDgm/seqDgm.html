@@ -30,11 +30,24 @@
                                     <textarea id="codeID" class="form-control" rows="3">{{code}}</textarea>
                                 </div>
                             </div>
+                            {{#if currentUser}}
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input id="privateID" type="checkbox"> Mark as private.  But you can still share with friends.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
                             <div class="form-group">
                                 <div class="col-sm-offset-1 col-sm-11">
                                     <button type="button" class="btn btn-primary disabled" id="redrawBtnID">Redraw</button>
                                     <button type="button" class="btn btn-primary" id="saveBtnID"> Save </button>
-                                    <button type="button" class="btn btn-danger" id="deleteBtnID">Delete</button>
+                                    {{#if isUpdate}}
+                                        <button type="button" class="btn btn-danger" id="deleteBtnID">Delete</button>
+                                    {{/if}}
                                 </div>
                             </div>
                         </form>
