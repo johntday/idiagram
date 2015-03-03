@@ -44,6 +44,12 @@ var drawDiagram = function(code, manual){
     $('#codeID').focus();
     return true;
 };
+var adjustTextArea = function($textarea){
+    var $element = $textarea.get(0);
+    $element.style.overflow = 'hidden';
+    $element.style.height = 0;
+    $element.style.height = $element.scrollHeight + 'px';
+};
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.helpers({
     titleLabel: function () {
@@ -71,10 +77,7 @@ Template.seqDgmPage.destroyed = function() {
 Template.seqDgmPage.events({
     'keyup #codeID': function(e) {
         e.preventDefault();
-        var $element = $(e.target).get(0);
-        $element.style.overflow = 'hidden';
-        $element.style.height = 0;
-        $element.style.height = $element.scrollHeight + 'px';
+        adjustTextArea( $(e.target) );
 
         if (isDirty() && e.which == 13) {
             drawDiagram($(e.target).val(), false);
@@ -162,7 +165,8 @@ Template.seqDgmPage.events({
                 }
             });
         }
-        $('#codeID').focus();
+        adjustTextArea( $('#codeID') );
+        //$('#codeID').focus();
         return true;
     },
     'click #deleteBtnID': function(e) {
@@ -197,6 +201,7 @@ Template.seqDgmPage.rendered = function() {
 
     setDirty(true);
     $('#saveBtnID').addClass('disabled');
+    adjustTextArea( $('#codeID') );
 
     drawDiagram(this.data.code, true);
 };
