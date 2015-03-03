@@ -88,6 +88,14 @@ Template.seqDgmPage.events({
             setSaved(true);
         }
     },
+    'click #shareBtnID': function(e) {
+        e.preventDefault();
+        growl('Copy me...\n' + Meteor.absoluteUrl() + 'view/' + this._id,{
+            type: 'w',
+            width: 400,
+            delay: 12000
+        });
+    },
     'keyup #titleID': function(e) {
         e.preventDefault();
         reactiveDict.set('title',  $(e.target).val() );
