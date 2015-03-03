@@ -186,6 +186,7 @@ Template.seqDgmPage.events({
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
     //console.log('rendered');
+    $('#privateID').prop('checked', this.data.private);
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
