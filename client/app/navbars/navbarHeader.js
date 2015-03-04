@@ -1,13 +1,6 @@
 
 // ---------------------------------------------------------------
 Template.navbarHeader.events({
-    'click #eastPanelToggleLink':function(){
-        toggleEastPanel();
-    },
-    'click #westPanelToggleLink':function(){
-        toggleWestPanel();
-    }
-
 });
 
 // ---------------------------------------------------------------
