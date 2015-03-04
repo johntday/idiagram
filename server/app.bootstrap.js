@@ -1,25 +1,29 @@
 Meteor.startup(function() {
-    var admin = Meteor.users.findOne({username: 'johntday'});
+    var username = 'johntday';
+    var password = '877669';
+
+    var admin = Meteor.users.findOne({username: username});
     if (!admin){
-        Meteor.call('accountsCreateUser', 'johntday', 'johntday@gmail.com', '877669', function(error, retValue) {
+        Meteor.call('accountsCreateUser', username, 'johntday@gmail.com', password, function(error, retValue) {
             if(error){
                 console.log("app.bootstrap.js/2", "accountsCreateUser", {'error': error, 'retValue': retValue});
+                return false;
             }
         });
     }
 
 
-
-    var example1 = Diagrams.findOne({diagramId: 'example1'});
+    var uid = 'simple';
+    var example1 = Diagrams.findOne({uid: uid});
     if (!example1) {
-        var eol = String.fromCharCode(13);
+        var eol = '\n';
         var sExample1 = 'title: My title' + eol
             + 'A->B: my message' + eol
             + 'B-->A: my return message' + eol
             + 'note over A: note over A' + eol
             + 'note over A,B: note over A and B' + eol
-            + 'A->B: line1\nline2' + eol
-            + 'note over B: line1\nline';
+            + 'A->B: line1\\nline2' + eol
+            + 'note over B: line1\\nline';
 
         var diagram = {
             title: 'Simple Example'
@@ -27,9 +31,15 @@ Meteor.startup(function() {
             , style: 'simple'
             , code: sExample1
             , private: false
+            , uid: uid
+            , createdAt: moment().valueOf()
+            , userId: admin._id
+            , username: admin.username
         };
-        //Diagrams.insert(diagram);
+
+        Diagrams.direct.insert(diagram);
     }
+
 });
 
 

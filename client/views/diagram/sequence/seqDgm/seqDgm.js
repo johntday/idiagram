@@ -130,7 +130,7 @@ Template.seqDgmPage.events({
         var _id = this._id;
 
         // CREATE OBJECT
-        var properties = {
+        var doc = {
             title: reactiveDict.get('title')
             , description: ''
             , style: reactiveDict.get('style')
@@ -139,12 +139,12 @@ Template.seqDgmPage.events({
             };
 
         // VALIDATE
-        if (validateDiagram(properties)){
+        if (validateDiagram(doc)){
             $('#codeID').focus();
             return false;
         }
         if (!reactiveDict.get('isUpdate')) {
-            Meteor.call('Diagrams.insert', properties, function(error, _id) {
+            Meteor.call('Diagrams.insert', doc, function(error, _id) {
                 if(error){
                     console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
                     throwError(error.reason);
@@ -157,12 +157,7 @@ Template.seqDgmPage.events({
                 }
             });
         } else {
-            //var properties2 = _.extend(properties, {
-            //    updatedAt:  moment().valueOf(),
-            //    updateUserId: Meteor.userId(),
-            //    updateUsername: Meteor.user().username
-            //});
-            Meteor.call('Diagrams.update', _id, properties, function(error, retValue) {
+            Meteor.call('Diagrams.update', _id, doc, function(error, retValue) {
                 if(error){
                     console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
                     throwError(error.reason);

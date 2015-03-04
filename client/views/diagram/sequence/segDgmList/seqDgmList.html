@@ -1,7 +1,15 @@
 <template name="seqDgmList">
-    {{> pagesNav}}
-    <div class="list-group">
-        {{> pages}}
+    <div id="seqDgmPagePage" class="page">
+        <div class="content">
+            <div class="col-md-offset-2 col-md-8">
+
+                {{> pagesNav}}
+                <div class="list-group">
+                    {{> pages}}
+                </div>
+                {{> pagesNav}}
+
+            </div>
+        </div>
     </div>
-    {{> pagesNav}}
 </template>

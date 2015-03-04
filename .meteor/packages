@@ -18,12 +18,15 @@ benjaminrh:event-hooks
 reactive-dict
 
 alanning:roles
+momentjs:moment
+
+alethes:pages
 dburles:collection-helpers
 reywood:publish-composite
-momentjs:moment
 matb33:collection-hooks
-alethes:pages
 
+
+#aldeed:autoform
 #dburles:factory
 #anti:fake
 #cunneen:mailgun
