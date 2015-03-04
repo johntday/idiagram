@@ -11,6 +11,7 @@ Meteor.startup(function() {
             }
         });
     }
+    admin = Meteor.users.findOne({username: username});
 
 
     var uid = 'simple';
@@ -22,6 +23,8 @@ Meteor.startup(function() {
             + 'B-->A: my return message' + eol
             + 'note over A: note over A' + eol
             + 'note over A,B: note over A and B' + eol
+            + 'note left of A: note left of A' + eol
+            + 'note right of B: note right of B' + eol
             + 'A->B: line1\\nline2' + eol
             + 'note over B: line1\\nline';
 
@@ -41,5 +44,4 @@ Meteor.startup(function() {
     }
 
 });
-
 
