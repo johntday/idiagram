@@ -26,7 +26,7 @@ Meteor.startup(function() {
             + 'note left of A: note left of A' + eol
             + 'note right of B: note right of B' + eol
             + 'A->B: line1\\nline2' + eol
-            + 'note over B: line1\\nline';
+            + 'note over B: line1\\nline2';
 
         var diagram = {
             title: 'Simple Example'
