@@ -1,44 +1,46 @@
 Session.set("resize", null);
 Meteor.startup(function () {
-  $(window).resize(function(evt) {
-    Session.set("resize", new Date());
-  });
+    $(window).resize(function (evt) {
+        Session.set("resize", new Date());
+    });
 });
 
-UI.body.resized = function(){
+UI.body.resized = function () {
 
-  $('#westPanel').sidebar();
-  $('#eastPanel')
-    .sidebar({overlay: false});
+    $('#westPanel').sidebar();
+    $('#eastPanel')
+        .sidebar({overlay: false});
 
-  $('#errorPanel').sidebar();
-  $('#contextPanel').sidebar();
+    $('#errorPanel').sidebar();
+    $('#contextPanel').sidebar();
 
-  return Session.get('resize');
+    return Session.get('resize');
 };
-UI.body.getErrorMessage = function(){
-  return "Error Message!";
+UI.body.getErrorMessage = function () {
+    return "Error Message!";
 };
 
 
 //----------------------------------------------
 // helper functions
 
-toggleWestPanel = function(){
-  if($('body').hasClass('leftSidebar')){
-    $('body').removeClass('leftSidebar');
-    $('#westPanel').removeClass('active');
-  }else{
-    $('body').addClass('leftSidebar');
-    $('#westPanel').addClass('active');
-  }
+toggleWestPanel = function () {
+    if ($('body').hasClass('leftSidebar')) {
+        $('body').removeClass('leftSidebar');
+        $('#westPanel').removeClass('active');
+    } else {
+        $('body').addClass('leftSidebar');
+        $('#westPanel').addClass('active');
+    }
+    Template.topPanel.toggleWestArrow();
 }
-toggleEastPanel = function(){
-  if($('body').hasClass('rightSidebar')){
-    $('body').removeClass('rightSidebar');
-    $('#eastPanel').removeClass('active');
-  }else{
-    $('body').addClass('rightSidebar');
-    $('#eastPanel').addClass('active');
-  }
+toggleEastPanel = function () {
+    if ($('body').hasClass('rightSidebar')) {
+        $('body').removeClass('rightSidebar');
+        $('#eastPanel').removeClass('active');
+    } else {
+        $('body').addClass('rightSidebar');
+        $('#eastPanel').addClass('active');
+    }
+    Template.topPanel.toggleEastArrow();
 }
