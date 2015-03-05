@@ -1,0 +1,5 @@
+
+db.relationships.ensureIndex( { project_id:1, source_id: 1, target_id: 1, rel_name: 1 }, { unique: true, dropDups: true } )
+
+
+db.xxx.dropIndex( { project_id:1, source: 1 , target: 1, rel_name: 1})

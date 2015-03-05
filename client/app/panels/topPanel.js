@@ -13,6 +13,9 @@ Template.topPanel.helpers({
         } else {
             $('#eastLeftArrowBtnID').addClass('hide');
         }
+    },
+    enableEastPanel: function(){
+        return AppProperties.enableEastPanel;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

@@ -35,9 +35,9 @@ var drawDiagram = function(code, manual, refocus){
             var $element = $('#codeID').get(0);
             var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
             if (lineNum)
-                throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text");
+                throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text\nTake a look at the Cheat Sheet");
             else
-                throwError("Sorry, I cannot understand your diagram text");
+                throwError("Sorry, I cannot understand your diagram text\nTake a look at the Cheat Sheet");
         }
     }
     if (refocus)
@@ -199,7 +199,7 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('isUpdate', (!!this.data._id));
 
     _setIntervalID = Meteor.setInterval(
-        function(){drawDiagram(null, false, false)}, DefaultProperties.SequenceDiagram.updateTimeMilliSeconds );
+        function(){drawDiagram(null, false, false)}, AppProperties.SequenceDiagram.updateTimeMilliSeconds );
 
     setDirty(true);
     $('#saveBtnID').addClass('disabled');

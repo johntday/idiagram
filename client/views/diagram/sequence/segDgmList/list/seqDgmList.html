@@ -1,0 +1,51 @@
+<template name="seqDgmList">
+    <div id="seqDgmListPage" class="page">
+        <div class="content">
+
+            <div class="col col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Filter Diagram List
+                    </div>
+                    <div class="panel-body">
+
+                        <!-- http://getbootstrap.com/css/#forms-inline -->
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="searchTextID" placeholder="Search Text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inlineRadio1" class="col-sm-2 control-label">Starred</label>
+                                <div class="col-sm-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="starredRadioName" id="inlineRadio1" value="both" checked="checked"> Yes or No
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="starredRadioName" id="inlineRadio2" value="true"> Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="starredRadioName" id="inlineRadio3" value="false"> No
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col col-md-8">
+
+                {{> pagesNav}}
+                <div class="list-group">
+                    {{> pages}}
+                </div>
+                {{> pagesNav}}
+
+            </div>
+        </div>
+    </div>
+</template>

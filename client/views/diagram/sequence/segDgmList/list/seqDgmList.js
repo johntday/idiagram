@@ -9,6 +9,18 @@ Template.seqDgmList.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmList.events({
+    'click input:radio[name=starredRadioName]': function(e){
+        console.log('clicked=' + $(e.target).val());
+
+        //DiagramPages.filters = {starredBy: Meteor.userId()};
+
+        DiagramPages.set({
+            perPage: 10,
+            sort: {
+                title: -1
+            }
+        });
+    }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmList.rendered = function() {
