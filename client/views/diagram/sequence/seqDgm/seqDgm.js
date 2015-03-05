@@ -162,14 +162,16 @@ Template.seqDgmPage.events({
                     console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
                     throwError(error.reason);
                 }else{
-                    throwSuccess('Diagram updated');
-                    $('#saveBtnID').addClass('disabled');
-                    setSaved(false);
+                    //throwSuccess('Diagram updated');
+                    //$('#saveBtnID').addClass('disabled');
+                    //setSaved(false);
+                    Router.go('/view/' + _id);
                 }
             });
         }
-        adjustTextArea( $('#codeID') );
-        return true;
+        console.log('not update or insert for _id='+_id);
+        //adjustTextArea( $('#codeID') );
+        //return true;
     },
     'click #deleteBtnID': function(e) {
         e.preventDefault();
