@@ -48,7 +48,7 @@ var adjustTextArea = function($textarea){
     var $element = $textarea.get(0);
     $element.style.overflow = 'hidden';
     $element.style.height = 0;
-    $element.style.height = $element.scrollHeight + 'px';
+    $element.style.height = 10+ $element.scrollHeight + 'px';
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.helpers({
