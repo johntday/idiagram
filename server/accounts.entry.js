@@ -57,9 +57,9 @@ Accounts.onCreateUser(function (options, user) {
         user.profile = options.profile;
 
     var userId = user._id;
-    console.log('Accounts.onCreateUser');
-    console.log(user);
-    console.log(userId);
+    //console.log('Accounts.onCreateUser');
+    //console.log(user);
+    //console.log(userId);
 
     return user;
 });
