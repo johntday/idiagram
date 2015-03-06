@@ -143,7 +143,7 @@ Template.seqDgmPage.events({
             $('#codeID').focus();
             return false;
         }
-        if (!reactiveDict.get('isUpdate')) {
+        if (reactiveDict.get('isUpdate') == false) {
             Meteor.call('Diagrams.insert', doc, function(error, _id) {
                 if(error){
                     console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
@@ -153,7 +153,8 @@ Template.seqDgmPage.events({
                     $('#saveBtnID').addClass('disabled');
                     setSaved(false);
 
-                    Router.go('/diagram/' + _id);
+                    //Router.go('/diagram/' + _id);
+                    Router.go('/view/' + _id);
                 }
             });
         } else {
