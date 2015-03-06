@@ -1,13 +1,24 @@
 var regexQuery = function (searchText) {
     return {$regex: searchText, $options: 'i'};
 };
-var doFilter = function(){
-    var isStar = $('#starredID').prop( "checked" );
-    var text = $('#searchTextID').val();
+var doFilter = function(isFirst){
+    var isStar;
+    var text;
 
-    // STORE VALUES
-    AppProperties.diagrams.filters.isStar = isStar;
-    AppProperties.diagrams.filters.text = text;
+    if (isFirst) {
+        isStar = AppProperties.diagrams.filters.isStar;
+        text = AppProperties.diagrams.filters.text;
+
+        $('#starredID').prop( "checked", isStar );
+        $('#searchTextID').val(text);
+    } else {
+        isStar = $('#starredID').prop( "checked" );
+        text = $('#searchTextID').val();
+
+        // STORE VALUES
+        AppProperties.diagrams.filters.isStar = isStar;
+        AppProperties.diagrams.filters.text = text;
+    }
 
     // CREATE QUERY
     var filters = {};
@@ -37,16 +48,16 @@ Template.seqDgmList.destroyed = function() {
 Template.seqDgmList.events({
     //'click input:radio[name=starredRadioName]': function(e){
     'click #starredID': function(e){
-        doFilter();
+        doFilter(false);
     },
     'keyup #searchTextID': function(e) {
         e.preventDefault();
-        doFilter();
+        doFilter(false);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmList.rendered = function() {
-    doFilter();
-    $('#starredID').focus();
+    doFilter(true);
+    $('#searchTextID').focus();
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
