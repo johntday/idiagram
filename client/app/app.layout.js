@@ -8,8 +8,7 @@ Meteor.startup(function () {
 UI.body.resized = function () {
 
     $('#westPanel').sidebar();
-    $('#eastPanel')
-        .sidebar({overlay: false});
+    $('#eastPanel').sidebar({overlay: false});
 
     $('#errorPanel').sidebar();
     $('#contextPanel').sidebar();
@@ -32,7 +31,6 @@ toggleWestPanel = function () {
         $('body').addClass('leftSidebar');
         $('#westPanel').addClass('active');
     }
-    Template.topPanel.toggleWestArrow();
 }
 toggleEastPanel = function () {
     if ($('body').hasClass('rightSidebar')) {
@@ -42,5 +40,4 @@ toggleEastPanel = function () {
         $('body').addClass('rightSidebar');
         $('#eastPanel').addClass('active');
     }
-    Template.topPanel.toggleEastArrow();
 }
