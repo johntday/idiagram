@@ -1,16 +1,13 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmListItem.helpers({
-    createdAgo: function(){
-        return (this.createdAt) ? moment(this.createdAt).fromNow() : 'unknown';
-    },
-    updatedAgo: function(){
-        return (this.updatedAt) ? moment(this.updatedAt).fromNow() : 'never';
-    },
     hasUpdateInfo: function(){
         return (this.updateUserId);
     },
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
+    //},
+    //private: function(){
+    //    return (this.private) ? '<i class="fa fa-lock">private</i>' : 'public';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

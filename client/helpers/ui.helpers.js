@@ -34,3 +34,8 @@ UI.registerHelper('otherLoginServices', function() {
 UI.registerHelper('loginServices', function() {
   return Accounts.oauth.serviceNames();
 });
+
+UI.registerHelper('agoTime', function(context, options) {
+    if(context)
+        return (context) ? moment(context).fromNow() : 'unknown';
+});

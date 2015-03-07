@@ -1,11 +1,12 @@
 <template name="seqDgmListItem">
     <a href="/view/{{_id}}" class="list-group-item">
-        <h4 class="list-group-item-heading">{{title}} <a id="starBtnID" href="#"><i id="" class="fa fa-{{star}} fa-2x pull-right"></i></a></h4>
+        <h4 class="list-group-item-heading">{{title}} {{#if private}}<i class="fa fa-lock" title="private"></i>{{/if}}
+            <a id="starBtnID" href="#"><i class="fa fa-{{star}} fa-2x pull-right"></i></a></h4>
         <p class="list-group-item-text">
             <strong>{{username}}</strong>
-            <small>created</small> <strong>{{createdAgo}}</strong>
+            <small>created</small> <strong>{{agoTime createdAt}}</strong>
             {{#if hasUpdateInfo}}
-                / <small>updated</small> <strong>{{updatedAgo}}</strong>
+                / <small>updated</small> <strong>{{agoTime updatedAt}}</strong>
             {{/if}}
         </p>
     </a>
