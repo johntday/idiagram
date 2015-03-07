@@ -39,39 +39,6 @@
                     {{/if}}
 
                     <ul class="nav navbar-nav">
-                        {{#if isAdmin}}
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Flow <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/sign-in">Sign-In</a></li>
-                                <li><a href="/sign-up">Sign-Up</a></li>
-                                <li><a href="/forgot-password">Forgot Password</a></li>
-                                <li><a href="/reset-password/2198347">Reset Password</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/sign-out">Sign-Out</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Errors <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/notsupported">Browser Not Supported</a></li>
-                                <li><a href="/notfound">Page Not Found</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile Menu <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/eula">End User License</a></li>
-                                <li><a href="/privacy">Privacy Page</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/feedback">Feedback</a></li>
-                                {{#if isLoggedIn }}
-                                    <li class="divider"></li>
-                                    <li><a href="/sign-out">Sign-Out</a></li>
-                                {{/if}}
-                            </ul>
-                        </li>
-                        {{/if}}
                         <li><a href="/diagram/add">Create</a></li>
                         <li><a href="/diagrams">Search</a></li>
                         {{#if isAdmin}}<li><a href="/examples">Examples</a></li>{{/if}}

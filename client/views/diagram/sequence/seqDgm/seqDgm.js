@@ -23,7 +23,7 @@ var drawDiagram = function(code, manual, refocus){
     if (!code) code = $('#codeID').val();
     try {
         var style = reactiveDict.get('style');
-        var options = (style) ? {theme: style} : {theme: MyEnums.SequenceDiagram.theme.SIMPLE};
+        var options = (style) ? {theme: style} : {theme: 'simple'};
         var diagram = Diagram.parse( code );
         $('#diagram').html('');
         diagram.drawSVG('diagram', options);
