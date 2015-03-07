@@ -31,23 +31,31 @@
                                     <textarea id="codeID" class="form-control" rows="3">{{code}}</textarea>
                                 </div>
                             </div>
-                            {{#if currentUser}}
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input id="privateID" type="checkbox"> Mark as private.  But you can still share with friends.
-                                            </label>
-                                        </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="privateID" type="checkbox"> Mark as private.  But you can still share with friends.
+                                        </label>
                                     </div>
                                 </div>
-                            {{/if}}
+                            </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-1 col-sm-11">
+                                <div class="col col-sm-12">
                                     <button type="button" class="btn btn-primary disabled" id="redrawBtnID">Redraw</button>
                                     <button type="button" class="btn btn-primary" id="saveBtnID"> Save </button>
                                     {{#if isUpdate}}
                                         <button type="button" class="btn btn-default" id="shareBtnID">Share</button>
+
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                Action <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a id="copyBtnID" href="#">Copy to new diagram</a></li>
+                                            </ul>
+                                        </div>
+
                                         <button type="button" class="btn btn-danger" id="deleteBtnID">Delete</button>
                                     {{/if}}
                                 </div>

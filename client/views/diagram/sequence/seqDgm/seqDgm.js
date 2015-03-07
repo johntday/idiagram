@@ -44,6 +44,11 @@ var drawDiagram = function(code, manual, refocus){
         $('#codeID').focus();
     return true;
 };
+var copyToNewDiagram = function(){
+
+
+    throwSuccess("New copy of diagram");
+};
 var adjustTextArea = function($textarea){
     var $element = $textarea.get(0);
     $element.style.overflow = 'hidden';
@@ -112,6 +117,18 @@ Template.seqDgmPage.events({
     'click #privateID': function(e) {
         setSaved(true);
     },
+    'click #copyBtnID': function(e) {
+        e.preventDefault();
+        Meteor.call('Diagrams.copy', this._id, function(error, _id) {
+            if(error){
+                console.log("seqDgm.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram copied');
+                Router.go('/diagram/' + _id);
+            }
+        });
+    },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
         drawDiagram(null, true, true);
@@ -146,15 +163,14 @@ Template.seqDgmPage.events({
         if (reactiveDict.get('isUpdate') == false) {
             Meteor.call('Diagrams.insert', doc, function(error, _id) {
                 if(error){
-                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': retValue});
+                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
                     throwError(error.reason);
                 }else{
                     throwSuccess('Diagram saved');
                     $('#saveBtnID').addClass('disabled');
                     setSaved(false);
 
-                    //Router.go('/diagram/' + _id);
-                    Router.go('/view/' + _id);
+                    Router.go('/diagram/' + _id);
                 }
             });
         } else {
