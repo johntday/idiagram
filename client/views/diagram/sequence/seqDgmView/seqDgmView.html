@@ -2,20 +2,17 @@
     <div id="seqDgmPagePage" class="page">
         <div class="content">
 
-            <div class="col col-md-12">
-                <div class="panel panel-info">
-                    <div id="editBtnID" class="panel-heading">
-                        {{title}} {{#if canEdit}}<a href="#"><i class="fa fa-pencil-square-o fa-2x pull-right"></i></a>{{/if}}
-                    </div>
-                    <div class="panel-body">
+            <div class="col col-md-12" style="margin-top: -20px">
+
+                    <h2 id="editBtnID">
+                        {{#if canEdit}}<a href="#"><i class="fa fa-pencil-square-o pull-left"></i></a>{{/if}} {{title}}
+                    </h2>
+
 
                         <div id="diagram"></div>
 
-                    </div>
-                </div>
             </div>
 
         </div>
     </div>
 </template>
-
