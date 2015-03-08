@@ -50,19 +50,35 @@ var adjustTextArea = function($textarea){
     $element.style.height = 0;
     $element.style.height = 10 + $element.scrollHeight + 'px';
 };
+var toggleBoxWidth = function(){
+    var boxWidth = 4;
+    if ( reactiveDict.get('boxWidth') == 4 )
+        var boxWidth = 6;
+    reactiveDict.set('boxWidth', boxWidth);
+    reactiveDict.set('diagramWidth', (12 - boxWidth));
+};
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.helpers({
     titleLabel: function () {
         return reactiveDict.get('title');
     },
-    handButtonActive: function(){
+    handButtonActive: function () {
         return (reactiveDict.get('style') == 'hand') ? 'active' : '';
     },
-    simpleButtonActive: function(){
+    simpleButtonActive: function () {
         return reactiveDict.get('style') == 'simple' ? 'active' : '';
     },
-    isUpdate: function(){
+    isUpdate: function () {
         return reactiveDict.get('isUpdate');
+    },
+    boxArrow: function () {
+        return (reactiveDict.get('boxWidth')==4) ? 'right' : 'left';
+    },
+    boxWidth: function () {
+        return reactiveDict.get('boxWidth');
+    },
+    diagramWidth: function () {
+        return reactiveDict.get('diagramWidth');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -74,6 +90,14 @@ Template.seqDgmPage.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.events({
+    'click #boxWidthBtnID': function(e){
+        e.preventDefault();
+        toggleBoxWidth();
+
+        var $code = $('#codeID');
+        adjustTextArea( $code );
+        $code.focus();
+    },
     'keyup #codeID': function(e) {
         e.preventDefault();
         adjustTextArea( $(e.target) );
@@ -210,6 +234,8 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
     reactiveDict.set('isUpdate', (!!this.data._id));
+    reactiveDict.set('boxWidth', 4);
+    reactiveDict.set('diagramWidth', (12 - 4));
 
     _setIntervalID = Meteor.setInterval(
         function(){drawDiagram(null, false, false)}, AppProperties.SequenceDiagram.updateTimeMilliSeconds );

@@ -109,7 +109,7 @@ var growl_default_options = {
 	ele: 'body',
 	type: 'd',
 	offset: {from: 'top', amount: 60},
-	align: 'center', // (left, right, or center)
+	align: 'right', // (left, right, or center)
 	width: 400,
 	delay: 4000,
 	allow_dismiss: true,
