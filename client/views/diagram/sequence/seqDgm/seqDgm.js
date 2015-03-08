@@ -44,11 +44,6 @@ var drawDiagram = function(code, manual, refocus){
         $('#codeID').focus();
     return true;
 };
-var copyToNewDiagram = function(){
-
-
-    throwSuccess("New copy of diagram");
-};
 var adjustTextArea = function($textarea){
     var $element = $textarea.get(0);
     $element.style.overflow = 'hidden';
@@ -72,7 +67,6 @@ Template.seqDgmPage.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.created = function() {
-    //creditPurchase = new CreditPurchase();
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.destroyed = function() {
@@ -227,15 +221,3 @@ Template.seqDgmPage.rendered = function() {
     drawDiagram(this.data.code, true, true);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-/*
-title: Authentication Sequence
-Alice->Bob: Authentication Request
-Bob->Alice: Authentication Response
-A->B: text
-B-->A: text
-john->quentin: getPaymentMethod(parm1,parm2)
-quentin->john: how r use
-note over A,B: text1
-note left of A: text2
-note right of A: line1\nline2
-*/
