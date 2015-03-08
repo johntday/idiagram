@@ -1,3 +1,0 @@
-Template.eulaPage.events({
-
-});
