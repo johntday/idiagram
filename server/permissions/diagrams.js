@@ -1,11 +1,11 @@
 Diagrams.allow({
     'insert': function(userId, doc) {
-        return userId;
+        return canEdit(userId);
     },
     'update': function(userId, doc, fields, modifier) {
-        return userId;
+        return canEdit(userId);
     },
     'remove': function(userId, doc) {
-        return userId;
+        return canEdit(userId);
     }
 });

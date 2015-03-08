@@ -29,7 +29,7 @@ var doFilter = function(){
         filters.private = false;
     if (hideOtherPublic)
         filters.userId = Meteor.userId();
-    else
+    else if (isAdmin(Meteor.user()) == false)
         filters.$or = [{userId: Meteor.userId()}, {private: false}];
 
     //console.log('query='+JSON.stringify(filters));
