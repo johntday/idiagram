@@ -64,6 +64,7 @@ Accounts.onCreateUser(function (options, user) {
     return user;
 });
 
+
 Meteor.startup(function () {
 
     var dataCursor = Meteor.users.find();
@@ -76,14 +77,13 @@ Meteor.startup(function () {
                 console.log(record);
 
                 //if(record.emails[0].verified === false){
-                Accounts.emailTemplates.siteName = "AwesomeSite";
-                Accounts.emailTemplates.from = "AwesomeSite Admin <accounts@example.com>";
+                Accounts.emailTemplates.siteName = "iDiagram";
+                Accounts.emailTemplates.from = "iDiagram Admin <johntday@gmail.com>";
                 Accounts.emailTemplates.enrollAccount.subject = function (user) {
-                    return "Welcome to Awesome Town, " + user.profile.name;
+                    return "Welcome to iDiagram, " + user.profile.name;
                 };
                 Accounts.emailTemplates.enrollAccount.text = function (user, url) {
-                    return "You have been selected to participate in building a better future!"
-                        + " To activate your account, simply click the link below:\n\n" + url;
+                    return "To activate your account, simply click the link below:\n\n" + url;
                 };
 
                 Accounts.sendVerificationEmail(id);
