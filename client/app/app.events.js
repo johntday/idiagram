@@ -2,7 +2,7 @@ Meteor.startup(function () {
     Hooks.init();
 
     Hooks.onLoggedIn = function () {
-        Session.set('selectedCampaignId', Meteor.users.findOne(Meteor.userId()).profile.selected_campaign_id);
+        //Session.set('selectedCampaignId', Meteor.users.findOne(Meteor.userId()).profile.selected_campaign_id);
         removeWallpaper();
     };
     Hooks.onLoggedOut = function (userId) {
