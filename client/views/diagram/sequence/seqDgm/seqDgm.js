@@ -113,7 +113,7 @@ Template.seqDgmPage.events({
     },
     'click #shareBtnID': function(e) {
         e.preventDefault();
-        growl('Copy me...\n' + Meteor.absoluteUrl() + 'view/' + this._id,{
+        growl(/*'Copy me...\n' + */Meteor.absoluteUrl() + 'view/' + this._id,{
             type: 'w',
             width: 400,
             delay: 12000

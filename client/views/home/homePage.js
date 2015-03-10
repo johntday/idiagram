@@ -11,6 +11,9 @@ Template.homePage.helpers({
     },
     starredCnt: function(){
         return diagramCnts.get('starred');
+    },
+    otherStarredCnt: function(){
+        return diagramCnts.get('otherStarred');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

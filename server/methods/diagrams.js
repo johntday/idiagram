@@ -35,6 +35,7 @@ Meteor.methods({
         var private = 0;
         var public = 0;
         var starred = 0;
+        var otherStarred = 0;
 
         docs.forEach(function (doc) {
             if (userId == doc.userId) {
@@ -43,17 +44,14 @@ Meteor.methods({
                     private++;
                 else
                     public++;
+                if (_.contains(doc.starredBy, userId))
+                    starred++;
+            }else{
+                otherStarred++;
             }
-            if (_.contains(doc.starredBy, userId))
-                starred++;
         });
-        //console.log(all, private, public, starred);
-        //diagramCnts.set('all',all);
-        //diagramCnts.set('private', private);
-        //diagramCnts.set('public', public);
-        //diagramCnts.set('starred', starred);
 
-        return {all: all, private: private, public: public, starred: starred};
+        return {all: all, private: private, public: public, starred: starred, otherStarred: otherStarred};
     }
 
 });

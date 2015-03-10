@@ -20,6 +20,7 @@ Meteor.startup(function () {
                 diagramCnts.set('private', retValue.private);
                 diagramCnts.set('public', retValue.public);
                 diagramCnts.set('starred', retValue.starred);
+                diagramCnts.set('otherStarred', retValue.otherStarred);
             }
         });
     }
