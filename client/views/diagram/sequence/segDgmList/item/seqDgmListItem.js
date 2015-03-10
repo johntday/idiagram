@@ -1,13 +1,14 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmListItem.helpers({
-    hasUpdateInfo: function(){
-        return (this.updateUserId);
-    },
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
-    //},
-    //private: function(){
-    //    return (this.private) ? '<i class="fa fa-lock">private</i>' : 'public';
+    },
+    lastModifiedAt: function(){
+        if (!this.updatedAt)
+            return this.createdAt;
+        if (this.updatedAt > this.createdAt)
+            return this.updatedAt;
+        return this.createdAt;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
