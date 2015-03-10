@@ -11,10 +11,21 @@ Meteor.startup(function () {
         Session.set("resize", new Date());
     });
 
+    if (Meteor.userId()) {
+        Meteor.call('Diagrams.counts', function(error, retValue) {
+            if(error) {
+                console.log("app.startup.js/3", "Diagrams.counts", {'error': error, 'retValue': retValue});
+            }else{
+                diagramCnts.set('all', retValue.all);
+                diagramCnts.set('private', retValue.private);
+                diagramCnts.set('public', retValue.public);
+                diagramCnts.set('starred', retValue.starred);
+            }
+        });
+    }
     //bowser = BrowserObserver.init();
 
 });
-
 
 setWallpaper = function () {
     console.log('setting wallpaper...');

@@ -21,3 +21,7 @@ Meteor.publish('diagram_id', function(id) {
 Meteor.publish('diagram_uid', function(uid) {
     return Diagrams.find({uid: uid});
 });
+
+Meteor.publish('diagram_myCounts', function() {
+    return Diagrams.find( {$or: [{userId: this.userId}, {starredBy: this.userId}] }, {private:1, userId:1, starredBy:1} );
+});
