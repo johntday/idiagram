@@ -79,6 +79,9 @@ Template.seqDgmPage.helpers({
     },
     diagramWidth: function () {
         return reactiveDict.get('diagramWidth');
+    },
+    star: function(){
+        return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -97,6 +100,19 @@ Template.seqDgmPage.events({
         var $code = $('#codeID');
         adjustTextArea( $code );
         $code.focus();
+    },
+    'click #starBtnID': function(e){
+        e.preventDefault();
+        var userId = Meteor.userId();
+        if(!userId){
+            throwError('You must login to play with stars');
+            return false;
+        }
+        if ( Diagrams.isStar(this.starredBy) ){
+            Diagrams.removeStar(this._id);
+        } else {
+            Diagrams.addStar(this._id);
+        }
     },
     'keyup #codeID': function(e) {
         e.preventDefault();
