@@ -9,9 +9,11 @@ Template.historyListItem.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyListItem.events({
-    'click a.history': function(e){
+    'click #deleteBtnID': function(e){
         e.preventDefault();
         var _id = $(e.currentTarget).attr('data-id');
+
+        e.stopImmediatePropagation();
 
         Meteor.call('Historys.delete', _id, function(error, retValue) {
             if(error){
@@ -19,7 +21,7 @@ Template.historyListItem.events({
             }
         });
     },
-    'click a.restore': function(e){
+    'click a.list-group-item': function(e){
         e.preventDefault();
 
         var _id = $(e.currentTarget).attr('data-id');

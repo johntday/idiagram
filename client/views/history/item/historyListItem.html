@@ -1,14 +1,12 @@
 <template name="historyListItem">
-    <div class="list-group-item">
-        <a class="restore" href="#" data-id="{{_id}}"> <h5 class="list-group-item-heading">{{title}}</h5> </a>
-
+    <a href="#" class="list-group-item" data-id="{{_id}}">
+        <h5 class="list-group-item-heading">{{title}}
+            <div class="pull-right">
+                <a id="deleteBtnID" data-id="{{_id}}" href="#"><i class="fa fa-trash fa-2x"></i></a>
+            </div>
+        </h5>
         <p class="list-group-item-text">
-
             <span class="badge">{{agoTime createdAt}}</span>
-
-            <span class="pull-right">
-                <a data-id="{{_id}}" class="history" href="#" title="Delete"><i class="fa fa-trash fa-2x"></i></a>
-            </span>
         </p>
-    </div>
+    </a>
 </template>
