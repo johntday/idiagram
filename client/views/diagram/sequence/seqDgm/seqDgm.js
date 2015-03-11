@@ -220,7 +220,7 @@ Template.seqDgmPage.events({
                 }
             });
         }
-        console.log('not update or insert for _id='+_id);
+        //console.log('not update or insert for _id='+_id);
         //adjustTextArea( $('#codeID') );
         return true;
     },

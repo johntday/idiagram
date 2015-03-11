@@ -2,13 +2,6 @@
 Template.seqDgmListItem.helpers({
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
-    },
-    lastModifiedAt: function(){
-        if (!this.updatedAt)
-            return this.createdAt;
-        if (this.updatedAt > this.createdAt)
-            return this.updatedAt;
-        return this.createdAt;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

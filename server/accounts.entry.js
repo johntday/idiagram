@@ -1,6 +1,9 @@
 AccountsEntry = {
     settings: {
-        defaultProfile: {}
+        defaultProfile: {
+            lastModified: [],
+            lastViewed: []
+        }
     },
     config: function (appConfig) {
         this.settings = _.extend(this.settings, appConfig);

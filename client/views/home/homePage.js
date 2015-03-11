@@ -14,6 +14,9 @@ Template.homePage.helpers({
     },
     otherStarredCnt: function(){
         return diagramCnts.get('otherStarred');
+    },
+    diagramsLastModified: function(){
+        return (Meteor.user()) ? Meteor.user().profile.lastModified : [];
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

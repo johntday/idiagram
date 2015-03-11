@@ -36,6 +36,7 @@ Meteor.startup(function() {
             , private: false
             , uid: uid
             , createdAt: moment().valueOf()
+            , modifiedAt: moment().valueOf()
             , userId: admin._id
             , username: admin.username
         };

@@ -28,7 +28,7 @@
                                         <!--<label for="privateAndPublicID" class="col-sm-2 control-label">My Diagrams</label>-->
                                         <div class="col-sm-10">
                                             <label class="radio-inline">
-                                                <input type="radio" name="private" id="privateAndPublicID" value="privateAndPublic"> <strong>All</strong>
+                                                <input type="radio" name="private" id="allID" value="all"> <strong>All</strong>
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="private" id="privateID" value="private"> <strong>Private</strong> <i class="fa fa-lock"></i>
@@ -55,6 +55,7 @@
                                         <div class="col-sm-8">
                                             <select id="sortBtnID" class="form-control">
                                                 <option value="title">Title</option>
+                                                <option value="modifiedAt">Last Change (create or update)</option>
                                                 <option value="createdAt">Create Date</option>
                                                 <option value="updatedAt">Update Date</option>
                                                 <option value="username">Created By</option>

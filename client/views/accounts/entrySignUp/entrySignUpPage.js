@@ -88,18 +88,14 @@ Template.entrySignUpPage.events({
       return;
     }
     return Meteor.call('entryValidateSignupCode', signupCode, function(err, valid) {
-      console.log('entryValidateSignupCode.err: ' + err);
-      console.log('entryValidateSignupCode.valid: ' + valid);
-
       if (err) {
         console.log(err);
       }
       if (valid) {
         return Meteor.call('accountsCreateUser', username, email, password, function(err, data) {
-          console.log('accountsCreateUser.err: ' + err);
-          console.log('accountsCreateUser.valid: ' + valid);
 
           if (err) {
+              console.log('accountsCreateUser.err: ' + err);
             Session.set('entryError', err.reason);
             return;
           }

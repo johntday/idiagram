@@ -38,7 +38,12 @@
                     </div>
                     <div class="panel-body">
 
+                        {{#each diagramsLastModified}}
+                            {{> homeListItem}}
+                        {{/each}}
 
+                        <hr>
+                        <a href="/diagrams/-1/all/1/modifiedAt/-1">View All</a>
                     </div>
                 </div>
             </div>
@@ -46,4 +51,18 @@
 
         </div>
     </div>
+</template>
+
+
+<template name="homeListItem">
+    <a href="/view/{{_id}}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{title}}
+            <div class="pull-right">
+                <span class="badge">{{agoTime modifiedAt}}</span>
+            </div>
+        </h4>
+        <p class="list-group-item-text">
+            <strong>{{username}}</strong>
+        </p>
+    </a>
 </template>
