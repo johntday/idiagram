@@ -12,7 +12,6 @@ Template.historyListItem.events({
     'click a.history': function(e){
         e.preventDefault();
         var _id = $(e.currentTarget).attr('data-id');
-        console.log('_id='+_id);
 
         Meteor.call('Historys.delete', _id, function(error, retValue) {
             if(error){
@@ -24,7 +23,6 @@ Template.historyListItem.events({
         e.preventDefault();
 
         var _id = $(e.currentTarget).attr('data-id');
-        console.log('_id='+_id);
 
         dialog('Restore diagram?', {
             align: 'center',
