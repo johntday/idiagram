@@ -1,19 +1,7 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.homePage.helpers({
-    allCnt: function(){
-        return diagramCnts.get('all');
-    },
-    privateCnt: function(){
-        return diagramCnts.get('private');
-    },
-    publicCnt: function(){
-        return diagramCnts.get('public');
-    },
-    starredCnt: function(){
-        return diagramCnts.get('starred');
-    },
-    otherStarredCnt: function(){
-        return diagramCnts.get('otherStarred');
+    diagrams: function(){
+        return Diagrams.find({userId: Meteor.userId()}, {sort: {modifiedAt: -1}, limit: 5});
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

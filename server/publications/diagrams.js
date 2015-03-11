@@ -21,3 +21,7 @@ Meteor.publish('diagram_id', function(id) {
 Meteor.publish('diagram_uid', function(uid) {
     return Diagrams.find({uid: uid});
 });
+
+Meteor.publish('diagram_top5', function() {
+    return Diagrams.find({userId: this.userId}, {sort: {modifiedAt: -1}, limit: 5});
+});

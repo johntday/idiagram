@@ -7,7 +7,7 @@ Meteor.methods({
         return Diagrams.update(_id, {$set: params} );
     },
     'Diagrams.delete': function (_id) {
-        Diagrams.remove(_id);
+            Diagrams.remove(_id);
         return _id;
     },
     'Diagrams.copy': function(_id){
