@@ -120,5 +120,9 @@ CommonClient = function () {
         return false;
     };
 
+    oPublic.regexQuery = function (searchText) {
+        return {$regex: searchText, $options: 'i'};
+    };
+
     return oPublic;
 }();

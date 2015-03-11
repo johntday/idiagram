@@ -1,12 +1,14 @@
 <template name="eastPanel">
-    <aside id="eastPanel" class="padded ui right sidebar with-navbar-offset">
-        <a id="eastRightArrowBtnID" href="#"><i class="fa fa-chevron-circle-right fa-2x"></i></a>
+    <aside id="eastPanel" class="ui right sidebar with-navbar-offset">
+        <a id="eastRightArrowBtnID" href="#" style="margin-top: -10px"><i class="fa fa-chevron-circle-right fa-2x"></i></a>
         <div id="eastPanelInfo" class="panel panel-info">
             <div class="panel-heading">
-                east panel info!
+                <div class="text-center">
+                    History
+                </div>
             </div>
             <div class="panel-body">
-                lorem ipsum solar et...
+                {{> historyList}}
             </div>
         </div>
     </aside>

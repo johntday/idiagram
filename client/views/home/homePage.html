@@ -1,4 +1,6 @@
 <template name="homePage">
+    {{> topPanel}}
+
     <div id="homePage" class="page">
         <div class="content">
 
@@ -38,9 +40,11 @@
                     </div>
                     <div class="panel-body">
 
+                        <!--
                         {{#each diagramsLastModified}}
                             {{> homeListItem}}
                         {{/each}}
+                        -->
 
                         <hr>
                         <a href="/diagrams/-1/all/1/modifiedAt/-1">View All</a>

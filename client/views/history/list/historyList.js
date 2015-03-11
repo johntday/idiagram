@@ -1,31 +1,37 @@
-/*------------------------------------------------------------------------------------------------------------------------------*/
-Template.homePage.helpers({
-    allCnt: function(){
-        return diagramCnts.get('all');
-    },
-    privateCnt: function(){
-        return diagramCnts.get('private');
-    },
-    publicCnt: function(){
-        return diagramCnts.get('public');
-    },
-    starredCnt: function(){
-        return diagramCnts.get('starred');
-    },
-    otherStarredCnt: function(){
-        return diagramCnts.get('otherStarred');
-    }
-});
-/*------------------------------------------------------------------------------------------------------------------------------*/
-Template.homePage.created = function() {
+var doFilter = function(){
+    // INPUT
+
+    // STORE VALUES
+
+    // CREATE QUERY
+    var filters = {};
+
+
+    var sort = {createdAt: -1};
+
+
+    // RUN
+    DiagramPages.set({
+        filters: filters
+        ,sort: sort
+    });
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.homePage.destroyed = function() {
-};
-/*------------------------------------------------------------------------------------------------------------------------------*/
-Template.homePage.events({
+Template.historyList.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.homePage.rendered = function() {
+Template.historyList.created = function() {
+};
+/*------------------------------------------------------------------------------------------------------------------------------*/
+Template.historyList.destroyed = function() {
+};
+/*------------------------------------------------------------------------------------------------------------------------------*/
+Template.historyList.events({
+});
+/*------------------------------------------------------------------------------------------------------------------------------*/
+Template.historyList.rendered = function() {
+
+    doFilter();
+
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

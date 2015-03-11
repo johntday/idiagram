@@ -1,6 +1,3 @@
-var regexQuery = function (searchText) {
-    return {$regex: searchText, $options: 'i'};
-};
 var doFilter = function(){
     // INPUT
     var isStar = $('#starredID').prop( "checked" );
@@ -24,7 +21,7 @@ var doFilter = function(){
     if (isStar)
         filters.starredBy = Meteor.userId();
     if (text && text.length > 0)
-        filters.title = regexQuery(text);
+        filters.title = CommonClient.regexQuery(text);
     if (private=='private')
         filters.private = true;
     else if (private=='public')
