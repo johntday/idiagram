@@ -153,94 +153,17 @@ Template.seqDgmPage.events({
         setSaved(true);
     },
     'click #copyBtnID': function(e) {
-        e.preventDefault();
-        Meteor.call('Diagrams.copy', this._id, function(error, _id) {
-            if(error){
-                console.log("seqDgm.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
-                throwError(error.reason);
-            }else{
-                throwSuccess('Diagram copied');
-                Router.go('/diagram/' + _id);
-            }
-        });
+        actions.copy(e, this);
     },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
         drawDiagram(null, true, true);
     },
     'click #saveBtnID': function(e) {
-        e.preventDefault();
-        $(e.target).addClass('disabled');
-
-        if(!Meteor.user()){
-            throwError('You must login to save a diagram');
-            $(e.target).removeClass('disabled');
-            return false;
-        }
-
-        // GET INPUT
-        var _id = this._id;
-
-        // CREATE OBJECT
-        var doc = {
-            title: reactiveDict.get('title')
-            , description: ''
-            , style: reactiveDict.get('style')
-            , code: $('#codeID').val()
-            , private: $('#privateID').prop('checked')
-            };
-
-        // VALIDATE
-        if (validateDiagram(doc)){
-            $('#codeID').focus();
-            return false;
-        }
-        if (reactiveDict.get('isUpdate') == false) {
-            Meteor.call('Diagrams.insert', doc, function(error, _id) {
-                if(error){
-                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
-                    throwError(error.reason);
-                }else{
-                    throwSuccess('Diagram saved');
-                    $('#saveBtnID').addClass('disabled');
-                    setSaved(false);
-
-                    Router.go('/diagram/' + _id);
-                }
-            });
-        } else {
-            Meteor.call('Diagrams.update', _id, doc, function(error, retValue) {
-                if(error){
-                    console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
-                    throwError(error.reason);
-                }else{
-                    //throwSuccess('Diagram updated');
-                    //$('#saveBtnID').addClass('disabled');
-                    //setSaved(false);
-                    Router.go('/view/' + _id);
-                }
-            });
-        }
-        //console.log('not update or insert for _id='+_id);
-        //adjustTextArea( $('#codeID') );
-        return true;
+        actions.save(e, this);
     },
     'click #deleteBtnID': function(e) {
-        e.preventDefault();
-
-        // GET INPUT
-        var _id = this._id;
-
-        Meteor.call('Diagrams.delete', _id, function(error, retValue) {
-            if(error){
-                console.log("seqDgm.js/3", "Diagrams.deleted", {'error': error, 'retValue': retValue});
-                throwError(error.reason);
-            }else{
-                throwSuccess('Diagram deleted');
-
-                Router.go('/diagrams');
-            }
-        });
+        actions.delete(e, this);
     },
     'click #infoBtnID': function(e) {
         e.preventDefault();
@@ -272,3 +195,86 @@ Template.seqDgmPage.rendered = function() {
     drawDiagram(this.data.code, true, true);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
+actions = function () {
+    var oPublic = {};
+    /*-------------------------*/
+    oPublic.copy = function(e, data){
+        e.preventDefault();
+        Meteor.call('Diagrams.copy', data._id, function(error, _id) {
+            if(error){
+                console.log("seqDgm.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram copied');
+                Router.go('/diagram/' + _id);
+            }
+        });
+    };
+    /*-------------------------*/
+    oPublic.delete = function(e, data) {
+        e.preventDefault();
+
+        Meteor.call('Diagrams.delete', data._id, function(error, retValue) {
+            if(error){
+                console.log("seqDgm.js/3", "Diagrams.deleted", {'error': error, 'retValue': retValue});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram deleted');
+
+                Router.go('/diagrams');
+            }
+        });
+    };
+    /*-------------------------*/
+    oPublic.save = function(e, data) {
+        e.preventDefault();
+        $(e.target).addClass('disabled');
+
+        if(!Meteor.user()){
+            throwError('You must login to save a diagram');
+            $(e.target).removeClass('disabled');
+            return false;
+        }
+
+        // CREATE OBJECT
+        var doc = {
+            title: reactiveDict.get('title')
+            , description: ''
+            , style: reactiveDict.get('style')
+            , code: $('#codeID').val()
+            , private: $('#privateID').prop('checked')
+        };
+
+        // VALIDATE
+        if (validateDiagram(doc)){
+            $('#codeID').focus();
+            return false;
+        }
+        if (reactiveDict.get('isUpdate') == false) {
+            Meteor.call('Diagrams.insert', doc, function(error, _id) {
+                if(error){
+                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
+                    throwError(error.reason);
+                }else{
+                    throwSuccess('Diagram saved');
+                    $('#saveBtnID').addClass('disabled');
+                    setSaved(false);
+
+                    Router.go('/diagram/' + _id);
+                }
+            });
+        } else {
+            Meteor.call('Diagrams.update', data._id, doc, function(error, retValue) {
+                if(error){
+                    console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
+                    throwError(error.reason);
+                }else{
+                    Router.go('/view/' + data._id);
+                }
+            });
+        }
+        return true;
+    };
+    /*-------------------------*/
+    return oPublic;
+}();

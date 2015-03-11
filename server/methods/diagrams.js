@@ -15,7 +15,7 @@ Meteor.methods({
         if (!diagram) return false;
 
         var doc = _.pick(diagram, ['title', 'code', 'style']);
-        doc.title = 'NEW: ' + doc.title;
+        doc.title = 'COPY OF: ' + doc.title;
         var new_id;
 
         Meteor.call('Diagrams.insert', doc, function(error, _id) {

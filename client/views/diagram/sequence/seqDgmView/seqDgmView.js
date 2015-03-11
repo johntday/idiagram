@@ -4,7 +4,10 @@ Template.seqDgmView.helpers({
         return canEdit(this.userId);
     },
     star: function(){
-        return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
+        return Diagrams.isStar(this.starredBy) ? 'star' : 'star-o';
+    },
+    lock: function(){
+        return (this.private) ? 'lock' : 'unlock';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
