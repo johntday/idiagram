@@ -1,13 +1,13 @@
-<template name="seqDgmView">
+<template name="historyPage">
     {{> topPanel}}
 
-    <div id="seqDgmPagePage" class="page">
+    <div id="historyPage" class="page">
         <div class="content">
 
             <div class="col col-md-12" style="margin-top: -20px">
 
                     <h2 id="editBtnID">
-                        {{#if canEdit}}<a href="#"><i class="fa fa-pencil-square-o pull-left"></i></a>{{/if}} {{title}}
+                        {{#if canEdit}}<a href="#"><i class="fa fa-refresh pull-left"></i></a>{{/if}} {{title}}
                         <span class="badge pull-right">{{agoTime doc.modifiedAt}}</span>
                     </h2>
 
