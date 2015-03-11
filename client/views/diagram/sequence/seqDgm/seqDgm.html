@@ -58,6 +58,7 @@
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a id="copyBtnID" href="#">Copy to new diagram</a></li>
+                                                <li><a id="infoBtnID" href="#">Show info</a></li>
                                                 <li role="presentation" class="divider"></li>
                                                 <li><a id="deleteBtnID" href="#"><i class="fa fa-trash"></i> <span class="text-danger"> Delete</span></a></li>
                                             </ul>
@@ -74,6 +75,9 @@
                         <p>Having trouble?  Check out the cheat sheet to the left.<!--, or look at the <a href="/examples">examples</a>.--></p>
                     </div>
                 </div>
+
+                {{> seqDgmInfo}}
+
             </div>
 
             <!--<div class="col col-md-6 col-md-offset-3">-->

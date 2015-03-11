@@ -132,7 +132,8 @@ Template.seqDgmPage.events({
         growl(/*'Copy me...\n' + */Meteor.absoluteUrl() + 'view/' + this._id,{
             type: 'w',
             width: 400,
-            delay: 12000
+            delay: 12000,
+            align: 'center'
         });
     },
     'keyup #titleID': function(e) {
@@ -240,10 +241,18 @@ Template.seqDgmPage.events({
                 Router.go('/diagrams');
             }
         });
+    },
+    'click #infoBtnID': function(e) {
+        e.preventDefault();
+        var $info = $('#info');
+        $info.toggle('slow');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
+    $('#info').hide();
+    $("form").submit(function() { return false; });
+
     //console.log('rendered');
     $('#privateID').prop('checked', this.data.private);
 

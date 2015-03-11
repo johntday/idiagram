@@ -4,18 +4,20 @@
     <div id="seqDgmPagePage" class="page">
         <div class="content">
 
-            <div class="col col-md-12" style="margin-top: -20px">
+            <div class="col col-md-12">
+                <div>
+                    {{#if canEdit}}<a class="btn btn-primary btn-lg" href="/diagram/{{_id}}"><i class="fa fa-pencil-square-o">  Edit </i></a>{{/if}}
+                    <a id="shareBtnID" class="btn btn-default btn-lg" title="Link to diagram for sharing"><i class="fa fa-share-square-o"> Share</i></a>
+                    <a id="infoBtnID" class="btn btn-default btn-lg" title="Show info about diagram"><i class="fa fa-info-circle"> Info </i></a>
+                    <span class="h2 padded"> {{title}} </span>
+                    {{#if canEdit}}<a id="starBtnID" href="#" class="padded"><i class="fa fa-{{star}} fa-2x"></i></a>{{/if}}
+                    <span class="badge pull-right">{{agoTime modifiedAt}}</span>
+                </div>
 
-                    <h2 id="editBtnID">
-                        {{#if canEdit}}<a href="#"><i class="fa fa-pencil-square-o pull-left"></i></a>{{/if}} {{title}}
-                        <span class="badge pull-right">{{agoTime doc.modifiedAt}}</span>
-                    </h2>
+                <div id="diagram"></div>
 
-
-                        <div id="diagram"></div>
-
+                {{> seqDgmInfo}}
             </div>
-
         </div>
     </div>
 </template>
