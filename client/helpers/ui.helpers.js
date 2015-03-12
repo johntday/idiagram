@@ -36,6 +36,9 @@ UI.registerHelper('loginServices', function() {
 });
 
 UI.registerHelper('agoTime', function(context, options) {
-    if(context)
-        return (context) ? moment(context).fromNow() : 'unknown';
+    return moment(context).fromNow();
+});
+
+UI.registerHelper('formatTime', function(context, options) {
+    return moment(context).format('MM/DD/YYYY hh:mm a');
 });

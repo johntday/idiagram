@@ -23,7 +23,7 @@
   "breadcrumbs":          false,
   "pagination":           false,
   "pager":                false,
-  "labels":               false,
+  "labels":               true,
   "badges":               true,
   "jumbotron":            false,
   "thumbnails":           false,
