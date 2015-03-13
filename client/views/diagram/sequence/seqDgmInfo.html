@@ -1,6 +1,13 @@
 <template name="seqDgmInfo">
     <div id="info">
         <hr>
+        {{#if isAdmin}}
+            <pre>
+            {{json this}}
+            </pre>
+            <hr>
+        {{/if}}
+
         <h3>Info</h3>
 
         <form class="form-horizontal">

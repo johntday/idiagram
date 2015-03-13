@@ -1,3 +1,14 @@
-<template name="tagsInput">
-
+<template name="tagsDisplay">
+    <!--{{#if canEdit userId}}-->
+        <!--{{#each tags}}-->
+            <!--<span class="tag label label-success">-->
+              <!--<span>{{this}}</span>-->
+              <!--<a href="#"><i class="fa fa-times-circle white"></i></a>-->
+            <!--</span>-->
+        <!--{{/each}}-->
+    <!--{{else}}-->
+        {{#each tags}}
+            <span class="label label-success">{{this}}</span>
+        {{/each}}
+    <!--{{/if}}-->
 </template>

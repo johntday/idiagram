@@ -11,16 +11,17 @@ Meteor.startup(function () {
         Session.set("resize", new Date());
     });
 
+    userInit();
     //bowser = BrowserObserver.init();
 
 });
 
 setWallpaper = function () {
-    console.log('setting wallpaper...');
+    //console.log('setting wallpaper...');
     $('html').addClass('landscapeLogin');
 };
 removeWallpaper = function () {
-    console.log('removing wallpaper...');
+    //console.log('removing wallpaper...');
     $('html').removeClass('landscapeLogin');
 };
 
@@ -32,7 +33,7 @@ Meteor.startup(function () {
             console.log(error);
         }
         if (result) {
-            console.log('current environment url:  ' + result);
+            //console.log('current environment url:  ' + result);
             if (result === "http://localhost:3000") {
                 // do local development stuff
             } else {
@@ -44,3 +45,13 @@ Meteor.startup(function () {
 
 
 });
+
+userInit = function(){
+    // GET ALL USER TAGS
+    Meteor.call('Diagrams.distinct.tags', function(error, retValue) {
+        if(error){
+        }else{
+            AppProperties.userTags = retValue;
+        }
+    });
+};

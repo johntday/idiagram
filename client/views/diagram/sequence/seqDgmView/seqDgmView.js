@@ -1,8 +1,5 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmView.helpers({
-    canEdit: function(){
-        return canEdit(this.userId);
-    },
     star: function(){
         return Diagrams.isStar(this.starredBy) ? 'star' : 'star-o';
     },

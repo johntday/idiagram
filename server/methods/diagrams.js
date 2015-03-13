@@ -52,6 +52,18 @@ Meteor.methods({
         });
 
         return {all: all, private: private, public: public, starred: starred, otherStarred: otherStarred};
+    },
+    'Diagrams.distinct.tags': function(){
+        var userId = this.userId;
+        var docs = Diagrams.find( {userId: userId}, {fields: {tags:1}} ).fetch();
+        var tags = [];
+
+        _.each(docs, function(doc){
+            _.each(doc.tags, function(tag){
+                tags.push(tag);
+            });
+        });
+        return _.uniq(tags, false);
     }
 
 });

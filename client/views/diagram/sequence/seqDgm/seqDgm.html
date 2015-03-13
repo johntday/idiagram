@@ -45,6 +45,24 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="tagsID" class="col-sm-1 control-label">Tags</label>
+                                <div class="col-sm-11">
+                                    <!--<input type="text" class="form-control" id="tagsID" placeholder="tags separated by comma" value="{{tags}}">-->
+                                    <div id="tagsID">
+                                        &nbsp;&nbsp;
+                                        <a id="addTagID" href="#"><i class="fa fa-plus-circle fa-2x"></i></a>
+                                        <input type="text" id="inputTagID" placeholder="new tag" value="" size="30">
+
+                                        {{#each tags}}
+                                            <span class="tag label label-success">
+                                                <span>{{this}}</span>
+                                                <a data-tag="{{this}}" class="tagged" href="#"><i class="fa fa-times-circle white"></i></a>
+                                            </span>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col col-sm-12">
                                     <button type="button" class="btn btn-primary disabled" id="redrawBtnID">Redraw</button>
                                     <button type="button" class="btn btn-primary" id="saveBtnID"> Save </button>

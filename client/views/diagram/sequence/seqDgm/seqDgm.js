@@ -1,3 +1,4 @@
+var diagram_id;
 var reactiveDict = new ReactiveDict();
 var _setIntervalID;
 var _dirty = true;
@@ -114,6 +115,37 @@ Template.seqDgmPage.events({
             Diagrams.addStar(this._id);
         }
     },
+    'click .tagged': function(e){
+        e.preventDefault();
+        // CANNOT USE THIS HERE
+        var userId = Meteor.userId();
+        if(!userId){
+            throwError('You must login to play with tags');
+            return false;
+        }
+        var tag = $(e.currentTarget).attr('data-tag');
+        Diagrams.removeTag(diagram_id, tag);
+    },
+    'click #addTagID': function(e) {
+        e.preventDefault();
+        $('#inputTagID').show();
+        $('#addTagID').hide();
+        $('#inputTagID').focus();
+    },
+    'keyup #inputTagID': function(e) {
+        e.preventDefault();
+        if (e.which == 13) {
+            var tag = $(e.currentTarget).val();
+            Diagrams.addTag(this._id, tag);
+            $('#inputTagID').hide();
+            $('#addTagID').show();
+        }
+    },
+    'blur #inputTagID': function(e) {
+        e.preventDefault();
+        $('#inputTagID').hide();
+        $('#addTagID').show();
+    },
     'keyup #codeID': function(e) {
         e.preventDefault();
         adjustTextArea( $(e.target) );
@@ -173,6 +205,8 @@ Template.seqDgmPage.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
+    diagram_id = this.data._id;
+    $('#inputTagID').hide();
     $('#info').hide();
     $("form").submit(function() { return false; });
 
@@ -236,6 +270,13 @@ actions = function () {
             return false;
         }
 
+        var tags = $('#tagsID').val().split(',');
+        console.log('tags='+tags);
+        if (!validateTags(tags)){
+            $('#tagsID').focus();
+            return false;
+        }
+
         // CREATE OBJECT
         var doc = {
             title: reactiveDict.get('title')
@@ -243,6 +284,7 @@ actions = function () {
             , style: reactiveDict.get('style')
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')
+            , tags: tags
         };
 
         // VALIDATE
@@ -250,6 +292,7 @@ actions = function () {
             $('#codeID').focus();
             return false;
         }
+
         if (reactiveDict.get('isUpdate') == false) {
             Meteor.call('Diagrams.insert', doc, function(error, _id) {
                 if(error){

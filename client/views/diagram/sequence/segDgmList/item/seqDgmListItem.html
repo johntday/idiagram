@@ -9,6 +9,10 @@
             <span class="label label-primary">{{username}}</span>
             <small>last modified</small>
             <span class="badge">{{agoTime modifiedAt}}</span>
+            {{#if hasTags}}
+                <small>tags</small>
+                {{> tagsDisplay}}
+            {{/if}}
         </p>
     </a>
 </template>

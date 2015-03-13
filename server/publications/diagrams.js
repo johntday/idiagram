@@ -1,8 +1,8 @@
-Meteor.publishComposite("diagrams", function() {
-    return {
-        find: function() {
-            return Items.find({});
-    }
+//Meteor.publishComposite("diagrams", function() {
+//    return {
+//        find: function() {
+//            return Items.find({});
+//    }
 // ,
 // children: [
 //   {
@@ -11,8 +11,8 @@ Meteor.publishComposite("diagrams", function() {
 //     }
 //   }
 // ]
-}
-});
+//}
+//});
 
 Meteor.publish('diagram_id', function(id) {
     return Diagrams.find(id);
