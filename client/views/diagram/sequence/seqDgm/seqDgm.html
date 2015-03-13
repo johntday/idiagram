@@ -1,4 +1,4 @@
-<template name="seqDgmPage" xmlns="http://www.w3.org/1999/html">
+<template name="seqDgmPage">
     {{> topPanel}}
     <div id="seqDgmPage" class="page">
         <div class="content">
@@ -44,14 +44,14 @@
                                     </div>
                                 </div>
                             </div>
+                            {{#if isUpdate}}
                             <div class="form-group">
                                 <label for="tagsID" class="col-sm-1 control-label">Tags</label>
                                 <div class="col-sm-11">
-                                    <!--<input type="text" class="form-control" id="tagsID" placeholder="tags separated by comma" value="{{tags}}">-->
                                     <div id="tagsID">
                                         &nbsp;&nbsp;
                                         <a id="addTagID" href="#"><i class="fa fa-plus-circle fa-2x"></i></a>
-                                        <input type="text" id="inputTagID" placeholder="new tag" value="" size="30">
+                                        <input type="text" id="inputTagID" placeholder="new tag" value="" size="30" style="display: none;">
 
                                         {{#each tags}}
                                             <span class="tag label label-success">
@@ -62,6 +62,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{/if}}
                             <div class="form-group">
                                 <div class="col col-sm-12">
                                     <button type="button" class="btn btn-primary disabled" id="redrawBtnID">Redraw</button>

@@ -139,6 +139,9 @@ Template.seqDgmPage.events({
             Diagrams.addTag(this._id, tag);
             $('#inputTagID').hide();
             $('#addTagID').show();
+        } else if (e.which == 27) {
+            $('#inputTagID').hide();
+            $('#addTagID').show();
         }
     },
     'blur #inputTagID': function(e) {
@@ -206,7 +209,6 @@ Template.seqDgmPage.events({
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
     diagram_id = this.data._id;
-    $('#inputTagID').hide();
     $('#info').hide();
     $("form").submit(function() { return false; });
 
@@ -270,13 +272,6 @@ actions = function () {
             return false;
         }
 
-        var tags = $('#tagsID').val().split(',');
-        console.log('tags='+tags);
-        if (!validateTags(tags)){
-            $('#tagsID').focus();
-            return false;
-        }
-
         // CREATE OBJECT
         var doc = {
             title: reactiveDict.get('title')
@@ -284,7 +279,6 @@ actions = function () {
             , style: reactiveDict.get('style')
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')
-            , tags: tags
         };
 
         // VALIDATE
@@ -302,7 +296,6 @@ actions = function () {
                     throwSuccess('Diagram saved');
                     $('#saveBtnID').addClass('disabled');
                     setSaved(false);
-
                     Router.go('/diagram/' + _id);
                 }
             });
