@@ -205,6 +205,8 @@ Template.seqDgmPage.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.rendered = function() {
+    this.data.tags = Tags.getTags(this.data._id);
+
     diagram_id = this.data._id;
     $('#inputTagID').hide();
     $('#info').hide();

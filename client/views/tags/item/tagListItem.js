@@ -1,37 +1,28 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.seqDgmListItem.helpers({
-    star: function(){
-        return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
-    },
-    hasTags: function(){
-        return (this.tags && this.tags.length != 0);
-    }
+Template.tagListItem.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.seqDgmListItem.created = function() {
+Template.tagListItem.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.seqDgmListItem.destroyed = function() {
+Template.tagListItem.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.seqDgmListItem.events({
-    'click #starBtnID': function(e){
+Template.tagListItem.events({
+    'click #deleteBtnID': function(e){
         e.preventDefault();
-        var userId = Meteor.userId();
-        if(!userId){
-            throwError('You must login to play with stars');
-            return false;
-        }
-        if ( Diagrams.isStar(this.starredBy) ){
-            Diagrams.removeStar(this._id);
-        } else {
-            Diagrams.addStar(this._id);
-        }
-    }
+        var _id = $(e.currentTarget).attr('data-id');
 
+        e.stopImmediatePropagation();
+
+        Meteor.call('Tags.delete', _id, function(error, retValue) {
+            if(error){
+                console.log("tagListItem.js/1", "Tags.delete", {'error': error, 'retValue': retValue});
+            }
+        });
+    }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.seqDgmListItem.rendered = function() {
-    this.data.tags = Tags.getTags(this.data._id);
+Template.tagListItem.rendered = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

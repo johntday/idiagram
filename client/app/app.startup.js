@@ -11,7 +11,6 @@ Meteor.startup(function () {
         Session.set("resize", new Date());
     });
 
-    userInit();
     //bowser = BrowserObserver.init();
 
 });
@@ -45,13 +44,3 @@ Meteor.startup(function () {
 
 
 });
-
-userInit = function(){
-    // GET ALL USER TAGS
-    Meteor.call('Diagrams.distinct.tags', function(error, retValue) {
-        if(error){
-        }else{
-            AppProperties.userTags = retValue;
-        }
-    });
-};

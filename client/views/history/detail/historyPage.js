@@ -1,8 +1,5 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.helpers({
-    canEdit: function(){
-        return canEdit(this.userId);
-    }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.created = function() {
@@ -28,7 +25,7 @@ Template.historyPage.events({
 
                 Meteor.call('Diagrams.insert', doc, function(error, _id) {
                     if(error){
-                        console.log("historyPage.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
+                        console.log("tagPage.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
                         throwError(error.reason);
                     }else{
                         throwSuccess('Diagram restored');

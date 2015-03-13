@@ -1,37 +1,16 @@
-var doFilter = function(){
-    // INPUT
-
-    // STORE VALUES
-
-    // CREATE QUERY
-    var filters = {};
-
-
-    var sort = {createdAt: -1};
-
-
-    // RUN
-    HistoryPages.set({
-        filters: filters
-        ,sort: sort
-    });
-};
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyList.helpers({
+Template.tagPage.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyList.created = function() {
+Template.tagPage.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyList.destroyed = function() {
+Template.tagPage.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyList.events({
+Template.tagPage.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyList.rendered = function() {
-
-    doFilter();
-
+Template.tagPage.rendered = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
