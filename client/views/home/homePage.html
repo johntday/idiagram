@@ -33,24 +33,27 @@
                 </div>
             </div>
 -->
-            <div class="col col-md-6 col-md-offset-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        DIAGRAMS LAST MODIFIED
-                    </div>
-                    <div class="panel-body">
+            {{#if isDiagramsNotFound}}
+                {{> homeNewUser}}
+            {{else}}
+                <div class="col col-md-6 col-md-offset-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            DIAGRAMS LAST MODIFIED
+                        </div>
+                        <div class="panel-body">
 
-                        {{#each diagrams}}
-                            {{> seqDgmListItem}}
-                        {{/each}}
+                            {{#each diagrams}}
+                                {{> seqDgmListItem}}
+                            {{/each}}
 
-                        <hr>
-                        <a href="/diagrams/-1/all/1/modifiedAt/-1">View All</a>
+                            <hr>
+                            <a href="/diagrams/-1/all/1/modifiedAt/-1">View All</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/if}}
 
-            <a href="https://plus.google.com/110061703786770157444" rel="publisher">Google+</a>
         </div>
     </div>
 </template>

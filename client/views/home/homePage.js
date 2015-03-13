@@ -2,6 +2,9 @@
 Template.homePage.helpers({
     diagrams: function(){
         return Diagrams.find({userId: Meteor.userId()}, {sort: {modifiedAt: -1}, limit: 5});
+    },
+    isDiagramsNotFound: function(){
+        return (Diagrams.find({userId: Meteor.userId()}, {limit: 1}).count() == 0);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
