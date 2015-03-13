@@ -1,10 +1,11 @@
 var doFilter = function(){
     // INPUT
+    var userId = Meteor.userId();
 
     // STORE VALUES
 
     // CREATE QUERY
-    var filters = {};
+    var filters = {userId: userId};
 
 
     var sort = {createdAt: -1};
