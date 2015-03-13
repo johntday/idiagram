@@ -2,9 +2,6 @@
 Template.seqDgmListItem.helpers({
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
-    },
-    hasTags: function(){
-        return (this.tags && this.tags.length != 0);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

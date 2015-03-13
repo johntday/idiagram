@@ -2,6 +2,9 @@
 Template.historyPage.helpers({
     canEdit: function(){
         return canEdit(this.userId);
+    },
+    actionDesc: function(){
+        return Historys.actionDescription(this);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -12,7 +15,7 @@ Template.historyPage.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.events({
-    'click #editBtnID': function(e) {
+    'click #restoreBtnID': function(e) {
         e.preventDefault();
 
         var _id = this._id;

@@ -7,12 +7,12 @@
         </h4>
         <p class="list-group-item-text">
             <span class="label label-primary">{{username}}</span>
-            <small>last modified</small>
+            <small>modified</small>
             <span class="badge">{{agoTime modifiedAt}}</span>
-            {{#if hasTags}}
-                <small>tags</small>
-                {{> tagsDisplay}}
-            {{/if}}
+
+            <span class="padded">
+            {{> tagsDisplay}}
+            </span>
         </p>
     </a>
 </template>

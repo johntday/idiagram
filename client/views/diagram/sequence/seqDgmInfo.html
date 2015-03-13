@@ -1,22 +1,18 @@
 <template name="seqDgmInfo">
     <div id="info">
         <hr>
-        {{#if isAdmin}}
-            <pre>
-            {{json this}}
-            </pre>
-            <hr>
-        {{/if}}
 
         <h3>Info</h3>
 
         <form class="form-horizontal">
+            {{#if isAdmin}}
             <div class="form-group">
                 <label for="_id" class="col-sm-3 control-label">_id</label>
                 <div class="col-sm-9">
                     <span class="form-control" id="_id">{{_id}}</span>
                 </div>
             </div>
+            {{/if}}
             <div class="form-group">
                 <label for="title" class="col-sm-3 control-label">title</label>
                 <div class="col-sm-9">
@@ -41,12 +37,14 @@
                     <span class="form-control" id="createdAt">{{formatTime createdAt}}</span>
                 </div>
             </div>
+            {{#if isAdmin}}
             <div class="form-group">
                 <label for="updateUsername" class="col-sm-3 control-label">updateUsername</label>
                 <div class="col-sm-9">
                     <span class="form-control" id="username">{{updateUsername}}</span>
                 </div>
             </div>
+            {{/if}}
             <div class="form-group">
                 <label for="updatedAt" class="col-sm-3 control-label">updatedAt</label>
                 <div class="col-sm-9">
@@ -65,6 +63,7 @@
                     <span class="form-control" id="starCnt">{{starCnt}}</span>
                 </div>
             </div>
+            {{#if isAdmin}}
             <div class="form-group">
                 <label for="starredBy" class="col-sm-3 control-label">starredBy</label>
                 <div class="col-sm-9">
@@ -77,13 +76,19 @@
                     <span class="form-control" id="splash">{{splash}}</span>
                 </div>
             </div>
+            {{/if}}
             <div class="form-group">
                 <label for="tags" class="col-sm-3 control-label">tags</label>
                 <div class="col-sm-9">
                     <span class="form-control" id="tags">{{tags}}</span>
                 </div>
             </div>
-
         </form>
+
+        {{#if isAdmin}}
+            <hr>
+            <pre>{{json this}}</pre>
+        {{/if}}
+
     </div>
 </template>

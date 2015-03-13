@@ -136,12 +136,14 @@ Template.seqDgmPage.events({
     },
     'keyup #inputTagID': function(e) {
         e.preventDefault();
-        if (e.which == 13) {
-            var tag = $(e.currentTarget).val();
+        if (e.which == 13) {//ENTER
+            var tag = validateTag( $(e.currentTarget).val() );
+            if (!tag) return false;
+
             Diagrams.addTag(this._id, tag);
             $('#inputTagID').hide();
             $('#addTagID').show();
-        } else if (e.which == 27) {
+        } else if (e.which == 27) {//ESC
             $('#inputTagID').hide();
             $('#addTagID').show();
         }

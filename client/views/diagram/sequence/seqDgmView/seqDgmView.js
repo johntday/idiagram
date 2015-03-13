@@ -5,6 +5,9 @@ Template.seqDgmView.helpers({
     },
     lock: function(){
         return (this.private) ? 'lock' : 'unlock';
+    },
+    hasTags: function(){
+        return Diagrams.hasTags(this);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -15,6 +18,10 @@ Template.seqDgmView.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmView.events({
+    'click #editBtnID': function(e) {
+        e.preventDefault();
+        Router.go('/diagram/' + this._id);
+    },
     'click #shareBtnID': function(e) {
         e.preventDefault();
         growl(/*'Copy me...\n' + */Meteor.absoluteUrl() + 'view/' + this._id,{

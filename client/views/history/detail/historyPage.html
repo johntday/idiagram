@@ -4,16 +4,21 @@
     <div id="historyPage" class="page">
         <div class="content">
 
-            <div class="col col-md-12" style="margin-top: -20px">
+            <div class="col col-md-12">
+                <div class="padded">
+                    {{#if canEdit}}
+                        <a id="restoreBtnID" class="btn btn-primary" href="#" title="Restore diagram"> <i class="fa fa-refresh pull-left"></i> Restore</a>
+                    {{/if}}
 
-                    <h2 id="editBtnID">
-                        {{#if canEdit}}<a href="#"><i class="fa fa-refresh pull-left"></i></a>{{/if}} {{title}}
+                    <span class="h3 padded">
+                        Archived copy when <span class="text-primary">{{doc.title}}</span> was <span class="text-info">{{actionDesc}}</span>
                         <span class="badge pull-right">{{agoTime createdAt}}</span>
-                    </h2>
+                    </span>
 
+                    <hr>
 
-                        <div id="diagram"></div>
-
+                    <div id="diagram"></div>
+                </div>
             </div>
 
         </div>
