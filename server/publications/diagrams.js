@@ -26,6 +26,7 @@ Meteor.publish('diagram_top5', function() {
     return Diagrams.find({userId: this.userId}, {sort: {modifiedAt: -1}, limit: 5});
 });
 
-Meteor.publish('diagram_splash', function(username) {
-    return Diagrams.find({username: username}, {sort: {modifiedAt: -1}, limit: 5, fields: {code:1}});
+Meteor.publish('diagram_splash', function() {
+    //return Diagrams.find({splash: true}, {limit: 5, fields: {code:1}});
+    return Diagrams.find({splash: true}, {limit: 5});
 });

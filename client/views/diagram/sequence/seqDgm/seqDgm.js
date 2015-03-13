@@ -184,7 +184,7 @@ Template.seqDgmPage.events({
         drawDiagram(null, true, false);
         setSaved(true);
     },
-    'click #privateID': function(e) {
+    'click #privateID, click #splashID': function(e) {
         setSaved(true);
     },
     'click #copyBtnID': function(e) {
@@ -212,8 +212,8 @@ Template.seqDgmPage.rendered = function() {
     $('#info').hide();
     $("form").submit(function() { return false; });
 
-    //console.log('rendered');
     $('#privateID').prop('checked', this.data.private);
+    $('#splashID').prop('checked', this.data.splash);
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
@@ -279,6 +279,12 @@ var actions = function () {
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')
         };
+
+        // ADMIN
+        if (isAdmin()){
+            if ( $('#splashID').prop('checked') )
+                doc.splash = true;
+        }
 
         // VALIDATE
         if (validateDiagram(doc)){

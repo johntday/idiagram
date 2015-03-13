@@ -29,6 +29,17 @@
                                     <input type="text" class="form-control" id="titleID" placeholder="My Title" value="{{title}}">
                                 </div>
                             </div>
+                            {{#if isAdmin}}
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="splashID" type="checkbox"> Splash
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <label for="codeID" class="control-label">Text</label>
