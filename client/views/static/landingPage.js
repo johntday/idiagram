@@ -42,19 +42,19 @@ Template.landingPage.rendered = function() {
                 t3 = Meteor.setTimeout(function(){
                     $('#3').fadeIn();
 
-                    Meteor.subscribe('diagram_splash', function(){
-                        diagrams = Diagrams.find({splash: true}, {limit: 5}).fetch();
+                        Meteor.subscribe('diagram_splash', function(){
+                            diagrams = Diagrams.find({splash: true}, {limit: 5}).fetch();
 
-                        dInterval = Meteor.setInterval(function(){
-                            if (diagrams.length != 0) {
-                                if (i + 1 > diagrams.length) i = 0;
-                                drawDiagram(diagrams[i].code);
-                                i++;
-                            } else {
-                                console.log('No diagrams found');
-                            }
-                        }, 5000);
-                    });
+                            dInterval = Meteor.setInterval(function(){
+                                if (diagrams.length != 0) {
+                                    if (i + 1 > diagrams.length) i = 0;
+                                    drawDiagram(diagrams[i].code);
+                                    i++;
+                                } else {
+                                    console.log('No diagrams found');
+                                }
+                            }, 5000);
+                        });
 
                 }, 1400);
             }, 1400);
