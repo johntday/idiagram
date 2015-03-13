@@ -12,7 +12,7 @@ var doFilter = function(){
 
 
     // RUN
-    DiagramPages.set({
+    HistoryPages.set({
         filters: filters
         ,sort: sort
     });
