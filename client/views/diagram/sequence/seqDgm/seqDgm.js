@@ -128,9 +128,11 @@ Template.seqDgmPage.events({
     },
     'click #addTagID': function(e) {
         e.preventDefault();
-        $('#inputTagID').show();
+        var $inputTagID = $('#inputTagID');
+        $inputTagID.val('');
+        $inputTagID.show();
         $('#addTagID').hide();
-        $('#inputTagID').focus();
+        $inputTagID.focus();
     },
     'keyup #inputTagID': function(e) {
         e.preventDefault();
