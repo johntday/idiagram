@@ -18,6 +18,9 @@ Template.historyListItem.events({
         Meteor.call('Historys.delete', _id, function(error, retValue) {
             if(error){
                 console.log("historyListItem.js/1", "Historys.delete", {'error': error, 'retValue': retValue});
+            }else{
+                if (Router.current().route.getName() == 'historyRoute')
+                    Router.go('/');
             }
         });
     //},

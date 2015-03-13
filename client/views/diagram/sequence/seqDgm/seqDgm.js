@@ -231,7 +231,7 @@ Template.seqDgmPage.rendered = function() {
     drawDiagram(this.data.code, true, true);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-actions = function () {
+var actions = function () {
     var oPublic = {};
     /*-------------------------*/
     oPublic.copy = function(e, data){
@@ -275,7 +275,6 @@ actions = function () {
         // CREATE OBJECT
         var doc = {
             title: reactiveDict.get('title')
-            , description: ''
             , style: reactiveDict.get('style')
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')

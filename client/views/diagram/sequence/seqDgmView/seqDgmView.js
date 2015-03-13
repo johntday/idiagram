@@ -41,6 +41,9 @@ Template.seqDgmView.events({
         } else {
             Diagrams.addStar(this._id);
         }
+    },
+    'click #deleteBtnID': function(e) {
+        actions.delete(e, this);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -59,3 +62,21 @@ Template.seqDgmView.rendered = function() {
     }
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
+var actions = function () {
+    var oPublic = {};
+    /*-------------------------*/
+    oPublic.delete = function(e, data) {
+        e.preventDefault();
+
+        Meteor.call('Diagrams.delete', data._id, function(error, retValue) {
+            if(error){
+                console.log("seqDgmView.js/1", "Diagrams.deleted", {'error': error, 'retValue': retValue});
+            }else{
+                throwSuccess('Diagram deleted');
+                Router.go('/diagrams');
+            }
+        });
+    };
+    /*-------------------------*/
+    return oPublic;
+}();

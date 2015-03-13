@@ -7,19 +7,24 @@
             <div class="col col-md-12">
                 <div>
                     {{#if canEdit userId}}
-                        <a class="btn btn-primary btn-lg" href="/diagram/{{_id}}"><i class="fa fa-pencil-square-o">  Edit </i></a>
+                        <a class="btn btn-primary btn-lg" href="/diagram/{{_id}}" title="Edit diagram"><i class="fa fa-pencil-square-o">  Edit </i></a>
                     {{/if}}
                     <a id="shareBtnID" class="btn btn-default btn-lg" title="Link to diagram for sharing"><i class="fa fa-share-square-o"> Share</i></a>
                     <a id="infoBtnID" class="btn btn-default btn-lg" title="Show info about diagram"><i class="fa fa-info-circle"> Info </i></a>
 
-                    <span class="h2 padded"> <span class="text-primary">{{username}}</span> {{title}} </span>
+                    {{#if canEdit userId}}
+                        <a id="deleteBtnID" href="#" class="btn btn-danger btn-lg" title="Delete diagram"><i class="fa fa-trash"></i></a>
+                    {{/if}}
 
+                    <span class="h2 padded"> <span class="h4 text-primary">{{username}}</span> <span class="h3">|</span> {{title}}</span>
+                    <span class="h3">| </span>
                     <i class="fa fa-{{lock}} fa-2x"></i>
                     <a id="starBtnID" href="#" class="padded"><i class="fa fa-{{star}} fa-2x"></i><span class="badge">{{starCnt}}</span></a>
+                    <span class="h3">|</span>
                     {{> tagsDisplay}}
                     <span class="badge pull-right">{{agoTime modifiedAt}}</span>
                 </div>
-
+<hr>
                 <div id="diagram"></div>
 
                 {{> seqDgmInfo}}
