@@ -51,7 +51,7 @@ userInit = function(){
     Meteor.call('Diagrams.distinct.tags', function(error, retValue) {
         if(error){
         }else{
-            AppProperties.userTags = retValue;
+            appState.setTags( retValue.sort() );
         }
     });
 };

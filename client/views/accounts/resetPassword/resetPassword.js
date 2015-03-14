@@ -2,9 +2,9 @@
 Template.entryResetPassword.helpers({
   error: function() {
     return Session.get('entryError');
-  },
-  logo: function() {
-    return Meteor.call('entryLogo');
+  //},
+  //logo: function() {
+  //  return Meteor.call('entryLogo');
   }
 });
 

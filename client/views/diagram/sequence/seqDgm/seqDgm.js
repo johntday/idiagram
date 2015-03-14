@@ -226,7 +226,7 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('diagramWidth', (12 - 4));
 
     _setIntervalID = Meteor.setInterval(
-        function(){drawDiagram(null, false, false)}, AppProperties.SequenceDiagram.updateTimeMilliSeconds );
+        function(){drawDiagram(null, false, false)}, appState.updateTimeMilliSeconds );
 
     setDirty(true);
     $('#saveBtnID').addClass('disabled');

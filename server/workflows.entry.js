@@ -1,6 +1,6 @@
 Meteor.startup(function() {
   return AccountsEntry.config({
-    signupCode: AppProperties.signupcode,
+    signupCode: appState.signupcode,
     defaultProfile: {
       someDefault: 'homePage'
     }

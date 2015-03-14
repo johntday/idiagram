@@ -8,12 +8,12 @@ var doFilter = function(){
     var sortDir = parseInt( $('input:radio[name=sortDir]:checked').val() );
 
     // STORE VALUES
-    AppProperties.diagrams.filters.isStar = isStar;
-    AppProperties.diagrams.filters.text = text;
-    AppProperties.diagrams.filters.private = private;
-    AppProperties.diagrams.filters.hideOtherPublic = hideOtherPublic;
-    AppProperties.diagrams.sort.sortBy = sortBy;
-    AppProperties.diagrams.sort.sortDir = sortDir;
+    diagramSearchForm['isStar'] =  isStar;
+    diagramSearchForm['text'] = text;
+    diagramSearchForm['private'] = private;
+    diagramSearchForm['hideOtherPublic'] = hideOtherPublic;
+    diagramSearchForm['sortBy'] = sortBy;
+    diagramSearchForm['sortDir'] = sortDir;
 
     // CREATE QUERY
     var filters = {};
@@ -62,12 +62,12 @@ Template.seqDgmList.events({
 Template.seqDgmList.rendered = function() {
     $("form").submit(function() { return false; });
     //INIT
-    $('#starredID').prop( "checked", AppProperties.diagrams.filters.isStar );
-    $('#searchTextID').val(AppProperties.diagrams.filters.text);
-    $('#'+AppProperties.diagrams.filters.private+'ID').prop('checked', true);
-    $('#hideOtherPublicID').prop( "checked", AppProperties.diagrams.filters.hideOtherPublic );
-    $('#sortBtnID').val(AppProperties.diagrams.sort.sortBy);
-    $('#sort'+AppProperties.diagrams.sort.sortDir+'ID').prop('checked', true);
+    $('#starredID').prop( "checked", diagramSearchForm['isStar'] );
+    $('#searchTextID').val( diagramSearchForm['text'] );
+    $('#'+ diagramSearchForm['private'] +'ID').prop('checked', true);
+    $('#hideOtherPublicID').prop( "checked", diagramSearchForm['hideOtherPublic'] );
+    $('#sortBtnID').val( diagramSearchForm['sortBy'] );
+    $('#sort'+ diagramSearchForm['sortDir'] +'ID').prop('checked', true);
 
     doFilter();
 

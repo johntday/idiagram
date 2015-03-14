@@ -14,7 +14,7 @@ AccountsEntry = {
 
 Meteor.startup(function () {
     return AccountsEntry.config({
-        signupCode: AppProperties.signupcode
+        signupCode: appState.signupcode
     });
 });
 
@@ -29,7 +29,7 @@ Meteor.methods({
         //console.log('received: ' + signupCode);
         //console.log('should be: ' + AccountsEntry.settings.signupCode);
         //return signupCode === AccountsEntry.settings.signupCode;
-        return (AppProperties.showSignUpCode) ? signupCode === AccountsEntry.settings.signupCode : true;
+        return (appState.showSignUpCode) ? signupCode === AccountsEntry.settings.signupCode : true;
     },
     accountsCreateUser: function (username, email, password) {
         if (username) {
@@ -77,7 +77,7 @@ Meteor.startup(function () {
         added: function (id, record) {
             if (initFinished) {
                 console.log("Received a new user! " + id);
-                console.log(record);
+                //console.log(record);
 
                 //if(record.emails[0].verified === false){
                 Accounts.emailTemplates.siteName = "iDiagram";
