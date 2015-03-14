@@ -3,11 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="AojYIOkrtQBmxGi9ZKeUxDZ5IekkL1kv9j3o5dolN8g" />
-    <meta name="keywords" content="sequence diagram, agile, software, uml, project, modeling, architecture, idiagram, idiagram.net"/>
-    <meta name="robots" content="index,follow" />
-    <meta name="description" content="Create quick and easy UML sequence diagrams for sharing with agile projects to help with managing your architecture time constraints with software projects. Let us do the work of drawing for you." />
-
-    <link rel="canonical" href="http://idiagram.net"/>
 
     <link rel="shortcut icon" href="/images/favicons/favicon.ico?v=1">
     <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png?v=1">
@@ -24,3 +19,14 @@
     <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png?v=1" sizes="16x16">
     <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png?v=1" sizes="32x32">
 </head>
+
+
+<meta name="keywords" content="online shopping, shop online, electronics, home furnishings, baby gear, toys, video games, walmart, walmart.com"/>
+<meta name="robots" content="index,follow" />
+<meta name="description" content="Shop Staples for office supplies, technology, printer ink, furniture, cleaning supplies, copy & print services, coffee and snacks and more. Staples Rewards® members get free shipping every day and up to 5% back in rewards, some exclusions apply." />
+<link rel="canonical" href="http://www.staples.com"/>
+<meta property="twitter:site" content="@walmart"/>
+<meta property="twitter:title" content="Walmart.com: Save money. Live better."/>
+<meta property="twitter:description" content="Online shopping for the largest selection of electronics, home furnishings, video games, baby gear and more. Shop online and save money to live better, at Walmart.com."/>
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:url" content="http://www.walmart.com"/>
