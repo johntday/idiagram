@@ -1,22 +1,3 @@
-var doFilter = function(){
-    // INPUT
-    var userId = Meteor.userId();
-
-    // STORE VALUES
-
-    // CREATE QUERY
-    var filters = {userId: userId};
-
-
-    var sort = {createdAt: -1};
-
-
-    // RUN
-    HistoryPages.set({
-        filters: filters
-        ,sort: sort
-    });
-};
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyList.helpers({
 });
@@ -31,8 +12,5 @@ Template.historyList.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyList.rendered = function() {
-
-    doFilter();
-
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
