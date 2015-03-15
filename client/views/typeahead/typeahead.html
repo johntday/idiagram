@@ -1,0 +1,12 @@
+<template name="typeahead">
+    <ul class="list-group">
+        {{#each tags}}
+            {{> typeaheadItem}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="typeaheadItem">
+        <li class="list-group-item">{{this}}</li>
+</template>
+

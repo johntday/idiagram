@@ -83,6 +83,9 @@ Template.seqDgmPage.helpers({
     },
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
+    },
+    typeaheadTags: function(){
+        return appState.getTags();
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

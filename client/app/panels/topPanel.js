@@ -15,7 +15,7 @@ Template.topPanel.helpers({
         }
     },
     enableEastPanel: function(){
-        return appState.enableEastPanel;
+        return true;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
