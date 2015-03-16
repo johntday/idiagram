@@ -152,9 +152,13 @@ Template.seqDgmPage.events({
             $('#addTagID').show();
             reactiveDict.set('typeaheadTags', null);
         } else {
-            var showableTags = _.difference(appState.getTags(), this.tags);
             var searchText = $('#inputTagID').val();
-            if (showableTags && searchText) {
+            if (!searchText) {
+                reactiveDict.set('typeaheadTags', []);
+                return;
+            }
+            var showableTags = _.difference(appState.getTags(), this.tags);
+            if (showableTags) {
                 var items = [];
                 _.each(showableTags, function (tag) {
                     var myRe = new RegExp(".*" + searchText + ".*");//, "g");
@@ -168,7 +172,7 @@ Template.seqDgmPage.events({
         }
     },
     'blur #inputTagID': function(e) {
-        e.preventDefault();
+        //e.preventDefault();
         $('#inputTagID').hide();
         $('#addTagID').show();
         //reactiveDict.set('typeaheadTags', null);
