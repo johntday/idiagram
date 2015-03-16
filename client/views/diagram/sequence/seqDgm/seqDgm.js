@@ -85,7 +85,7 @@ Template.seqDgmPage.helpers({
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
     },
     typeaheadTags: function(){
-        return appState.getTags();
+        return reactiveDict.get('typeaheadTags');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -146,15 +146,32 @@ Template.seqDgmPage.events({
             Diagrams.addTag(this._id, tag);
             $('#inputTagID').hide();
             $('#addTagID').show();
+            reactiveDict.set('typeaheadTags', null);
         } else if (e.which == 27) {//ESC
             $('#inputTagID').hide();
             $('#addTagID').show();
+            reactiveDict.set('typeaheadTags', null);
+        } else {
+            var showableTags = _.difference(appState.getTags(), this.tags);
+            var searchText = $('#inputTagID').val();
+            if (showableTags && searchText) {
+                var items = [];
+                _.each(showableTags, function (tag) {
+                    var myRe = new RegExp(".*" + searchText + ".*");//, "g");
+                    var myArray = myRe.exec(tag);
+                    if (myArray && myArray.length != 0) {
+                        items.push(tag);
+                    }
+                });
+                reactiveDict.set('typeaheadTags', items);
+            }
         }
     },
     'blur #inputTagID': function(e) {
         e.preventDefault();
         $('#inputTagID').hide();
         $('#addTagID').show();
+        //reactiveDict.set('typeaheadTags', null);
     },
     'keyup #codeID': function(e) {
         e.preventDefault();
@@ -211,6 +228,12 @@ Template.seqDgmPage.events({
         e.preventDefault();
         var $info = $('#info');
         $info.toggle('slow');
+    },
+    'click ul>a.typeahead': function(e){
+        e.preventDefault();
+        var tag = $(e.currentTarget).attr('data-tag');
+        Diagrams.addTag(diagram_id, tag);
+        reactiveDict.set('typeaheadTags', null);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -227,6 +250,7 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('isUpdate', (!!this.data._id));
     reactiveDict.set('boxWidth', 4);
     reactiveDict.set('diagramWidth', (12 - 4));
+    reactiveDict.set('typeaheadTags', []);
 
     _setIntervalID = Meteor.setInterval(
         function(){drawDiagram(null, false, false)}, appState.updateTimeMilliSeconds );
