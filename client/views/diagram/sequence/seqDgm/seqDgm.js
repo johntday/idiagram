@@ -177,6 +177,12 @@ Template.seqDgmPage.events({
         $('#addTagID').show();
         //reactiveDict.set('typeaheadTags', null);
     },
+    'click ul>a.typeahead': function(e){
+        e.preventDefault();
+        var tag = $(e.currentTarget).attr('data-tag');
+        Diagrams.addTag(diagram_id, tag);
+        reactiveDict.set('typeaheadTags', null);
+    },
     'keyup #codeID': function(e) {
         e.preventDefault();
         adjustTextArea( $(e.target) );
@@ -232,12 +238,6 @@ Template.seqDgmPage.events({
         e.preventDefault();
         var $info = $('#info');
         $info.toggle('slow');
-    },
-    'click ul>a.typeahead': function(e){
-        e.preventDefault();
-        var tag = $(e.currentTarget).attr('data-tag');
-        Diagrams.addTag(diagram_id, tag);
-        reactiveDict.set('typeaheadTags', null);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
