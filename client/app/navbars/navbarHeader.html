@@ -41,6 +41,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/diagram/add"><i class="fa fa-plus-circle"></i> Create</a></li>
                         <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
+                        {{#if showProductionDB}}
+                            <li><a href="https://www.mongolab.com/databases/heroku_app34546145"><i class="fa fa-user-secret"></i> Admin</a></li>
+                        {{/if}}
                     </ul>
 
                 </div>

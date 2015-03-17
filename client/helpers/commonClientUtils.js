@@ -124,5 +124,10 @@ CommonClient = function () {
         return {$regex: searchText, $options: 'i'};
     };
 
+    oPublic.isProduction = function() {
+        return (Meteor.absoluteUrl().indexOf("localhost:3000") == -1);
+    };
+
+
     return oPublic;
 }();
