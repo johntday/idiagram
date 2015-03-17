@@ -36,6 +36,9 @@ Template.seqDgmView.events({
         var $info = $('#info');
         $info.toggle('slow');
     },
+    'click #copyBtnID': function(e) {
+        actions.copy(e, this);
+    },
     'click #starBtnID': function(e){
         e.preventDefault();
         var userId = Meteor.userId();
@@ -71,6 +74,19 @@ Template.seqDgmView.rendered = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 var actions = function () {
     var oPublic = {};
+    /*-------------------------*/
+    oPublic.copy = function(e, data){
+        e.preventDefault();
+        Meteor.call('Diagrams.copy', data._id, function(error, _id) {
+            if(error){
+                console.log("seqDgm.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram copied');
+                Router.go('/diagram/' + _id);
+            }
+        });
+    };
     /*-------------------------*/
     oPublic.delete = function(e, data) {
         e.preventDefault();

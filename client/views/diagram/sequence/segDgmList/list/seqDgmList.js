@@ -34,7 +34,6 @@ var doFilter = function(){
         filters.$or = [{userId: Meteor.userId()}, {private: false}];
     if ( diagramSearchForm['reactiveDict'].get('tags') && diagramSearchForm['reactiveDict'].get('tags').length != 0 ) {
         filters.tags = {$all: diagramSearchForm['reactiveDict'].get('tags')};
-        //filters.tags = diagramSearchForm['reactiveDict'].get('tags');
     }
 
     var sort = {};
