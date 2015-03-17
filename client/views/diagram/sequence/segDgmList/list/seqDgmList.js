@@ -33,7 +33,7 @@ var doFilter = function(){
     else if (isAdmin(Meteor.user()) == false)
         filters.$or = [{userId: Meteor.userId()}, {private: false}];
     if ( diagramSearchForm['reactiveDict'].get('tags') && diagramSearchForm['reactiveDict'].get('tags').length != 0 ) {
-        filters.tags = {$in: diagramSearchForm['reactiveDict'].get('tags')};
+        filters.tags = {$all: diagramSearchForm['reactiveDict'].get('tags')};
         //filters.tags = diagramSearchForm['reactiveDict'].get('tags');
     }
 
@@ -54,8 +54,24 @@ Template.seqDgmList.helpers({
     tags: function(){
         return diagramSearchForm['reactiveDict'].get('tags');
     },
-    typeaheadTags: function(){
-        return reactiveDict.get('typeaheadTags');
+    options: function(){
+        var options = {};
+        options.allTags = appState.getTags();
+        options.addTag = function(diagram_id, tag){
+            var tags = diagramSearchForm['reactiveDict'].get('tags');
+            tags.push(tag);
+            diagramSearchForm['reactiveDict'].set('tags', tags);
+            doFilter();
+        };
+        options.removeTag = function(diagram_id, tag){
+            var tags = diagramSearchForm['reactiveDict'].get('tags');
+            tags.remove(tag);
+            diagramSearchForm['reactiveDict'].set('tags', tags);
+            doFilter();
+        };
+        options.diagram_id = null;
+
+        return options;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -68,72 +84,6 @@ Template.seqDgmList.destroyed = function() {
 Template.seqDgmList.events({
     'click #starredID, keyup #searchTextID, click input:radio[name=private], click #hideOtherPublicID, click input:radio[name=sortDir], change #sortBtnID': function(e){
         doFilter();
-    },
-    'keyup #inputTagID': function(e) {
-        e.preventDefault();
-        if (e.which == 13) {//ENTER
-            var tag = validateTag( $(e.currentTarget).val() );
-            if (!tag) return false;
-
-            //Diagrams.addTag(this._id, tag);
-            //$('#inputTagID').hide();
-            //$('#addTagID').show();
-            $(e.currentTarget).val('');
-            reactiveDict.set('typeaheadTags', null);
-            var tags = diagramSearchForm['reactiveDict'].get('tags');
-            tags.push(tag);
-            diagramSearchForm['reactiveDict'].set('tags', tags);
-            doFilter();
-        } else if (e.which == 27) {//ESC
-            //$('#inputTagID').hide();
-            //$('#addTagID').show();
-            $(e.currentTarget).val('');
-            reactiveDict.set('typeaheadTags', null);
-        } else {
-            var searchText = $('#inputTagID').val();
-            if (!searchText) {
-                reactiveDict.set('typeaheadTags', []);
-                return;
-            }
-            var showableTags = _.difference(appState.getTags(), this.tags);
-            if (showableTags) {
-                var items = [];
-                _.each(showableTags, function (tag) {
-                    var myRe = new RegExp(".*" + searchText + ".*");//, "g");
-                    var myArray = myRe.exec(tag);
-                    if (myArray && myArray.length != 0) {
-                        items.push(tag);
-                    }
-                });
-                reactiveDict.set('typeaheadTags', items);
-            }
-        }
-    },
-    'click .tagged': function(e){
-        e.preventDefault();
-        // CANNOT USE THIS HERE
-        var tag = $(e.currentTarget).attr('data-tag');
-        var tags = diagramSearchForm['reactiveDict'].get('tags');
-        tags.remove(tag);
-        diagramSearchForm['reactiveDict'].set('tags', tags);
-        doFilter();
-    },
-    'click ul>a.typeahead': function(e){
-        e.preventDefault();
-        var tag = $(e.currentTarget).attr('data-tag');
-        $('#inputTagID').val('');
-        reactiveDict.set('typeaheadTags', null);
-        var tags = diagramSearchForm['reactiveDict'].get('tags');
-        tags.push(tag);
-        diagramSearchForm['reactiveDict'].set('tags', tags);
-        doFilter();
-    },
-    'blur #inputTagID': function(e) {
-        e.preventDefault();
-        if ( $(e.relatedTarget).attr('class') == 'typeahead' )
-            return false;
-        $(e.currentTarget).val('');
-        reactiveDict.set('typeaheadTags', null);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/

@@ -43,7 +43,7 @@ Template.landingPage.rendered = function() {
                     $('#3').fadeIn();
 
                         Meteor.subscribe('diagram_splash', function(){
-                            diagrams = Diagrams.find({splash: true}, {limit: 5}).fetch();
+                            diagrams = Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5}).fetch();
 
                             dInterval = Meteor.setInterval(function(){
                                 if (diagrams.length != 0) {

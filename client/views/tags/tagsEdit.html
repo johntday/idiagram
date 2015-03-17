@@ -1,0 +1,21 @@
+<template name="tagsEdit">
+    <div class="form-group">
+        <label for="inputTagID" class="col-sm-{{colLabelSize}} control-label">Tags</label>
+        <div class="col-sm-{{colFieldSize}}">
+
+            <input type="text" id="inputTagID" placeholder="add tag" value="" class="form-control">
+
+            {{> typeahead tags=typeaheadTags diagram_id=options.diagram_id}}
+
+
+            {{#each tags}}
+                <span class="tag label label-success">
+                    <span>{{this}}</span>
+                    <a data-tag="{{this}}" class="tagged" href="#"><i class="fa fa-times-circle white"></i></a>
+                </span>
+            {{/each}}
+
+        </div>
+    </div>
+</template>
+

@@ -39,6 +39,7 @@ Meteor.startup(function() {
             , modifiedAt: moment().valueOf()
             , userId: admin._id
             , username: admin.username
+            , tags: ['splash']
         };
 
         Diagrams.direct.insert(diagram);

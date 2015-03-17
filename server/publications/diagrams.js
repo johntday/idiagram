@@ -28,5 +28,5 @@ Meteor.publish('diagram_top5', function() {
 
 Meteor.publish('diagram_splash', function() {
     //return Diagrams.find({splash: true}, {limit: 5, fields: {code:1}});
-    return Diagrams.find({splash: true}, {limit: 5});
+    return Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5});
 });

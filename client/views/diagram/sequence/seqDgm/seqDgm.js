@@ -84,8 +84,14 @@ Template.seqDgmPage.helpers({
     star: function(){
         return Diagrams.isStar(this.starredBy)? 'star' : 'star-o';
     },
-    typeaheadTags: function(){
-        return reactiveDict.get('typeaheadTags');
+    options: function(){
+        var options = {};
+        options.allTags = appState.getTags();
+        options.addTag = Diagrams.addTag;
+        options.removeTag = Diagrams.removeTag;
+        options.diagram_id = this._id;
+
+        return options;
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -117,71 +123,6 @@ Template.seqDgmPage.events({
         } else {
             Diagrams.addStar(this._id);
         }
-    },
-    'click .tagged': function(e){
-        e.preventDefault();
-        // CANNOT USE THIS HERE
-        var userId = Meteor.userId();
-        if(!userId){
-            throwError('You must login to play with tags');
-            return false;
-        }
-        var tag = $(e.currentTarget).attr('data-tag');
-        Diagrams.removeTag(diagram_id, tag);
-    },
-    'click #addTagID': function(e) {
-        e.preventDefault();
-        var $inputTagID = $('#inputTagID');
-        $inputTagID.val('');
-        $inputTagID.show();
-        $('#addTagID').hide();
-        $inputTagID.focus();
-    },
-    'keyup #inputTagID': function(e) {
-        e.preventDefault();
-        if (e.which == 13) {//ENTER
-            var tag = validateTag( $(e.currentTarget).val() );
-            if (!tag) return false;
-
-            Diagrams.addTag(this._id, tag);
-            $('#inputTagID').hide();
-            $('#addTagID').show();
-            reactiveDict.set('typeaheadTags', null);
-        } else if (e.which == 27) {//ESC
-            $('#inputTagID').hide();
-            $('#addTagID').show();
-            reactiveDict.set('typeaheadTags', null);
-        } else {
-            var searchText = $('#inputTagID').val();
-            if (!searchText) {
-                reactiveDict.set('typeaheadTags', []);
-                return;
-            }
-            var showableTags = _.difference(appState.getTags(), this.tags);
-            if (showableTags) {
-                var items = [];
-                _.each(showableTags, function (tag) {
-                    var myRe = new RegExp(".*" + searchText + ".*");//, "g");
-                    var myArray = myRe.exec(tag);
-                    if (myArray && myArray.length != 0) {
-                        items.push(tag);
-                    }
-                });
-                reactiveDict.set('typeaheadTags', items);
-            }
-        }
-    },
-    'blur #inputTagID': function(e) {
-        //e.preventDefault();
-        $('#inputTagID').hide();
-        $('#addTagID').show();
-        //reactiveDict.set('typeaheadTags', null);
-    },
-    'click ul>a.typeahead': function(e){
-        e.preventDefault();
-        var tag = $(e.currentTarget).attr('data-tag');
-        Diagrams.addTag(diagram_id, tag);
-        reactiveDict.set('typeaheadTags', null);
     },
     'keyup #codeID': function(e) {
         e.preventDefault();
