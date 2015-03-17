@@ -188,7 +188,6 @@ Template.seqDgmPage.rendered = function() {
     $("form").submit(function() { return false; });
 
     $('#privateID').prop('checked', this.data.private);
-    $('#splashID').prop('checked', this.data.splash);
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
@@ -255,12 +254,6 @@ var actions = function () {
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')
         };
-
-        // ADMIN
-        if (isAdmin()){
-            if ( $('#splashID').prop('checked') )
-                doc.splash = true;
-        }
 
         // VALIDATE
         if (validateDiagram(doc)){
