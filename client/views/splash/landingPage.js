@@ -35,27 +35,27 @@ Template.landingPage.rendered = function() {
 
     t0 = Meteor.setTimeout(function(){
         $('#0').fadeIn();
+
+        Meteor.subscribe('diagram_splash', function(){
+            diagrams = Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5}).fetch();
+
+            dInterval = Meteor.setInterval(function(){
+                if (diagrams.length != 0) {
+                    if (i + 1 > diagrams.length) i = 0;
+                    drawDiagram(diagrams[i].code);
+                    i++;
+                } else {
+                    console.log('No diagrams found');
+                }
+            }, 5000);
+        });
+
         t1 = Meteor.setTimeout(function(){
             $('#1').fadeIn();
             t2 = Meteor.setTimeout(function(){
                 $('#2').fadeIn();
                 t3 = Meteor.setTimeout(function(){
                     $('#3').fadeIn();
-
-                        Meteor.subscribe('diagram_splash', function(){
-                            diagrams = Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5}).fetch();
-
-                            dInterval = Meteor.setInterval(function(){
-                                if (diagrams.length != 0) {
-                                    if (i + 1 > diagrams.length) i = 0;
-                                    drawDiagram(diagrams[i].code);
-                                    i++;
-                                } else {
-                                    console.log('No diagrams found');
-                                }
-                            }, 5000);
-                        });
-
                 }, 1500);
             }, 1500);
         }, 1500);
