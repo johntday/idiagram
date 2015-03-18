@@ -95,7 +95,7 @@ var actions = function () {
             if(error){
                 console.log("seqDgmView.js/1", "Diagrams.deleted", {'error': error, 'retValue': retValue});
             }else{
-                throwSuccess('Diagram deleted');
+                throwSuccess('Diagram deleted.  Archived copy in history.');
                 Router.go('/diagrams');
             }
         });

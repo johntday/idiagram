@@ -230,7 +230,7 @@ var actions = function () {
                 console.log("seqDgm.js/3", "Diagrams.deleted", {'error': error, 'retValue': retValue});
                 throwError(error.reason);
             }else{
-                throwSuccess('Diagram deleted');
+                throwSuccess('Diagram deleted. Archived copy in history');
 
                 Router.go('/diagrams');
             }
