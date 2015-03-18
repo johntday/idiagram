@@ -3,7 +3,6 @@ Meteor.startup(function () {
 
     Hooks.onLoggedIn = function () {
         removeWallpaper();
-        userInit();
     };
     Hooks.onLoggedOut = function (userId) {
     };

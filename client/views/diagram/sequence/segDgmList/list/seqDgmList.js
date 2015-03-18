@@ -25,7 +25,6 @@ var doFilter = function(){
     if (text)
         filters.title = CommonClient.regexQuery(text);
     if (noun)
-        //filters.code = new RegExp('^' + RegExp.escape(noun), 'im');
         filters.$or = [{code: new RegExp('^' + RegExp.escape(noun), 'im')}, {code: new RegExp(RegExp.escape('>'+noun+':'), 'im')}];
     if (private=='private')
         filters.private = true;
@@ -98,7 +97,7 @@ Template.seqDgmList.events({
         doFilter();
     },
     'keyup #searchTextID, keyup #searchNounID': function(e){
-        _.debounce(doFilter(), 500);
+        doFilter();
     },
     'click .searchTypeID': function(e){
         var name = $(e.target).attr('name');

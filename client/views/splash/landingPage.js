@@ -1,6 +1,6 @@
-var t0, t1, t2, t3, dInterval;
+var dInterval;
 var diagrams;
-var i=0;
+var i=1;
 var drawDiagram = function(code){
     try {
         var options = {theme: getRandomStyle()};
@@ -21,10 +21,6 @@ Template.landingPage.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.landingPage.destroyed = function() {
-    if (t0) Meteor.clearTimeout(t0);
-    if (t1) Meteor.clearTimeout(t1);
-    if (t2) Meteor.clearTimeout(t2);
-    if (t3) Meteor.clearTimeout(t3);
     if (dInterval) Meteor.clearInterval(dInterval);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -33,33 +29,21 @@ Template.landingPage.events({
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.landingPage.rendered = function() {
 
-    t0 = Meteor.setTimeout(function(){
-        $('#0').fadeIn();
+    Meteor.subscribe('diagram_splash', function() {
+        diagrams = Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5}).fetch();
 
-        Meteor.subscribe('diagram_splash', function(){
-            diagrams = Diagrams.find({tags: 'splash', username: 'johntday'}, {limit: 5}).fetch();
+        if (diagrams.length != 0)
+            drawDiagram(diagrams[0].code);
 
-            dInterval = Meteor.setInterval(function(){
-                if (diagrams.length != 0) {
-                    if (i + 1 > diagrams.length) i = 0;
-                    drawDiagram(diagrams[i].code);
-                    i++;
-                } else {
-                    console.log('No diagrams found');
-                }
-            }, 5000);
-        });
-
-        t1 = Meteor.setTimeout(function(){
-            $('#1').fadeIn();
-            t2 = Meteor.setTimeout(function(){
-                $('#2').fadeIn();
-                t3 = Meteor.setTimeout(function(){
-                    $('#3').fadeIn();
-                }, 1500);
-            }, 1500);
-        }, 1500);
-    }, 1500);
-
+        dInterval = Meteor.setInterval(function(){
+            if (diagrams.length != 0) {
+                if (i + 1 > diagrams.length) i = 0;
+                drawDiagram(diagrams[i].code);
+                i++;
+            } else {
+                console.log('No diagrams found');
+            }
+        }, 3000);
+    });
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
