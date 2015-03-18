@@ -29,6 +29,7 @@ reywood:publish-composite
 matb33:collection-hooks
 # ----------------------------------
 # UI
+#d3js:d3
 # ----------------------------------
 # ----------------------------------
 # REACTIVE UTILS
@@ -49,7 +50,3 @@ reactive-dict
 #awatson1978:mousetrap
 #matteodem:keybindings
 #mrt:nprogress
-
-#standard-app-packages
-#autopublish
-#insecure

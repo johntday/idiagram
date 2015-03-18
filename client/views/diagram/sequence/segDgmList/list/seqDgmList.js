@@ -1,9 +1,8 @@
-var reactiveDict = new ReactiveDict();
-
 var doFilter = function(){
     // INPUT
     var isStar = $('#starredID').prop( "checked" );
     var text = $('#searchTextID').val();
+    var noun = $('#searchNounID').val();
     var private = $('input:radio[name=private]:checked').val();
     var hideOtherPublic = $('#hideOtherPublicID').prop( "checked" );
     var sortBy = $('#sortBtnID').val();
@@ -12,6 +11,7 @@ var doFilter = function(){
     // STORE VALUES
     diagramSearchForm['isStar'] =  isStar;
     diagramSearchForm['text'] = text;
+    diagramSearchForm['noun'] = noun;
     diagramSearchForm['private'] = private;
     diagramSearchForm['hideOtherPublic'] = hideOtherPublic;
     diagramSearchForm['sortBy'] = sortBy;
@@ -22,16 +22,20 @@ var doFilter = function(){
 
     if (isStar)
         filters.starredBy = Meteor.userId();
-    if (text && text.length > 0)
+    if (text)
         filters.title = CommonClient.regexQuery(text);
+    if (noun)
+        //filters.code = new RegExp('^' + RegExp.escape(noun), 'im');
+        filters.$or = [{code: new RegExp('^' + RegExp.escape(noun), 'im')}, {code: new RegExp(RegExp.escape('>'+noun+':'), 'im')}];
     if (private=='private')
         filters.private = true;
     else if (private=='public')
         filters.private = false;
     if (hideOtherPublic)
         filters.userId = Meteor.userId();
-    else if (isAdmin(Meteor.user()) == false)
+    else if (isAdmin(Meteor.user())) {
         filters.$or = [{userId: Meteor.userId()}, {private: false}];
+    }
     if ( diagramSearchForm['reactiveDict'].get('tags') && diagramSearchForm['reactiveDict'].get('tags').length != 0 ) {
         filters.tags = {$all: diagramSearchForm['reactiveDict'].get('tags')};
     }
@@ -71,6 +75,15 @@ Template.seqDgmList.helpers({
         options.diagram_id = null;
 
         return options;
+    },
+    isAdvSearch: function(){
+        return diagramSearchForm['reactiveDict'].get('isAdvSearch');
+    },
+    advancedButtonActive: function () {
+        return (diagramSearchForm['reactiveDict'].get('isAdvSearch')) ? 'active' : '';
+    },
+    simpleButtonActive: function () {
+        return (!diagramSearchForm['reactiveDict'].get('isAdvSearch')) ? 'active' : '';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -81,8 +94,15 @@ Template.seqDgmList.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmList.events({
-    'click #starredID, keyup #searchTextID, click input:radio[name=private], click #hideOtherPublicID, click input:radio[name=sortDir], change #sortBtnID': function(e){
+    'click #starredID, click input:radio[name=private], click #hideOtherPublicID, click input:radio[name=sortDir], change #sortBtnID': function(e){
         doFilter();
+    },
+    'keyup #searchTextID, keyup #searchNounID': function(e){
+        _.debounce(doFilter(), 500);
+    },
+    'click .searchTypeID': function(e){
+        var name = $(e.target).attr('name');
+        toggleSearchType(name);
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -91,15 +111,26 @@ Template.seqDgmList.rendered = function() {
     //INIT
     $('#starredID').prop( "checked", diagramSearchForm['isStar'] );
     $('#searchTextID').val( diagramSearchForm['text'] );
+    $('#searchNounID').val( diagramSearchForm['noun'] );
     $('#'+ diagramSearchForm['private'] +'ID').prop('checked', true);
     $('#hideOtherPublicID').prop( "checked", diagramSearchForm['hideOtherPublic'] );
     $('#sortBtnID').val( diagramSearchForm['sortBy'] );
     $('#sort'+ diagramSearchForm['sortDir'] +'ID').prop('checked', true);
-
-    reactiveDict.set('typeaheadTags', []);
+    toggleSearchType( (diagramSearchForm['reactiveDict'].get('isAdvSearch')) ? 'advanced' : 'simple' );
 
     doFilter();
 
     $('#searchTextID').focus();
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
+var toggleSearchType = function(name){
+    if (name == 'simple') {
+        $('#sortPanelID').hide();
+        $('#form-searchNounID').hide();
+        diagramSearchForm['reactiveDict'].set('isAdvSearch', false);
+    }else {
+        $('#sortPanelID').show();
+        $('#form-searchNounID').show();
+        diagramSearchForm['reactiveDict'].set('isAdvSearch', true);
+    }
+};

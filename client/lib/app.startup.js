@@ -11,8 +11,26 @@ Meteor.startup(function () {
         Session.set("resize", new Date());
     });
 
-    userInit();
     //bowser = BrowserObserver.init();
+
+    Meteor.call('Diagrams.distinct.tags', function(error, retValue) {
+        if(error){
+        }else{
+            appState.setTags( retValue.sort() );
+        }
+    });
+
+    Deps.autorun(function () {
+        if (Meteor.isClient) {
+            var filters = {userId: Meteor.userId()};
+            var sort = {createdAt: -1};
+
+            HistoryPages.set({
+                filters: filters
+                , sort: sort
+            });
+        }
+    });
 
 });
 
@@ -45,13 +63,3 @@ Meteor.startup(function () {
 
 
 });
-
-userInit = function(){
-    // GET ALL USER TAGS
-    Meteor.call('Diagrams.distinct.tags', function(error, retValue) {
-        if(error){
-        }else{
-            appState.setTags( retValue.sort() );
-        }
-    });
-};

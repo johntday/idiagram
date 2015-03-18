@@ -121,7 +121,7 @@ CommonClient = function () {
     };
 
     oPublic.regexQuery = function (searchText) {
-        return {$regex: searchText, $options: 'i'};
+        return {$regex: RegExp.escape(searchText), $options: 'i'};
     };
 
     oPublic.isProduction = function() {
