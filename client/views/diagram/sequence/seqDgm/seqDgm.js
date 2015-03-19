@@ -197,7 +197,7 @@ Template.seqDgmPage.rendered = function() {
     reactiveDict.set('typeaheadTags', []);
 
     _setIntervalID = Meteor.setInterval(
-        function(){drawDiagram(null, false, false)}, appState.updateTimeMilliSeconds );
+        function(){drawDiagram(null, false, false)}, 3000 );
 
     setDirty(true);
     $('#saveBtnID').addClass('disabled');
