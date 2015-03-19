@@ -63,31 +63,6 @@
                                 </div>
                             </div>
 
-                            <div id="sortPanelID" class="panel panel-info">
-                                <div class="panel-body">
-                                    <strong>Sort</strong>
-                                    <div class="form-group">
-                                        <div class="col-sm-8">
-                                            <select id="sortBtnID" class="form-control">
-                                                <option value="title">Title</option>
-                                                <option value="modifiedAt">Last Change (create or update)</option>
-                                                <option value="createdAt">Create Date</option>
-                                                <option value="updatedAt">Update Date</option>
-                                                <option value="username">Created By</option>
-                                                <option value="starCnt">Most Stars</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="sortDir" id="sort1ID" value="1"> <strong>Asc</strong>
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="sortDir" id="sort-1ID" value="-1"> <strong>Desc</strong>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                     </div>
 
@@ -97,12 +72,40 @@
 
             <div class="col col-md-7">
 
-                {{> pagesNav}}
+                <div class="row">
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+
+                        <div class="col-sm-2">
+                        <h4>Sort</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <select id="sortBtnID" class="form-control">
+                            <option value="title">Title</option>
+                            <option value="modifiedAt">Last Change (create or update)</option>
+                            <option value="createdAt">Create Date</option>
+                            <option value="updatedAt">Update Date</option>
+                            <option value="username">Created By</option>
+                            <option value="starCnt">Most Stars</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" name="sortDir" id="sort1ID" value="1"> <strong>Asc</strong>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sortDir" id="sort-1ID" value="-1"> <strong>Desc</strong>
+                        </label>
+                    </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
                 <div class="list-group">
                     {{> pages}}
                 </div>
                 {{> pagesNav}}
-
+                </div>
             </div>
         </div>
     </div>

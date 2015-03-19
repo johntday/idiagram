@@ -124,11 +124,13 @@ Template.seqDgmList.rendered = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 var toggleSearchType = function(name){
     if (name == 'simple') {
-        $('#sortPanelID').hide();
+
         $('#form-searchNounID').hide();
         diagramSearchForm['reactiveDict'].set('isAdvSearch', false);
+        var noun = $('#searchNounID').val('');
+        diagramSearchForm['noun'] = '';
+        doFilter();
     }else {
-        $('#sortPanelID').show();
         $('#form-searchNounID').show();
         diagramSearchForm['reactiveDict'].set('isAdvSearch', true);
     }
