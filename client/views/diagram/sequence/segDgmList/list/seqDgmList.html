@@ -10,7 +10,7 @@
                         Search
                         <div class="pull-right" style="margin-top: -5px">
                             <div id="searchTypeID" class="btn-group btn-group-sm" role="group" aria-label="Style">
-                                <button type="button" class="btn btn-default searchTypeID {{simpleButtonActive}}" name="simple"> Simple </button>
+                                <button type="button" class="btn btn-default searchTypeID {{simpleButtonActive}}" name="simple"> Simple</button>
                                 <button type="button" class="btn btn-default searchTypeID {{advancedButtonActive}}" name="advanced">Advanced</button>
                             </div>
                         </div>
@@ -76,35 +76,35 @@
                     <div class="panel panel-info">
                         <div class="panel-body">
 
-                        <div class="col-sm-2">
-                        <h4>Sort</h4>
-                    </div>
-                    <div class="col-sm-6">
-                        <select id="sortBtnID" class="form-control">
-                            <option value="title">Title</option>
-                            <option value="modifiedAt">Last Change (create or update)</option>
-                            <option value="createdAt">Create Date</option>
-                            <option value="updatedAt">Update Date</option>
-                            <option value="username">Created By</option>
-                            <option value="starCnt">Most Stars</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" name="sortDir" id="sort1ID" value="1"> <strong>Asc</strong>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sortDir" id="sort-1ID" value="-1"> <strong>Desc</strong>
-                        </label>
-                    </div>
+                            <div class="col-sm-2">
+                                <h4>Sort</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <select id="sortBtnID" class="form-control">
+                                    <option value="title">Title</option>
+                                    <option value="modifiedAt">Last Change (create or update)</option>
+                                    <option value="createdAt">Create Date</option>
+                                    <option value="updatedAt">Update Date</option>
+                                    <option value="username">Created By</option>
+                                    <option value="starCnt">Most Stars</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sortDir" id="sort1ID" value="1"> <strong>Asc</strong>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sortDir" id="sort-1ID" value="-1"> <strong>Desc</strong>
+                                </label>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="row">
-                <div class="list-group">
-                    {{> pages}}
-                </div>
-                {{> pagesNav}}
+                    <div class="list-group">
+                        {{> pages}}
+                    </div>
+                    {{> pagesNav}}
                 </div>
             </div>
         </div>
