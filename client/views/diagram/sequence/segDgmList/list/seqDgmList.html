@@ -82,11 +82,13 @@
                             <div class="col-sm-6">
                                 <select id="sortBtnID" class="form-control">
                                     <option value="title">Title</option>
-                                    <option value="modifiedAt">Last Change (create or update)</option>
+                                    <option value="modifiedAt">Modified Data</option>
+                                    {{#if isAdvSearch}}
                                     <option value="createdAt">Create Date</option>
                                     <option value="updatedAt">Update Date</option>
                                     <option value="username">Created By</option>
                                     <option value="starCnt">Most Stars</option>
+                                    {{/if}}
                                 </select>
                             </div>
                             <div class="col-sm-4">
