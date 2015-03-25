@@ -13,7 +13,6 @@
                     <a class="navbar-brand" href="/">iDiagram</a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     {{#if currentUser}}
                         <ul class="nav navbar-nav navbar-right">
@@ -43,6 +42,17 @@
                         <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
                         {{#if showProductionDB}}
                             <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
+                        {{/if}}
+                        {{#if isAdmin}}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Testing <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/d3Test">d3 test</a></li>
+                                    <li><a href="/cola">cola test</a></li>
+                                </ul>
+                            </li>
                         {{/if}}
                     </ul>
 

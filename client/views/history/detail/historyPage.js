@@ -19,7 +19,7 @@ Template.historyPage.events({
         e.preventDefault();
 
         var _id = this._id;
-        var doc = this.doc;
+        var doc = _.omit(this.doc, '_id');
 
         dialog('Restore diagram?', {
             align: 'center',

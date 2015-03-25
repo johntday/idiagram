@@ -45,5 +45,16 @@ Meteor.startup(function() {
         Diagrams.direct.insert(diagram);
     }
 
+    var myusers = ['keira', 'sophia', 'quentin', 'jeanette', 'sharon'];
+    _.each(myusers, function(username){
+        var user = Meteor.users.findOne({username: username});
+        if (!user){
+            Meteor.call('accountsCreateUser', username, username+'@gmail.com', password, function(error, retValue) {
+                if(error){
+                    console.log("app.bootstrap.js/3", "accountsCreateUser", {'error': error, 'retValue': retValue});
+                }
+            });
+        }
+    });
 });
 

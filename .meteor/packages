@@ -29,7 +29,7 @@ reywood:publish-composite
 matb33:collection-hooks
 # ----------------------------------
 # UI
-#d3js:d3
+d3js:d3
 # ----------------------------------
 # ----------------------------------
 # REACTIVE UTILS

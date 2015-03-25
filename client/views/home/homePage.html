@@ -3,36 +3,6 @@
 
     <div id="homePage" class="page">
         <div class="content">
-<!--
-            <div class="col col-md-3 col-md-offset-1">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        SUMMARY
-                    </div>
-                    <div class="panel-body">
-
-                        <button class="btn btn-primary fullwidth" type="button">
-                            <span class="fa fa-user pull-left"> <strong>Your Diagrams</strong></span> <span class="badge pull-right">{{all}}</span>
-                        </button>
-                        <button class="btn btn-default fullwidth" type="button">
-                            <span class="fa fa-star pull-left"> Your Starred Diagrams</span> <span class="badge pull-right">{{starred}}</span>
-                        </button>
-                        <button class="btn btn-default fullwidth" type="button">
-                            <span class="fa fa-lock pull-left"> Your Private Diagrams</span> <span class="badge pull-right">{{private}}</span>
-                        </button>
-                        <button class="btn btn-default fullwidth" type="button">
-                            <span class="fa fa-unlock pull-left"> Your Public Diagrams</span> <span class="badge pull-right">{{public}}</span>
-                        </button>
-                        <hr>
-                        <button class="btn btn-default fullwidth" type="button">
-                            <span class="fa fa-star pull-left"> Other Starred Diagrams</span> <span class="badge pull-right">{{otherStarred}}</span>
-                        </button>
-
-
-                    </div>
-                </div>
-            </div>
--->
             {{#if isDiagramsNotFound}}
                 {{> homeNewUser}}
             {{else}}

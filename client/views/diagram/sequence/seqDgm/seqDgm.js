@@ -253,6 +253,7 @@ var actions = function () {
             , style: reactiveDict.get('style')
             , code: $('#codeID').val()
             , private: $('#privateID').prop('checked')
+            , type: 'sequence'
         };
 
         // VALIDATE
