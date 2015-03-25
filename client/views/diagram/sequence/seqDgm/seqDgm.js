@@ -96,10 +96,12 @@ Template.seqDgmPage.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.created = function() {
+    historySearchForm.setDocId(this.data._id);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.destroyed = function() {
     Meteor.clearTimeout( _setIntervalID );
+    historySearchForm.setDocId(null);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.events({

@@ -22,7 +22,7 @@ Meteor.startup(function () {
 
     Deps.autorun(function () {
         if (Meteor.isClient) {
-            var filters = {userId: Meteor.userId()};
+            var filters = (historySearchForm.get('doc._id')) ? {userId: Meteor.userId(), 'doc._id': historySearchForm.get('doc._id')} : {userId: Meteor.userId()};
             var sort = {createdAt: -1};
 
             HistoryPages.set({

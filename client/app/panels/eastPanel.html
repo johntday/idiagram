@@ -4,7 +4,14 @@
         <div id="eastPanelInfo" class="panel panel-info">
             <div class="panel-heading">
                 <div class="text-center">
-                    History
+                    {{#if isFilterable}}
+                        {{#if isFiltered}}Filtered{{else}}All{{/if}} History
+                        <a id="historyFilterID" class="pull-right active" style="margin-top: -5px" href="" title="toggle filter by diagram">
+                            <i class="fa fa-filter {{#if isFiltered}}fa-inverse{{/if}} fa-2x"></i>
+                        </a>
+                    {{else}}
+                        All History
+                    {{/if}}
                 </div>
             </div>
             <div class="panel-body">
