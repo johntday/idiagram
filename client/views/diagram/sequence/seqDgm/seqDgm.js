@@ -161,7 +161,7 @@ Template.seqDgmPage.events({
         drawDiagram(null, true, false);
         setSaved(true);
     },
-    'click #privateID, click #splashID': function(e) {
+    'click #privateID': function(e) {
         setSaved(true);
     },
     'click #copyBtnID': function(e) {
