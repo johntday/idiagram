@@ -1,0 +1,64 @@
+#d3_selectable_force_directed_graph {
+
+  svg {
+    background-color: #FFF;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+//  svg:not(.active):not(.ctrl) {
+//    cursor: crosshair;
+//  }
+//  svg:not(.active):not(.ctrl) .link {
+//    cursor: pointer;
+//  }
+//  svg:not(.active):not(.ctrl) .node {
+//    cursor: pointer;
+//  }
+  .node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+    cursor: pointer;
+  }
+  .node .selected {
+    stroke: black;
+  }
+  .link {
+    stroke: #999;
+    cursor: pointer;
+  }
+  .link .selected {
+    stroke: black;
+  }
+  .brush .extent {
+    fill-opacity: .1;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+  }
+//  #d3_selectable_force_directed_graph:focus {
+//    outline-width: 0;
+//  }
+  .label {
+    fill: white;
+    font-family: Verdana;
+    font-size: 25px;
+    text-anchor: middle;
+    cursor: move;
+  }
+  text {
+    font: 12px sans-serif;
+    pointer-events: none;
+  }
+  text.id {
+    text-anchor: middle;
+    font-weight: bold;
+  }
+  text.name {
+    text-anchor: middle;
+    font-weight: bold;
+  }
+
+}

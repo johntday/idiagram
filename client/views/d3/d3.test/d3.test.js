@@ -1,31 +1,26 @@
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.helpers({
+Template.d3Test.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.created = function() {
+Template.d3Test.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.destroyed = function() {
+Template.d3Test.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.events({
-    'click #deleteBtnID': function(e){
-        e.preventDefault();
-        var _id = $(e.currentTarget).attr('data-id');
-
-        e.stopImmediatePropagation();
-
-        Meteor.call('Historys.delete', _id, function(error, retValue) {
-            if(error){
-                console.log("historyListItem.js/1", "Historys.delete", {'error': error, 'retValue': retValue});
-            }else{
-                if (Router.current().route.getName() == 'historyRoute')
-                    Router.go('/');
-            }
-        });
-    }
+Template.d3Test.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.rendered = function() {
+Template.d3Test.rendered = function() {
+    console.log("$('#test').innerWidth=" + $('#test').innerWidth());
+    console.log("$('#test').outerWidth=" + $('#test').outerWidth());
+    console.log("$('#test').width=" + $('#test').width());
+    console.log("$('#test').offset=" + JSON.stringify($('#test').offset()));
+    console.log("$('#test').position=" + JSON.stringify($('#test').position()));
+
+    var w = $('#test').width() - 200;
+
+    SelectableForceDirectedGraph( 500, 500 );
+
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

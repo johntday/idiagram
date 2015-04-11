@@ -14,7 +14,7 @@ Meteor.methods({
         var diagram = Diagrams.findOne(_id);
         if (!diagram) return false;
 
-        var doc = _.pick(diagram, ['title', 'code', 'style']);
+        var doc = _.pick(diagram, ['title', 'code', 'style', 'type']);
         doc.title = 'COPY OF: ' + doc.title;
         var new_id;
 

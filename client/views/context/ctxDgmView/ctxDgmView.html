@@ -1,0 +1,60 @@
+<template name="ctxDgmView">
+    {{> topPanel}}
+
+    <div id="ctxDgmPage" class="page">
+        <div class="content">
+
+            <div id="test" class="col col-md-12">
+                <div>
+                    {{#if canEdit userId}}
+                        <div class="btn-group">
+                            <button id="editBtnID" type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o">  Edit</i></button>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="shareBtnID"  href="#" title="Link to diagram for sharing"><i class="fa fa-share-square-o"> Share</i></a></li>
+                                <li><a id="infoBtnID"   href="#" title="Show info about diagram"><i class="fa fa-info-circle"> Info </i></a></li>
+                                <li><a id="copyBtnID" href="#"><i class="fa fa-files-o"></i> Copy to new diagram</a></li>
+                                <li class="divider"></li>
+                                <li><a id="deleteBtnID" href="#" title="Delete diagram"><i class="fa fa-trash"> Delete</i></a></li>
+                            </ul>
+                        </div>
+                    {{else}}
+                        <div class="btn-group">
+                            <button id="shareBtnID" type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o">  Share</i></button>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="infoBtnID"   href="#" title="Show info about diagram"><i class="fa fa-info-circle"> Info </i></a></li>
+                                <li><a id="copyBtnID" href="#"><i class="fa fa-files-o"></i> Copy to new diagram</a></li>
+                            </ul>
+                        </div>
+                    {{/if}}
+
+                    <span class="h2 padded"> <span class="h4 text-primary">{{username}}</span> <span class="h3">|</span> {{title}}</span>
+                    <span class="h3">| </span>
+                    <i class="fa fa-{{lock}} fa-2x"></i>
+                    <a id="starBtnID" href="#" class="padded"><i class="fa fa-{{star}} fa-2x"></i><span class="badge">{{starCnt}}</span></a>
+                    {{#if hasTags}}<span class="h3">|</span>{{/if}}
+
+                    {{> tagsDisplay}}
+
+                    <span class="badge pull-right">{{agoTime modifiedAt}}</span>
+                </div>
+
+                <hr>
+
+                <div id="d3_selectable_force_directed_graph"></div>
+
+                <div id="powergraph"></div>
+
+                {{> ctxDgmInfo}}
+
+            </div>
+        </div>
+    </div>
+</template>

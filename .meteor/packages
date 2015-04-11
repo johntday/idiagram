@@ -25,11 +25,15 @@ momentjs:moment
 # COLLECTION
 # ----------------------------------
 alethes:pages
-reywood:publish-composite
+#reywood:publish-composite
 matb33:collection-hooks
 # ----------------------------------
 # UI
+#johntday:network
 d3js:d3
+johntday:colon
+#johntday:selectableforcegraph
+#johntday:graphdirectedit
 # ----------------------------------
 # ----------------------------------
 # REACTIVE UTILS

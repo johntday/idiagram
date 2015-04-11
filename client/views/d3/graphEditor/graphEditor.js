@@ -1,31 +1,30 @@
+var graphEdit;
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.helpers({
+Template.graphEditor.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.created = function() {
+Template.graphEditor.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.destroyed = function() {
+Template.graphEditor.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.events({
-    'click #deleteBtnID': function(e){
+Template.graphEditor.events({
+    'click #addID': function(e){
         e.preventDefault();
-        var _id = $(e.currentTarget).attr('data-id');
-
-        e.stopImmediatePropagation();
-
-        Meteor.call('Historys.delete', _id, function(error, retValue) {
-            if(error){
-                console.log("historyListItem.js/1", "Historys.delete", {'error': error, 'retValue': retValue});
-            }else{
-                if (Router.current().route.getName() == 'historyRoute')
-                    Router.go('/');
-            }
-        });
+        graphEdit.addNode();
+        $(e.currentTarget).blur();
+    },
+    'click #removeID': function(e){
+        e.preventDefault();
+        graphEdit.removeNode();
+        $(e.currentTarget).blur();
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
-Template.historyListItem.rendered = function() {
+Template.graphEditor.rendered = function() {
+    graphEdit = new GraphEdit({
+        debug: true
+    });
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

@@ -38,7 +38,15 @@
                     {{/if}}
 
                     <ul class="nav navbar-nav">
-                        <li><a href="/diagram/add"><i class="fa fa-plus-circle"></i> Create</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-plus-circle"></i> Create <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="seqCreate" href="#">Sequence Diagram</a></li>
+                                <li><a id="ctxCreate" href="#">Context Diagram</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
                         {{#if showProductionDB}}
                             <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
@@ -49,6 +57,8 @@
                                     Testing <i class="fa fa-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/ctxDgm">Context Diagram Edit</a></li>
+                                    <li><a href="/graphEditor">Graph Editor</a></li>
                                     <li><a href="/d3Test">d3 test</a></li>
                                     <li><a href="/cola">cola test</a></li>
                                 </ul>

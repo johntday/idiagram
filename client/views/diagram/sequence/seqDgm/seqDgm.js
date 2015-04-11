@@ -69,9 +69,6 @@ Template.seqDgmPage.helpers({
     simpleButtonActive: function () {
         return reactiveDict.get('style') == 'simple' ? 'active' : '';
     },
-    isUpdate: function () {
-        return reactiveDict.get('isUpdate');
-    },
     boxArrow: function () {
         return (reactiveDict.get('boxWidth')==4) ? 'right' : 'left';
     },
@@ -193,7 +190,6 @@ Template.seqDgmPage.rendered = function() {
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
-    reactiveDict.set('isUpdate', (!!this.data._id));
     reactiveDict.set('boxWidth', 4);
     reactiveDict.set('diagramWidth', (12 - 4));
     reactiveDict.set('typeaheadTags', []);
@@ -243,9 +239,10 @@ var actions = function () {
         e.preventDefault();
         $(e.target).addClass('disabled');
 
+        var code = $('#codeID').val();
+
         if(!Meteor.user()){
             throwError('You must login to save a diagram');
-            $(e.target).removeClass('disabled');
             return false;
         }
 
@@ -253,9 +250,9 @@ var actions = function () {
         var doc = {
             title: reactiveDict.get('title')
             , style: reactiveDict.get('style')
-            , code: $('#codeID').val()
+            , code: code
             , private: $('#privateID').prop('checked')
-            , type: 'sequence'
+            , type: 'seq'
         };
 
         // VALIDATE
@@ -263,29 +260,31 @@ var actions = function () {
             $('#codeID').focus();
             return false;
         }
+        try {
+            var style = reactiveDict.get('style');
+            var options = (style) ? {theme: style} : {theme: 'simple'};
+            var diagram = Diagram.parse( code );
+        } catch (err) {
+            var $element = $('#codeID').get(0);
+            var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
+            if (lineNum)
+                throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text\nTake a look at the Cheat Sheet");
+            else
+                throwError("Sorry, I cannot understand your diagram text\nTake a look at the Cheat Sheet");
 
-        if (reactiveDict.get('isUpdate') == false) {
-            Meteor.call('Diagrams.insert', doc, function(error, _id) {
-                if(error){
-                    console.log("seqDgm.js/1", "Diagrams.insert", {'error': error, 'retValue': _id});
-                    throwError(error.reason);
-                }else{
-                    throwSuccess('Diagram saved');
-                    $('#saveBtnID').addClass('disabled');
-                    setSaved(false);
-                    Router.go('/diagram/' + _id);
-                }
-            });
-        } else {
-            Meteor.call('Diagrams.update', data._id, doc, function(error, retValue) {
-                if(error){
-                    console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
-                    throwError(error.reason);
-                }else{
-                    Router.go('/view/' + data._id);
-                }
-            });
+            $('#codeID').focus();
+            return false;
         }
+
+        Meteor.call('Diagrams.update', data._id, doc, function(error, retValue) {
+            if(error){
+                console.log("seqDgm.js/2", "Diagrams.update", {'error': error, 'retValue': retValue});
+                throwError(error.reason);
+            }else{
+                throwSuccess('Diagram saved');
+                Router.go('/view/' + data._id);
+            }
+        });
         return true;
     };
     /*-------------------------*/

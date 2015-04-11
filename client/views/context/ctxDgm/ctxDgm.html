@@ -1,12 +1,12 @@
-<template name="seqDgmPage">
-    {{> topPanel}}
-    <div id="seqDgmPage" class="page">
+<template name="ctxDgm">
+    <!--{{> topPanel}}-->
+    <div class="page">
         <div class="content">
 
             <div class="col col-md-{{boxWidth}}">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        Diagram Text
+                        Context Diagram
                         <div class="pull-right" style="margin-top: -5px">
                             <a id="starBtnID" href="#" class="padded"><i class="fa fa-{{star}} fa-2x"></i><span class="badge">{{starCnt}}</span></a>
                             <a id="boxWidthBtnID" href="#" title="Toggle width"><i class="fa fa-chevron-circle-{{boxArrow}} fa-2x"></i></a>
@@ -14,15 +14,6 @@
                     </div>
                     <div class="panel-body">
                         <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="styleID" class="col-sm-1 control-label">Style</label>
-                                <div class="col-sm-11">
-                                    <div id="styleID" class="btn-group btn-group-sm" role="group" aria-label="Style">
-                                        <button type="button" class="btn btn-default styleID {{simpleButtonActive}}" name="simple">Simple</button>
-                                        <button type="button" class="btn btn-default styleID {{handButtonActive}}" name="hand"> Hand </button>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="titleID" class="col-sm-1 control-label">Title</label>
                                 <div class="col-sm-11">
@@ -52,19 +43,18 @@
                                     <button type="button" class="btn btn-primary disabled" id="redrawBtnID">Redraw</button>
                                     <button type="button" class="btn btn-primary" id="saveBtnID"> Save </button>
                                     <a class="btn btn-primary" href="/">Cancel</a>
-                                        <button type="button" class="btn btn-default" id="shareBtnID">Share</button>
-
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                Action <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a id="copyBtnID" href="#"><i class="fa fa-files-o"></i> Copy to new diagram</a></li>
-                                                <li><a id="infoBtnID" href="#"><i class="fa fa-info-circle"></i> Show info</a></li>
-                                                <li role="presentation" class="divider"></li>
-                                                <li><a id="deleteBtnID" href="#"><i class="fa fa-trash"></i> <span class="text-danger"> Delete</span></a></li>
-                                            </ul>
-                                        </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            Action <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a id="shareBtnID" href="#"><i class="fa fa-share-square-o"></i> Share diagram</a></li>
+                                            <li><a id="copyBtnID" href="#"><i class="fa fa-files-o"></i> Copy to new diagram</a></li>
+                                            <li><a id="infoBtnID" href="#"><i class="fa fa-info-circle"></i> Show info</a></li>
+                                            <li role="presentation" class="divider"></li>
+                                            <li><a id="deleteBtnID" href="#"><i class="fa fa-trash"></i> <span class="text-danger"> Delete</span></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -73,20 +63,18 @@
                             </div>
                         </form>
                         <hr>
-                        <p>Having trouble?  Check out the cheat sheet to the left.<!--, or look at the <a href="/examples">examples</a>.--></p>
+                        <p>Having trouble?  <a href="#">Check out the cheat sheet.</a></p>
                     </div>
                 </div>
 
-                {{> seqDgmInfo}}
+                {{> ctxDgmInfo}}
 
             </div>
 
-            <!--<div class="col col-md-6 col-md-offset-3">-->
-            <div class="col col-md-{{diagramWidth}}" style="margin-top: -20px">
-                <h2>{{titleLabel}}</h2>
+            <div id="test" class="col col-md-{{diagramWidth}}">
+                <button id="centerID" class="btn btn-primary" href="#"><i class="fa fa-arrows-alt"></i> Center</button>
 
-
-                <div id="diagram"></div>
+                <div id="svg-div"></div>
 
             </div>
 
