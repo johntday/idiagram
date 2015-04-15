@@ -1,5 +1,5 @@
 var diagram_id;
-var graph;
+//var graph;
 var reactiveDict = new ReactiveDict();
 var _setIntervalID;
 var _dirty = true;
@@ -19,32 +19,6 @@ var setSaved = function(saved){
 };
 var isSaved = function(){
     return _saved
-};
-var drawDiagram = function(code, manual, refocus){
-    if (!isDirty()) return false;
-    //if (!code) code = $('#codeID').val();
-    //try {
-    //    var style = reactiveDict.get('style');
-    //    var options = (style) ? {theme: style} : {theme: 'simple'};
-    //    var diagram = Diagram.parse( code );
-    //    $('#diagram').html('');
-    //    diagram.drawSVG('diagram', options);
-    //
-    //    $('#redrawBtnID').addClass('disabled');
-    //    setDirty(false);
-    //} catch (err) {
-    //    if (manual) {
-    //        var $element = $('#codeID').get(0);
-    //        var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
-    //        if (lineNum)
-    //            throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text\nTake a look at the Cheat Sheet");
-    //        else
-    //            throwError("Sorry, I cannot understand your diagram text\nTake a look at the Cheat Sheet");
-    //    }
-    //}
-    //if (refocus)
-    //    $('#codeID').focus();
-    return true;
 };
 var toggleBoxWidth = function(){
     var boxWidth = 4;
@@ -88,7 +62,7 @@ Template.ctxDgm.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.destroyed = function() {
-    //Meteor.clearTimeout( _setIntervalID );
+    Meteor.clearTimeout( _setIntervalID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.events({
@@ -166,7 +140,6 @@ Template.ctxDgm.rendered = function() {
     diagram_id = this.data._id;
     $('#info').hide();
     $("form").submit(function() { return false; });
-
     $('#privateID').prop('checked', this.data.private);
     $('#codeID').val( this.data.code );
 
@@ -174,359 +147,49 @@ Template.ctxDgm.rendered = function() {
     reactiveDict.set('diagramWidth', (12 - 4));
     reactiveDict.set('typeaheadTags', []);
 
-    //_setIntervalID = Meteor.setInterval(
-    //    function(){drawDiagram(null, false, false)}, 3000 );
-
-    setDirty(true);
     $('#saveBtnID').addClass('disabled');
 
-    drawDiagram(null, true, true);
+    // Draw first
+    //$(graphSelector).html('');
+    Meteor.setTimeout(function(){
+        drawDiagram({
+            width: $('#test').width(),
+            height: 350,
+            graphSelector: '#svg-div'
+        });
+        setDirty(false);
+        adjustTextArea($('#codeID'));
+    }, 200);
 
-    //var testID = Meteor.setTimeout(function() {
-    //    graph = new SelectableForceDirectedGraph({
-    //        data: reactiveDict.get('code')
-    //        , width: $('#test').width()
-    //        , height: 500
-    //        , selector: '#svg-div'
-    //        , debug: true
-    //    });
-    //
-    //    Meteor.setTimeout(function() {
-    //        graph.center_view();
-    //    }, 200);
-    //
-    //}, 200);
-
-    //var links = ContextDiagramUtils.getLinks( JSON.stringify(reactiveDict.get('code')) );
-    //console.log('transformed links'+links);
-
-
-    //doGraph(Constants.test, {
-    //    width: 800, height: 1000,
-    //    margin: { top: 20, right: 20, bottom: 20, left: 20 }
-    //});
-    //graph = {"nodes":[{"name":"2","ref":"node1","width":50,"height":50},{"name":"1","ref":"node2","width":50,"height":50},{"name":"1","ref":"node3","width":50,"height":50},{"name":"2","ref":"node4","width":50,"height":50}],"links":[{"source":"0","target":"0"},{"source":"1","target":"1"},{"source":"1","target":"1"},{"source":"2","target":"2"},{"source":"2","target":"2"}]};
-    doGraph2(ContextDiagramUtils.parseCode( $('#codeID').get(0) ), {
-        width: 700,
-        height: 350,
-        graphSelector: '#svg-div'
-    });
+    // redraw every n-seconds
+    _setIntervalID = Meteor.setInterval(function(){
+        drawDiagram({
+            width: $('#test').width(),
+            height: 350,
+            graphSelector: '#svg-div'
+        });
+        setDirty(false);
+        adjustTextArea($('#codeID'));
+    }, 3000);
 };
-var doGraph2 = function(data, options){
+var drawDiagram = function(options){
+    var graph;
+    if (!isDirty()) return false;
     var width = options.width || 700,
         height = options.height || 350,
         graphSelector = options.graphSelector || '#svg-div',
-        graph = data;
+        showParseErr = options.catchParseErr || false;
+
+    try {
+        graph = ContextDiagramUtils.parseCode( $('#codeID').get(0), showParseErr );
+    } catch (err){
+        if (showParseErr)
+            throwError(err);
+        return false;
+    }
     $(graphSelector).html('');
-    //console.log(JSON.stringify(graph));
-    var color = d3.scale.category20();
-    var makeEdgeBetween;
-    var colans = cola;
-    function makeSVG() {
-        var outer = d3.select("#svg-div").append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .attr("pointer-events", "all");
-        // define arrow markers for graph links
-        outer.append('svg:defs').append('svg:marker')
-            .attr('id', 'end-arrow')
-            .attr('viewBox', '0 -5 10 10')
-            .attr('refX', 5)
-            .attr('markerWidth', 3)
-            .attr('markerHeight', 3)
-            .attr('orient', 'auto')
-            .append('svg:path')
-            .attr('d', 'M0,-5L10,0L0,5L2,0')
-            .attr('stroke-width', '0px')
-            .attr('fill', '#555');
-        var zoomBox = outer.append('rect')
-            .attr('class', 'background')
-            .attr('width', "100%")
-            .attr('height', "100%");
-        var vis = outer.append('g');
-        var redraw = function (transition) {
-            return (transition ? vis.transition() : vis)
-                .attr("transform", "translate(" + zoom.translate() + ") scale(" + zoom.scale() + ")");
-        };
-        vis.zoomToFit = function () {
-            var b = cola.vpsc.Rectangle.empty();
-            vis.selectAll("rect").each(function (d) {
-                var bb = this.getBBox();
-                b = b.union(new cola.vpsc.Rectangle(bb.x, bb.x + bb.width, bb.y, bb.y + bb.height));
-            });
-            var w = b.width(), h = b.height();
-            var cw = Number(outer.attr("width")), ch = Number(outer.attr("height"));
-            var s = Math.min(cw / w, ch / h);
-            var tx = (-b.x * s + (cw / s - w) * s / 2), ty = (-b.y * s + (ch / s - h) * s / 2);
-            zoom.translate([tx, ty]).scale(s);
-            redraw(true);
-        };
-        var zoom = d3.behavior.zoom();
-        zoomBox.call(zoom.on("zoom", redraw))
-            .on("dblclick.zoom", vis.zoomToFit);
-        return vis;
-    }
-    function createLabels(svg, graph, node, d3cola, margin) {
-        var labelwidth = 0, labelheight = 0;
-        var labels = svg.selectAll(".label")
-            .data(graph.nodes)
-            .enter().append("text")
-            .attr("class", "label")
-            .text(function (d) { return d.name; })
-            .call(d3cola.drag)
-            .each(function (d) {
-                var bb = this.getBBox();
-                labelwidth = Math.max(labelwidth, bb.width);
-                labelheight = Math.max(labelheight, bb.height);
-            });
-        node.attr("width", labelwidth)
-            .each(function (d) {
-                d.width = labelwidth + 2 * margin + 10;
-                d.height = labelheight + 2 * margin;
-            });
-        node.append("title")
-            .text(function (d) { return d.name; });
-        return labels;
-    }
-    function flatGraph() {
-        var d3cola = colans.d3adaptor()
-            .linkDistance(80)
-            .avoidOverlaps(true)
-            .size([width, height]);
-        var svg = makeSVG();
-        //d3.json(graphfile, function (error, graph) {
-        function go(graph){
-            var link = svg.selectAll(".link")
-                .data(graph.links)
-                .enter().append("line")
-                .attr("class", "link");
-            var margin = 10;
-            var node = svg.selectAll(".node")
-                .data(graph.nodes)
-                .enter().append("rect")
-                .attr("class", "node")
-                .attr("rx", 4).attr("ry", 4)
-                .call(d3cola.drag);
-            var label = createLabels(svg, graph, node, d3cola, margin);
-            d3cola
-                .convergenceThreshold(0.1)
-                .nodes(graph.nodes)
-                .links(graph.links)
-                .start(10, 10, 10);
-            d3cola.on("tick", function () {
-                node.each(function (d) { return d.innerBounds = d.bounds.inflate(-margin); });
-                link.each(function (d) {
-                    cola.vpsc.makeEdgeBetween(d, d.source.innerBounds, d.target.innerBounds, 5);
-                    if (isIE())
-                        this.parentNode.insertBefore(this, this);
-                });
-                link.attr("x1", function (d) { return d.sourceIntersection.x; })
-                    .attr("y1", function (d) { return d.sourceIntersection.y; })
-                    .attr("x2", function (d) { return d.arrowStart.x; })
-                    .attr("y2", function (d) { return d.arrowStart.y; });
-                node.attr("x", function (d) { return d.innerBounds.x; })
-                    .attr("y", function (d) { return d.innerBounds.y; })
-                    .attr("width", function (d) { return d.innerBounds.width(); })
-                    .attr("height", function (d) { return d.innerBounds.height(); });
-                var b;
-                label
-                    .each(function (d) {
-                        b = this.getBBox();
-                    })
-                    .attr("x", function (d) { return d.x; })
-                    .attr("y", function (d) {
-                        return d.y + b.height / 3;
-                    });
-                //svg.zoomToFit();
-            }).on("end", function () { svg.zoomToFit(); });
-        }
-        go(graph);
-    }
-    function expandGroup(g, ms) {
-        if (g.groups) {
-            g.groups.forEach(function (cg) { return expandGroup(cg, ms); });
-        }
-        if (g.leaves) {
-            g.leaves.forEach(function (l) {
-                ms.push(l.index + 1);
-            });
-        }
-    }
-    function getId(v, n) {
-        return (typeof v.index === 'number' ? v.index : v.id + n) + 1;
-    }
-    function powerGraph() {
-        var d3cola = colans.d3adaptor()
-            .convergenceThreshold(0.01)
-            .linkDistance(80)
-            .handleDisconnected(false)
-            .avoidOverlaps(true)
-            .size([width, height]);
-        var svg = makeSVG();
-        //d3.json(graphfile, function (error, graph) {
-        function go(graph){
-            graph.nodes.forEach(function (v, i) {
-                v.index = i;
-            });
-            var powerGraph;
-            var doLayout = function (response) {
-                var group = svg.selectAll(".group")
-                    .data(powerGraph.groups)
-                    .enter().append("rect")
-                    .attr("rx", 8).attr("ry", 8)
-                    .attr("class", "group")
-                    .style("fill", function (d, i) { return color(i); });
-                var link = svg.selectAll(".link")
-                    .data(powerGraph.powerEdges)
-                    .enter().append("line")
-                    .attr("class", "link");
-                var margin = 10;
-                var node = svg.selectAll(".node")
-                    .data(graph.nodes)
-                    .enter().append("rect")
-                    .attr("class", "node")
-                    .attr("width", function (d) { return d.width + 2 * margin; })
-                    .attr("height", function (d) { return d.height + 2 * margin; })
-                    .attr("rx", 4).attr("ry", 4)
-                    .call(d3cola.drag);
-                var label = createLabels(svg, graph, node, d3cola, margin);
-                var vs = response.nodes.filter(function (v) { return v.label; });
-                vs.forEach(function (v) {
-                    var index = Number(v.label) - 1;
-                    var node = graph.nodes[index];
-                    node.x = Number(v.x) * node.width / 80 + 50;
-                    node.y = Number(v.y) / 1.2 + 50;
-                    node.fixed = 1;
-                });
-                d3cola.start(1, 1, 1);
-                d3cola.on("tick", function () {
-                    node.each(function (d) {
-                        d.bounds.setXCentre(d.x);
-                        d.bounds.setYCentre(d.y);
-                        d.innerBounds = d.bounds.inflate(-margin);
-                    });
-                    group.each(function (d) { return d.innerBounds = d.bounds.inflate(-margin); });
-                    link.each(function (d) {
-                        cola.vpsc.makeEdgeBetween(d, d.source.innerBounds, d.target.innerBounds, 5);
-                        if (isIE())
-                            this.parentNode.insertBefore(this, this);
-                    });
-                    link.attr("x1", function (d) { return d.sourceIntersection.x; })
-                        .attr("y1", function (d) { return d.sourceIntersection.y; })
-                        .attr("x2", function (d) { return d.arrowStart.x; })
-                        .attr("y2", function (d) { return d.arrowStart.y; });
-                    node.attr("x", function (d) { return d.innerBounds.x; })
-                        .attr("y", function (d) { return d.innerBounds.y; })
-                        .attr("width", function (d) { return d.innerBounds.width(); })
-                        .attr("height", function (d) { return d.innerBounds.height(); });
-                    group.attr("x", function (d) { return d.innerBounds.x; })
-                        .attr("y", function (d) { return d.innerBounds.y; })
-                        .attr("width", function (d) { return d.innerBounds.width(); })
-                        .attr("height", function (d) { return d.innerBounds.height(); });
-                    label.attr("x", function (d) { return d.x; })
-                        .attr("y", function (d) {
-                            var h = this.getBBox().height;
-                            return d.y + h / 3.5;
-                        });
-                }).on("end", function () {
-                    return svg.zoomToFit();
-                });
-            };
-            d3cola
-                .nodes(graph.nodes)
-                .links(graph.links)
-                .powerGraphGroups(function (d) { return (powerGraph = d).groups.forEach(function (v) { return v.padding = 10; }); });
-            var modules = { N: graph.nodes.length, ms: [], edges: [] };
-            var n = modules.N;
-            powerGraph.groups.forEach(function (g) {
-                var m = [];
-                expandGroup(g, m);
-                modules.ms.push(m);
-            });
-            powerGraph.powerEdges.forEach(function (e) {
-                var N = graph.nodes.length;
-                modules.edges.push({ source: getId(e.source, N), target: getId(e.target, N) });
-            });
-        }
-    }
-    function isIE() { return ((navigator.appName == 'Microsoft Internet Explorer') || ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null))); }
 
-    flatGraph();
-
-    function powerGraph2() {
-        var d3cola = colans.d3adaptor()
-            .jaccardLinkLengths(10, 0.5)
-            .avoidOverlaps(true)
-            .size([width, height]);
-        var svg = makeSVG();
-        //d3.json("test/n7e23.json", function (error, graph) {
-        function go(graph){
-            var powerGraph;
-            d3cola
-                .nodes(graph.nodes)
-                .links(graph.links)
-                .powerGraphGroups(function (d) {
-                    powerGraph = d;
-                    powerGraph.groups.forEach(function (v) { v.padding = 20; });
-                })
-                .start(10, 10, 10);
-            var group = svg.selectAll(".group")
-                .data(powerGraph.groups)
-                .enter().append("rect")
-                .attr("rx", 8).attr("ry", 8)
-                .attr("class", "group")
-                .style("fill", function (d, i) { return color(i); });
-            var link = svg.selectAll(".link")
-                .data(powerGraph.powerEdges)
-                .enter().append("line")
-                .attr("class", "link");
-            var margin = 10;
-            var node = svg.selectAll(".node")
-                .data(graph.nodes)
-                .enter().append("rect")
-                .attr("class", "node")
-                .attr("width", function (d) { return d.width + 2 * margin; })
-                .attr("height", function (d) { return d.height + 2 * margin; })
-                .attr("rx", 4).attr("ry", 4)
-                .call(d3cola.drag);
-            var label = svg.selectAll(".label")
-                .data(graph.nodes)
-                .enter().append("text")
-                .attr("class", "label")
-                .text(function (d) { return d.name; })
-                .call(d3cola.drag);
-            node.append("title")
-                .text(function (d) { return d.name; });
-            d3cola.on("tick", function () {
-                node.each(function (d) { d.innerBounds = d.bounds.inflate(-margin); });
-                group.each(function (d) { d.innerBounds = d.bounds.inflate(-margin); });
-                link.each(function (d) {
-                    cola.vpsc.makeEdgeBetween(d, d.source.innerBounds, d.target.innerBounds, 5);
-                    if (isIE())
-                        this.parentNode.insertBefore(this, this);
-                });
-                link.attr("x1", function (d) { return d.sourceIntersection.x; })
-                    .attr("y1", function (d) { return d.sourceIntersection.y; })
-                    .attr("x2", function (d) { return d.arrowStart.x; })
-                    .attr("y2", function (d) { return d.arrowStart.y; });
-                node.attr("x", function (d) { return d.innerBounds.x; })
-                    .attr("y", function (d) { return d.innerBounds.y; })
-                    .attr("width", function (d) { return d.innerBounds.width(); })
-                    .attr("height", function (d) { return d.innerBounds.height(); });
-                group.attr("x", function (d) { return d.innerBounds.x; })
-                    .attr("y", function (d) { return d.innerBounds.y; })
-                    .attr("width", function (d) { return d.innerBounds.width(); })
-                    .attr("height", function (d) { return d.innerBounds.height(); });
-                label.attr("x", function (d) { return d.x; })
-                    .attr("y", function (d) {
-                        var h = this.getBBox().height;
-                        return d.y + h / 3.5;
-                    });
-            });
-        }
-        go(graph);
-    }
-    powerGraph2();
+    FlatGraph(graph, options);
 };
 var doGraph = function(graph, options){
 
@@ -1050,15 +713,21 @@ var actions = function () {
         // CREATE OBJECT
         var doc = _.extend(data, {
             code: $('#codeID').val()
-            ,title: reactiveDict.get('title')
+            ,title: $('#titleID').val()
             ,private: $('#privateID').prop('checked')
             ,type: 'ctx'
         });
 
         // VALIDATE
-        //if (validateDiagram(doc)){
-        //    return false;
-        //}
+        if (validateDiagram(doc)){
+            return false;
+        }
+        try {
+            ContextDiagramUtils.parseCode( $('#codeID').get(0), true );
+        } catch (err){
+            throwError(err);
+            return false;
+        }
 
         Meteor.call('Diagrams.update', data._id, doc, function(error, retValue) {
             if(error){

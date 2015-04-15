@@ -21,7 +21,7 @@ ContextDiagramUtils = function () {
         return links;
     };
 
-    oPublic.parseCode = function(tarea){
+    oPublic.parseCode = function(tarea, showParseErr){
         if (!tarea || !tarea.value) {
             console.log('Problem with ContextDiagramUtils.parseCode: tarea=' + tarea);
             return false;
@@ -37,9 +37,10 @@ ContextDiagramUtils = function () {
             var reverse = false;
             var sourceTarget = line.split('->');
             if (sourceTarget.length != 2){
-                CommonClient.selectTextareaLine(tarea, index);
-                throwError('Problem with line #' + index);
-                return false;
+                if (showParseErr) {
+                    CommonClient.selectTextareaLine(tarea, index);
+                }
+                throw 'Problem with line #' + index;
             }
 
             var source = sourceTarget[0].trim(),
