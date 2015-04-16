@@ -1,4 +1,4 @@
-var graph;
+var _setTimeoutID;
 var code;
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgmView.helpers({
@@ -19,6 +19,7 @@ Template.ctxDgmView.created = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgmView.destroyed = function() {
     historySearchForm.setDocId(null);
+    Meteor.clearTimeout( _setTimeoutID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgmView.events({
@@ -66,19 +67,13 @@ Template.ctxDgmView.rendered = function() {
     $("form").submit(function() { return false; });
     var code = this.data.code;
 
-    var testID = Meteor.setTimeout(function() {
-        graph = new SelectableForceDirectedGraph({
-            data: code
-            , width: $('#test').width()
-            , height: 500
-            , selector: '#d3_selectable_force_directed_graph'
-            , debug: true
+    _setTimeoutID = Meteor.setTimeout(function(){
+        var graph = ContextDiagramUtils.parseCode( code, true );
+        FlatGraph(graph, {
+            width: $('#test').width(),
+            height: 350,
+            graphSelector: '#svg-div'
         });
-
-        Meteor.setTimeout(function() {
-            graph.center_view();
-        }, 200);
-
     }, 200);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

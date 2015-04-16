@@ -21,12 +21,19 @@ ContextDiagramUtils = function () {
         return links;
     };
 
+    /**
+     * Parse input.
+     * @param tarea String OR textArea element.
+     * @param showParseErr
+     * @returns {*}
+     */
     oPublic.parseCode = function(tarea, showParseErr){
-        if (!tarea || !tarea.value) {
+        var isString = Match.test(tarea, String);
+        if (!tarea || (!isString && !tarea.value)) {
             console.log('Problem with ContextDiagramUtils.parseCode: tarea=' + tarea);
             return false;
         }
-        var code = tarea.value;
+        var code = (isString) ? tarea : tarea.value;
         var nodes = {};
         var links = [];
         var lines = code.split(/\r?\n/);
@@ -34,28 +41,30 @@ ContextDiagramUtils = function () {
 
         // NODES
         _.each(lines, function(line, index){
-            var reverse = false;
-            var sourceTarget = line.split('->');
-            if (sourceTarget.length != 2){
-                if (showParseErr) {
-                    CommonClient.selectTextareaLine(tarea, index);
+            if (line.length != 0) {
+                var reverse = false;
+                var sourceTarget = line.split('->');
+                if (sourceTarget.length != 2) {
+                    if (showParseErr && !isString) {
+                        CommonClient.selectTextareaLine(tarea, index);
+                    }
+                    throw 'Problem with line #' + index;
                 }
-                throw 'Problem with line #' + index;
+
+                var source = sourceTarget[0].trim(),
+                    target = sourceTarget[1].trim();
+
+                if (source.endsWith('<')) {
+                    reverse = true;
+                    source = source.substring(0, source.length - 1).trim();
+                }
+                if (!_.has(nodes, source)) nodes[source] = nodeCnt++;
+                if (!_.has(nodes, target)) nodes[target] = nodeCnt++;
+
+                links.push({sourceName: source, targetName: target});
+                if (reverse)
+                    links.push({sourceName: target, targetName: source});
             }
-
-            var source = sourceTarget[0].trim(),
-                target = sourceTarget[1].trim();
-
-            if (source.endsWith('<')){
-                reverse = true;
-                source = source.substring(0, source.length-1).trim();
-            }
-            if (!_.has(nodes, source)) nodes[ source ] = nodeCnt++;//{"name":""+nodeCnt,"ref":source,"width":50,"height":50};
-            if (!_.has(nodes, target)) nodes[ target ] = nodeCnt++;//{"name":""+nodeCnt++,"ref":target,"width":50,"height":50};
-
-            links.push( {sourceName: source, targetName: target} );
-            if (reverse)
-                links.push( {sourceName: target, targetName: source} );
         });
 
         // LINES
@@ -72,11 +81,7 @@ ContextDiagramUtils = function () {
             nodeArray.push( {"name":""+nodes[nodeName],"ref":nodeName,"width":50,"height":50} );
         });
 
-        //console.log(JSON.stringify(nodes));
-        //_.each(links, function(link, index){
-        //    console.log('['+index+']='+JSON.stringify(link));
-        //});
-        console.log(JSON.stringify({nodes: nodeArray, links: links}));
+        //console.log(JSON.stringify({nodes: nodeArray, links: links}));
         return {nodes: nodeArray, links: links};
     };
 

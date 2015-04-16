@@ -1,7 +1,7 @@
 var diagram_id;
 //var graph;
 var reactiveDict = new ReactiveDict();
-var _setIntervalID;
+var _setIntervalID, _setTimeoutID;
 var _dirty = true;
 var _saved = true;
 var setDirty = function(dirty){
@@ -63,15 +63,10 @@ Template.ctxDgm.created = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.destroyed = function() {
     Meteor.clearTimeout( _setIntervalID );
+    Meteor.clearTimeout( _setTimeoutID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.events({
-    'click #centerID': function(e){
-        e.preventDefault();
-        //graph.center_view();
-        //$('#d3_selectable_force_directed_graph').focus();
-    },
-    ////////////////////////////
     'click .display-link': function(e){
         e.preventDefault();
         var source = $(e.currentTarget).data('source');
@@ -104,7 +99,7 @@ Template.ctxDgm.events({
         adjustTextArea( $(e.target) );
 
         if (isDirty() && e.which == 13) {
-            drawDiagram($(e.target).val(), false, true);
+            drawDiagram(null);
             setDirty(false);
             setSaved(false);
         } else if (e.which != 13) {
@@ -120,7 +115,7 @@ Template.ctxDgm.events({
     },
     'click #redrawBtnID': function(e) {
         e.preventDefault();
-        drawDiagram(null, true, true);
+        drawDiagram(null);
     },
     'click #saveBtnID': function(e) {
         actions.save(e, this);
@@ -148,48 +143,45 @@ Template.ctxDgm.rendered = function() {
     reactiveDict.set('typeaheadTags', []);
 
     $('#saveBtnID').addClass('disabled');
+    $('#redrawBtnID').addClass('disabled');
 
     // Draw first
     //$(graphSelector).html('');
-    Meteor.setTimeout(function(){
-        drawDiagram({
-            width: $('#test').width(),
-            height: 350,
-            graphSelector: '#svg-div'
-        });
-        setDirty(false);
-        adjustTextArea($('#codeID'));
+    _setTimeoutID = Meteor.setTimeout(function(){
+        setDirty(true);
+        drawDiagram(null);
     }, 200);
 
     // redraw every n-seconds
     _setIntervalID = Meteor.setInterval(function(){
-        drawDiagram({
-            width: $('#test').width(),
-            height: 350,
-            graphSelector: '#svg-div'
-        });
-        setDirty(false);
-        adjustTextArea($('#codeID'));
+        drawDiagram(null);
     }, 3000);
 };
 var drawDiagram = function(options){
-    var graph;
     if (!isDirty()) return false;
-    var width = options.width || 700,
-        height = options.height || 350,
-        graphSelector = options.graphSelector || '#svg-div',
-        showParseErr = options.catchParseErr || false;
+    var graph;
+    options = options || {};
+    _.extend(options, {
+        width: options.width || $('#test').width(),
+        height: options.height || 350,
+        graphSelector: options.graphSelector || '#svg-div',
+        showParseErr: options.catchParseErr || false
+    });
 
     try {
-        graph = ContextDiagramUtils.parseCode( $('#codeID').get(0), showParseErr );
+        graph = ContextDiagramUtils.parseCode( $('#codeID').get(0), options.showParseErr );
     } catch (err){
-        if (showParseErr)
+        if (options.showParseErr)
             throwError(err);
         return false;
     }
-    $(graphSelector).html('');
+    $(options.graphSelector).html('');
 
     FlatGraph(graph, options);
+
+    adjustTextArea($('#codeID'));
+    $('#redrawBtnID').addClass('disabled');
+    setDirty(false);
 };
 var doGraph = function(graph, options){
 
