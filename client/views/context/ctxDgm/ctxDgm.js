@@ -55,6 +55,9 @@ Template.ctxDgm.helpers({
         options.diagram_id = this._id;
 
         return options;
+    },
+    legend: function(){
+        return reactiveDict.get('legend');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -170,6 +173,7 @@ var drawDiagram = function(options){
 
     try {
         graph = ContextDiagramUtils.parseCode( $('#codeID').get(0), options.showParseErr );
+        reactiveDict.set('legend', graph.nodes);
     } catch (err){
         if (options.showParseErr)
             throwError(err);
