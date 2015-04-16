@@ -102,7 +102,6 @@ Template.ctxDgmView.rendered = function() {
 
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
     }, 200);
-    console.log($('#ctxDgmPage').height());
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 var actions = function () {

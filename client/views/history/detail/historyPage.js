@@ -1,3 +1,4 @@
+var _setTimeoutID;
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.helpers({
     canEdit: function(){
@@ -5,6 +6,9 @@ Template.historyPage.helpers({
     },
     actionDesc: function(){
         return Historys.actionDescription(this);
+    },
+    isCtxDgm: function(){
+        return this.doc.type == 'ctx';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -14,6 +18,7 @@ Template.historyPage.created = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.destroyed = function() {
     historySearchForm.setDocId(null);
+    Meteor.clearTimeout( _setTimeoutID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.events({
@@ -42,19 +47,57 @@ Template.historyPage.events({
                 });
             }
         });
+    },
+    'mouseenter #context-help, mouseenter #powergraph-help': function(e) {
+        e.preventDefault();
+        $(e.currentTarget).popover('show');
+    },
+    'mouseleave #context-help, mouseleave #powergraph-help': function(e) {
+        e.preventDefault();
+        $(e.currentTarget).popover('hide');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.rendered = function() {
+    $('#context-help').popover({
+        title: 'Context Diagram Help'
+        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
+        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,placement: 'right'
+        ,html: true
+    });
+    $('#powergraph-help').popover({
+        title: 'Summary Diagram Help'
+        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram.  Sometimes you need to jerk them to a good spot to uncross lines.</li>' +
+        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,placement: 'right'
+        ,html: true
+    });
+
     var doc = this.data.doc;
 
-    try {
-        var options = {theme: doc.style};
-        var diagram = Diagram.parse( doc.code );
-        $('#diagram').html('');
-        diagram.drawSVG('diagram', options);
-    } catch (err) {
-        throwError("Sorry, I cannot understand your diagram text");
+    if (doc.type == 'ctx'){
+        _setTimeoutID = Meteor.setTimeout(function(){
+            var graph = ContextDiagramUtils.parseCode( doc.code, true );
+            var options = {
+                width: $('#context-div').width(),
+                height: 500,
+                graphSelector: '#context',
+                showParseErr: true
+            };
+            FlatGraph(graph, options);
+
+            PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
+        }, 200);
+    }else {
+        try {
+            var options = {theme: doc.style};
+            var diagram = Diagram.parse(doc.code);
+            $('#diagram').html('');
+            diagram.drawSVG('diagram', options);
+        } catch (err) {
+            throwError("Sorry, I cannot understand your diagram text");
+        }
     }
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
