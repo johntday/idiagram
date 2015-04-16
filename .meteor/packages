@@ -29,11 +29,9 @@ alethes:pages
 matb33:collection-hooks
 # ----------------------------------
 # UI
-#johntday:network
 d3js:d3
+#johntday:colontest
 johntday:colon
-#johntday:selectableforcegraph
-#johntday:graphdirectedit
 # ----------------------------------
 # ----------------------------------
 # REACTIVE UTILS
