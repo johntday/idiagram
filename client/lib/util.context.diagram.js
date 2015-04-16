@@ -85,5 +85,17 @@ ContextDiagramUtils = function () {
         return {nodes: nodeArray, links: links};
     };
 
+    oPublic.cloneGraph = function(graph){
+        var pgraph = {nodes:[], links:[]};
+        _.each(graph.nodes, function(node){
+            pgraph.nodes.push(_.clone(node));
+        });
+        _.each(graph.links, function(link){
+            pgraph.links.push(_.clone(link));
+        });
+        return pgraph;
+    };
+
+
     return oPublic;
 }();

@@ -69,11 +69,15 @@ Template.ctxDgmView.rendered = function() {
 
     _setTimeoutID = Meteor.setTimeout(function(){
         var graph = ContextDiagramUtils.parseCode( code, true );
-        FlatGraph(graph, {
+        var options = {
             width: $('#test').width(),
             height: 350,
-            graphSelector: '#svg-div'
-        });
+            graphSelector: '#context',
+            showParseErr: true
+        };
+        FlatGraph(graph, options);
+
+        PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
     }, 200);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
