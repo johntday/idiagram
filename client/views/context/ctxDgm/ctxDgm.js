@@ -136,13 +136,13 @@ Template.ctxDgm.events({
         var $info = $('#info');
         $info.toggle('slow');
     },
-    'mouseenter #context-help': function(e) {
+    'mouseenter #context-help, mouseenter #powergraph-help': function(e) {
         e.preventDefault();
-        $(e.currentTarget).tooltip('show');
+        $(e.currentTarget).popover('show');
     },
-    'mouseleave #context-help': function(e) {
+    'mouseleave #context-help, mouseleave #powergraph-help': function(e) {
         e.preventDefault();
-        $(e.currentTarget).tooltip('hide');
+        $(e.currentTarget).popover('hide');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -160,9 +160,17 @@ Template.ctxDgm.rendered = function() {
 
     $('#saveBtnID').addClass('disabled');
     $('#redrawBtnID').addClass('disabled');
-    $('#context-help').tooltip({
-        title: '<strong>Context Diagram Help</strong><ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
+    $('#context-help').popover({
+        title: 'Context Diagram Help'
+        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
             '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,placement: 'right'
+        ,html: true
+    });
+    $('#powergraph-help').popover({
+        title: 'Summary Diagram Help'
+        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram.  Sometimes you need to jerk them to a good spot to uncross lines.</li>' +
+        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
         ,placement: 'right'
         ,html: true
     });
