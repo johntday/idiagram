@@ -135,6 +135,14 @@ Template.ctxDgm.events({
         e.preventDefault();
         var $info = $('#info');
         $info.toggle('slow');
+    },
+    'mouseenter #context-help': function(e) {
+        e.preventDefault();
+        $(e.currentTarget).tooltip('show');
+    },
+    'mouseleave #context-help': function(e) {
+        e.preventDefault();
+        $(e.currentTarget).tooltip('hide');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -152,6 +160,12 @@ Template.ctxDgm.rendered = function() {
 
     $('#saveBtnID').addClass('disabled');
     $('#redrawBtnID').addClass('disabled');
+    $('#context-help').tooltip({
+        title: '<strong>Context Diagram Help</strong><ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
+            '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,placement: 'right'
+        ,html: true
+    });
 
     // Draw first
     _setTimeoutID = Meteor.setTimeout(function(){
