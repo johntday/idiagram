@@ -110,6 +110,11 @@ Template.ctxDgm.events({
             setSaved(true);
         }
     },
+    'keyup #titleID': function(e) {
+        e.preventDefault();
+        setDirty(false);
+        setSaved(true);
+    },
     'click #privateID': function(e) {
         setSaved(true);
     },
@@ -164,8 +169,8 @@ var drawDiagram = function(options){
     var graph;
     options = options || {};
     _.extend(options, {
-        width: $('#test').width(),
-        height: 350,
+        width: $('#context-div').width(),
+        height: 500,
         graphSelector: '#context',
         showParseErr: options.catchParseErr || false
     });

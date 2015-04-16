@@ -1,5 +1,5 @@
 <template name="ctxDgmView">
-    {{> topPanel}}
+    <!--{{> topPanel}}-->
 
     <div id="ctxDgmPage" class="page">
         <div class="content">
@@ -48,13 +48,17 @@
 
                 <hr>
 
-                <h3>Context Diagram</h3>
-                <div id="context"></div>
-                <h3>Summary Diagram</h3>
-                <div id="powergraph"></div>
-
                 {{> ctxDgmInfo}}
 
+            </div>
+
+            <div id="context-div" class="col col-md-6">
+                <h3>Context Diagram</h3>
+                <div id="context"></div>
+            </div>
+            <div id="powergraph-div" class="col col-md-6">
+                <h3>Summary Diagram</h3>
+                <div id="powergraph"></div>
             </div>
         </div>
     </div>

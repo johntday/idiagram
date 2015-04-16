@@ -70,8 +70,8 @@ Template.ctxDgmView.rendered = function() {
     _setTimeoutID = Meteor.setTimeout(function(){
         var graph = ContextDiagramUtils.parseCode( code, true );
         var options = {
-            width: $('#test').width(),
-            height: 350,
+            width: $('#context-div').width(),
+            height: 500,
             graphSelector: '#context',
             showParseErr: true
         };
@@ -79,6 +79,7 @@ Template.ctxDgmView.rendered = function() {
 
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
     }, 200);
+    console.log($('#ctxDgmPage').height());
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 var actions = function () {
