@@ -136,11 +136,11 @@ Template.ctxDgm.events({
         var $info = $('#info');
         $info.toggle('slow');
     },
-    'mouseenter #context-help, mouseenter #powergraph-help': function(e) {
+    'mouseenter #context-help, mouseenter #powergraph-help, mouseenter #lines-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('show');
     },
-    'mouseleave #context-help, mouseleave #powergraph-help': function(e) {
+    'mouseleave #context-help, mouseleave #powergraph-help, mouseleave #lines-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('hide');
     }
@@ -174,6 +174,15 @@ Template.ctxDgm.rendered = function() {
         ,placement: 'right'
         ,html: true
     });
+    $('#lines-help').popover({
+        title: 'Lines Help'
+        ,content: '<table class="table table-striped table-condensed table-bordered"><tbody>'+
+            '<tr><td>Line from A to B</td><td>A<kbd>-></kbd>B</td></tr>'+
+            '<tr><td>Bidirectional line</td><td>A<kbd><-></kbd>B</td></tr>'+
+            '</tbody></table>'
+        ,placement: 'right'
+        ,html: true
+    });
 
     // Draw first
     _setTimeoutID = Meteor.setTimeout(function(){
@@ -182,13 +191,13 @@ Template.ctxDgm.rendered = function() {
     }, 200);
 
     // redraw every n-seconds
-    _setIntervalID = Meteor.setInterval(function(){
-        drawDiagram(null);
-    }, 3000);
+    //_setIntervalID = Meteor.setInterval(function(){
+    //    drawDiagram(null);
+    //}, 3000);
 };
 var drawDiagram = function(options){
     if (!isDirty()) return false;
-    var graph;
+    var graph, $code = $('#codeID');
     options = options || {};
     _.extend(options, {
         width: $('#context-div').width(),
@@ -201,7 +210,7 @@ var drawDiagram = function(options){
     $(poptions.graphSelector).html('');
 
     try {
-        graph = ContextDiagramUtils.parseCode( $('#codeID').get(0), options.showParseErr );
+        graph = ContextDiagramUtils.parseCode( $code.get(0), options.showParseErr );
         reactiveDict.set('legend', graph.nodes);
         FlatGraph(graph, options);
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), poptions);
@@ -211,9 +220,10 @@ var drawDiagram = function(options){
         return false;
     }
 
-    adjustTextArea($('#codeID'));
+    adjustTextArea($code);
     $('#redrawBtnID').addClass('disabled');
     setDirty(false);
+    $code.focus();
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 var actions = function () {
