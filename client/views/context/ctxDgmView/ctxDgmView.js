@@ -59,41 +59,19 @@ Template.ctxDgmView.events({
     },
     'click #deleteBtnID': function(e) {
         actions.delete(e, this);
-    },
-    'mouseenter #context-help, mouseenter #powergraph-help': function(e) {
-        e.preventDefault();
-        $(e.currentTarget).popover('show');
-    },
-    'mouseleave #context-help, mouseleave #powergraph-help': function(e) {
-        e.preventDefault();
-        $(e.currentTarget).popover('hide');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgmView.rendered = function() {
     $('#info').hide();
     $("form").submit(function() { return false; });
-    $('#context-help').popover({
-        title: 'Context Diagram Help'
-        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
-        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
-        ,placement: 'right'
-        ,html: true
-    });
-    $('#powergraph-help').popover({
-        title: 'Summary Diagram Help'
-        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram.  Sometimes you need to jerk them to a good spot to uncross lines.</li>' +
-        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
-        ,placement: 'right'
-        ,html: true
-    });
 
     var code = this.data.code;
 
     _setTimeoutID = Meteor.setTimeout(function(){
         var graph = ContextDiagramUtils.parseCode( code, true );
         var options = {
-            width: $('#context-div').width(),
+            width: $('#test').width(),
             height: 500,
             graphSelector: '#context',
             showParseErr: true
@@ -101,6 +79,8 @@ Template.ctxDgmView.rendered = function() {
         FlatGraph(graph, options);
 
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
+
+        DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#dotpowergraph'})));
     }, 200);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/

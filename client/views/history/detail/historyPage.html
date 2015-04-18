@@ -4,7 +4,7 @@
     <div id="historyPage" class="page">
         <div class="content">
 
-            <div class="col col-md-12">
+            <div id="test" class="col col-md-12">
                 <div class="padded">
                     {{#if canEdit}}
                         <a id="restoreBtnID" class="btn btn-primary" href="#" title="Restore diagram"> <i class="fa fa-refresh pull-left"></i> Restore</a>
@@ -17,24 +17,9 @@
 
                     <hr>
                     {{#if isCtxDgm}}
-                    <div id="context-div" class="col col-md-6">
-                        <h4 style="margin-top: -5px">Context Diagram
-                            <a id="context-help">
-                                <i class="fa fa-question-circle"></i>
-                            </a>
-                        </h4>
-                        <div id="context"></div>
-                    </div>
-                    <div id="powergraph-div" class="col col-md-6">
-                        <h4 style="margin-top: -5px">Summary Diagram
-                            <a id="powergraph-help">
-                                <i class="fa fa-question-circle"></i>
-                            </a>
-                        </h4>
-                        <div id="powergraph"></div>
-                    </div>
+                        {{>_ctxDgm}}
                     {{else}}
-                    <div id="diagram"></div>
+                        <div id="diagram"></div>
                     {{/if}}
                 </div>
             </div>
