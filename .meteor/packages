@@ -30,8 +30,8 @@ matb33:collection-hooks
 # ----------------------------------
 # UI
 d3js:d3
-#johntday:colontest
 johntday:colon
+#johntday:colontest
 # ----------------------------------
 # ----------------------------------
 # REACTIVE UTILS
