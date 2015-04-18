@@ -65,7 +65,7 @@ Template.ctxDgm.created = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.destroyed = function() {
-    Meteor.clearTimeout( _setIntervalID );
+    //Meteor.clearInterval( _setIntervalID );
     Meteor.clearTimeout( _setTimeoutID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -136,13 +136,19 @@ Template.ctxDgm.events({
         var $info = $('#info');
         $info.toggle('slow');
     },
-    'mouseenter #context-help, mouseenter #powergraph-help, mouseenter #lines-help': function(e) {
+    'mouseenter #context-help, mouseenter #powergraph-help, mouseenter #dotpowergraph-help, mouseenter #lines-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('show');
     },
-    'mouseleave #context-help, mouseleave #powergraph-help, mouseleave #lines-help': function(e) {
+    'mouseleave #context-help, mouseleave #powergraph-help, mouseleave #dotpowergraph-help, mouseleave #lines-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('hide');
+    },
+    'click .scroll-top': function(e){
+        CommonClient.scrollToTopOfPageFast();
+    },
+    'click .scroll-to': function(e){
+        CommonClient.scrollToBottomOfPageFast( '#'+$(e.currentTarget).data('where') );
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -162,15 +168,32 @@ Template.ctxDgm.rendered = function() {
     $('#redrawBtnID').addClass('disabled');
     $('#context-help').popover({
         title: 'Context Diagram Help'
-        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram</li>' +
-            '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,content: '<table class="table table-striped table-condensed table-bordered"><tbody>'+
+        '<tr><td><u>Drag nodes</u> to re-jigger the diagram.</td></tr>'+
+        '<tr><td><u>Double-click</u> to re-center diagram</td></tr>' +
+        '<tr><td>Use <u>mouse-wheel</u> to zoom-in and out</td></tr>'+
+        '</tbody></table>'
+
         ,placement: 'right'
         ,html: true
     });
     $('#powergraph-help').popover({
         title: 'Summary Diagram Help'
-        ,content: '<ul><li><u>Drag nodes</u> to re-jigger the diagram.  Sometimes you need to jerk them to a good spot to uncross lines.</li>' +
-        '<li><u>Double-click</u> to re-center diagram</li><li>Use <u>mouse-wheel</u> to zoom-in and out</li></ul>'
+        ,content: '<table class="table table-striped table-condensed table-bordered"><tbody>'+
+        '<tr><td><u>Drag nodes</u> to re-jigger the diagram.  Sometimes you need to jerk them to a good spot to uncross lines.</td></tr>'+
+        '<tr><td><u>Double-click</u> to re-center diagram</td></tr>' +
+        '<tr><td>Use <u>mouse-wheel</u> to zoom-in and out</td></tr>'+
+        '</tbody></table>'
+        ,placement: 'right'
+        ,html: true
+    });
+    $('#dotpowergraph-help').popover({
+        title: 'Grid Diagram Help'
+        ,content: '<table class="table table-striped table-condensed table-bordered"><tbody>'+
+        '<tr><td><u>Drag nodes</u> is broken</td></tr>'+
+        '<tr><td><u>Double-click</u> is broken</td></tr>'+
+        '<tr><td>Use <u>mouse-wheel</u> is broken</td></tr>'+
+        '</tbody></table>'
         ,placement: 'right'
         ,html: true
     });
@@ -197,23 +220,26 @@ Template.ctxDgm.rendered = function() {
 };
 var drawDiagram = function(options){
     if (!isDirty()) return false;
-    var graph, $code = $('#codeID');
+    var graph, $code = $('#codeID'), diagramType = reactiveDict.get('diagramType');
     options = options || {};
     _.extend(options, {
         width: $('#context-div').width(),
         height: 500,
         graphSelector: '#context',
-        showParseErr: options.catchParseErr || false
+        showParseErr: options.catchParseErr || true
     });
     var poptions = _.extend(_.clone(options), {graphSelector: '#powergraph'});
+    var doptions = _.extend(_.clone(options), {graphSelector: '#dotpowergraph'});
     $(options.graphSelector).html('');
     $(poptions.graphSelector).html('');
+    $(doptions.graphSelector).html('');
 
     try {
         graph = ContextDiagramUtils.parseCode( $code.get(0), options.showParseErr );
         reactiveDict.set('legend', graph.nodes);
         FlatGraph(graph, options);
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), poptions);
+        DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), doptions));
     } catch (err){
         if (options.showParseErr)
             throwError(err);

@@ -7,20 +7,6 @@ ContextDiagramUtils = function () {
     //    "links":[
     //    {"source":0,"target":1},
 
-    oPublic.getLinks = function(data){
-        if (!data || !data.links || !data.nodes || !Match.test(data.links, [Match.Any]) || !Match.test(data.nodes, [Match.Any])) {
-            console.log('Problem with data.links: ' + data);
-            return [];
-        }
-
-        var links = [];
-        _.each(data.links, function(link, index){
-            links.push(_.extend(link, {sourceName: data.nodes[link.source].ref, targetName: data.nodes[link.target].ref}) );
-        });
-
-        return links;
-    };
-
     /**
      * Parse input.
      * @param tarea String OR textArea element.
@@ -83,6 +69,31 @@ ContextDiagramUtils = function () {
 
         //console.log(JSON.stringify({nodes: nodeArray, links: links}));
         return {nodes: nodeArray, links: links};
+    };
+
+    oPublic.transformToDigraph = function(graph){
+        //digraph G {
+        //    u0[label = "0"];
+        //    u0 -> u25[label = "()"];
+        //}
+        var output = 'digraph G {\n';
+        _.each(graph.nodes, function(node){
+            output += 'u';
+            output += node.name;
+            output += '[label="';
+            output += node.ref;
+            output += '"];\n'
+        });
+        _.each(graph.links, function(link){
+            output += 'u';
+            output += link.source.name;
+            output += '->u';
+            output += link.target.name;
+            output += '[label = "()"];\n'
+        });
+        output += '}';
+        //console.log(output);
+        return output;
     };
 
     oPublic.cloneGraph = function(graph){

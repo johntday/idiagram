@@ -30,7 +30,7 @@ CommonClient = function () {
      * Scroll to bottom of page animated FAST
      */
     oPublic.scrollToBottomOfPageFast = function (selector, animationSpeed) {
-        animationSpeed = (animationSpeed) ? animationSpeed : 1000;
+        animationSpeed = (animationSpeed) ? animationSpeed : 200;
         if (selector)
             $("html, body").animate({scrollTop: $(selector).offset().top - 60}, animationSpeed);
     };
