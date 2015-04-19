@@ -52,10 +52,10 @@ Template._ctxDgm.rendered = function() {
     $('#dotpowergraph-help').popover({
         title: 'Grid Diagram Help'
         ,content: '<table class="table table-striped table-condensed table-bordered"><tbody>'+
-        '<tr><td><u>Drag nodes</u> is broken</td></tr>'+
-        '<tr><td><u>Drag background</u> is broken</td></tr>'+
-        '<tr><td><u>Double-click</u> is broken</td></tr>'+
-        '<tr><td>Use <u>mouse-wheel</u> is broken</td></tr>'+
+        '<tr><td>Sorry, <u>Drag nodes</u> is broken</td></tr>'+
+        '<tr><td>Sorry, <u>Drag background</u> is broken</td></tr>'+
+        '<tr><td>Sorry, <u>Double-click</u> is broken</td></tr>'+
+        '<tr><td>Sorry, <u>mouse-wheel</u> is broken</td></tr>'+
         '</tbody></table>'
         ,placement: 'right'
         ,html: true

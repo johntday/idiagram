@@ -1,5 +1,6 @@
 var _setTimeoutID;
 var code;
+var reactiveDict = new ReactiveDict();
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgmView.helpers({
     star: function(){
@@ -10,6 +11,10 @@ Template.ctxDgmView.helpers({
     },
     hasTags: function(){
         return Diagrams.hasTags(this);
+    },
+    nodes: function(){
+        console.log('nodes='+reactiveDict.get('nodes'));
+        return reactiveDict.get('nodes');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -70,6 +75,7 @@ Template.ctxDgmView.rendered = function() {
 
     _setTimeoutID = Meteor.setTimeout(function(){
         var graph = ContextDiagramUtils.parseCode( code, true );
+        reactiveDict.set('nodes', graph.nodes);
         var options = {
             width: $('#test').width(),
             height: 500,

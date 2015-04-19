@@ -55,8 +55,8 @@ Template.ctxDgm.helpers({
 
         return options;
     },
-    legend: function(){
-        return reactiveDict.get('legend');
+    nodes: function(){
+        return reactiveDict.get('nodes');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -190,7 +190,7 @@ var drawDiagram = function(options){
 
     try {
         graph = ContextDiagramUtils.parseCode( $code.get(0), options.showParseErr );
-        reactiveDict.set('legend', graph.nodes);
+        reactiveDict.set('nodes', graph.nodes);
         FlatGraph(graph, options);
         PowerGraph(ContextDiagramUtils.cloneGraph(graph), poptions);
         DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), doptions));

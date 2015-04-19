@@ -61,21 +61,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <label for="legendID" class="control-label">Nodes</label>
-                                    <table id="legendID" class="table table-striped table-condensed table-bordered">
-                                        <tbody>
-                                        {{#each legend}}
-                                            <tr>
-                                                <th scope="row">{{name}}</th>
-                                                <td>{{ref}}</td>
-                                            </tr>
-                                        {{/each}}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -85,7 +70,7 @@
             </div>
 
             <div id="context-div" class="col col-md-{{diagramWidth}}">
-                {{>_ctxDgm}}
+                {{>_ctxDgm nodes=nodes}}
             </div>
         </div>
     </div>
