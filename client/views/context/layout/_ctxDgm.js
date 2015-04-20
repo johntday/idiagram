@@ -9,11 +9,11 @@ Template._ctxDgm.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template._ctxDgm.events({
-    'mouseenter #context-help, mouseenter #powergraph-help, mouseenter #dotpowergraph-help, mouseenter #lines-help': function(e) {
+    'mouseenter #context-help, mouseenter #powergraph-help, mouseenter #dotpowergraph-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('show');
     },
-    'mouseleave #context-help, mouseleave #powergraph-help, mouseleave #dotpowergraph-help, mouseleave #lines-help': function(e) {
+    'mouseleave #context-help, mouseleave #powergraph-help, mouseleave #dotpowergraph-help': function(e) {
         e.preventDefault();
         $(e.currentTarget).popover('hide');
     },

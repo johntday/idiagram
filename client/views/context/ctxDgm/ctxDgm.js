@@ -134,6 +134,14 @@ Template.ctxDgm.events({
         e.preventDefault();
         var $info = $('#info');
         $info.toggle('slow');
+    },
+    'mouseenter #lines-help': function (e) {
+        e.preventDefault();
+        $(e.currentTarget).popover('show');
+    },
+    'mouseleave #lines-help': function (e) {
+        e.preventDefault();
+        $(e.currentTarget).popover('hide');
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
