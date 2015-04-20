@@ -1,35 +1,26 @@
 <template name="cheatSheet">
+    <p>Put each statement on a separate line.  No, hyphens in names.</p>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            Cheat Sheet
-        </div>
-        <div class="panel-body">
+    <h4>Title</h4>
+    <p><kbd>title:</kbd> My title</p>
 
-            <p>Put each statement on a separate line.  No, hyphens in names.</p>
+    <h4>Calls</h4>
+    <p>A<kbd>-></kbd>B<kbd>:</kbd> my message</p>
+    <p>B<kbd>--></kbd>A<kbd>:</kbd> my return message</p>
 
-            <h4>Title</h4>
-            <p><kbd>title:</kbd> My title</p>
+    <h4>Notes</h4>
+    <p><kbd>note over</kbd>A<kbd>:</kbd> note over A</p>
+    <p><kbd>note over</kbd>A,B<kbd>:</kbd> note over A and B</p>
+    <p><kbd>note left of</kbd>A<kbd>:</kbd> note left of A</p>
+    <p><kbd>note right of</kbd>B<kbd>:</kbd> note right of B</p>
 
-            <h4>Calls</h4>
-            <p>A<kbd>-></kbd>B<kbd>:</kbd> my message</p>
-            <p>B<kbd>--></kbd>A<kbd>:</kbd> my return message</p>
+    <h4>Multi-Line Text</h4>
+    <p>For multiple lines, separate each line with <mark>\n</mark> (new line char).</p>
+    <p>A<kbd>-></kbd>B<kbd>:</kbd> line1<mark>\n</mark>line2</p>
+    <p><kbd>note over</kbd>B<kbd>:</kbd> line1<mark>\n</mark>line2</p>
 
-            <h4>Notes</h4>
-            <p><kbd>note over</kbd>A<kbd>:</kbd> note over A</p>
-            <p><kbd>note over</kbd>A,B<kbd>:</kbd> note over A and B</p>
-            <p><kbd>note left of</kbd>A<kbd>:</kbd> note left of A</p>
-            <p><kbd>note right of</kbd>B<kbd>:</kbd> note right of B</p>
-
-            <h4>Multi-Line Text</h4>
-            <p>For multiple lines, separate each line with <mark>\n</mark> (new line char).</p>
-            <p>A<kbd>-></kbd>B<kbd>:</kbd> line1<mark>\n</mark>line2</p>
-            <p><kbd>note over</kbd>B<kbd>:</kbd> line1<mark>\n</mark>line2</p>
-
-            <hr>
-            <p class="small">Required syntax is <kbd>marked</kbd></p>
-            <p class="small">new line char shown as <mark>\n</mark></p>
-            <a href="/uid/simple">show this example</a>
-        </div>
-    </div>
+    <hr>
+    <p class="small">Required syntax is <kbd>marked</kbd></p>
+    <p class="small">new line char shown as <mark>\n</mark></p>
+    <a href="/uid/simple">show this example</a>
 </template>

@@ -61,11 +61,13 @@ Template.ctxDgm.helpers({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.created = function() {
+    historySearchForm.setDocId(this.data._id);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.destroyed = function() {
     //Meteor.clearInterval( _setIntervalID );
     Meteor.clearTimeout( _setTimeoutID );
+    historySearchForm.setDocId(null);
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.ctxDgm.events({
