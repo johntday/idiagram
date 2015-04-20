@@ -13,7 +13,6 @@ Template.ctxDgmView.helpers({
         return Diagrams.hasTags(this);
     },
     nodes: function(){
-        console.log('nodes='+reactiveDict.get('nodes'));
         return reactiveDict.get('nodes');
     }
 });
