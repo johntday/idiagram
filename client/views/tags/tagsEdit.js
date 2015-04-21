@@ -55,13 +55,13 @@ Template.tagsEdit.events({
             reactiveDict.set('typeaheadTags', null);
         } else {
             var searchText = $('#inputTagID').val();
-            var showableTags = _.difference(self.options.allTags, self.tags);
             if (!searchText) {
-                reactiveDict.set('typeaheadTags', showableTags);
+                reactiveDict.set('typeaheadTags', null);
                 return;
             }
             // user settings for regex - RegExp.escape, startsWith
             searchText = RegExp.escape(searchText);
+            var showableTags = _.difference(self.options.allTags, self.tags);
             if (showableTags) {
                 var items = [];
                 _.each(showableTags, function (tag) {
