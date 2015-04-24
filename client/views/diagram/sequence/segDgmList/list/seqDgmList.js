@@ -42,7 +42,7 @@ var doFilter = function(){
     var sort = {};
     sort[sortBy] = sortDir;
 
-    console.log('query='+JSON.stringify(filters));
+    //console.log('query='+JSON.stringify(filters));
     //console.log('sort='+JSON.stringify(sort));
 
     // RUN
