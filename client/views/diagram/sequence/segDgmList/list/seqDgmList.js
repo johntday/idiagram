@@ -32,7 +32,7 @@ var doFilter = function(){
         filters.private = false;
     if (hideOtherPublic)
         filters.userId = Meteor.userId();
-    else if (isAdmin(Meteor.user())) {
+    else if (!isAdmin(Meteor.user())) {
         filters.$or = [{userId: Meteor.userId()}, {private: false}];
     }
     if ( diagramSearchForm['reactiveDict'].get('tags') && diagramSearchForm['reactiveDict'].get('tags').length != 0 ) {
@@ -42,7 +42,7 @@ var doFilter = function(){
     var sort = {};
     sort[sortBy] = sortDir;
 
-    //console.log('query='+JSON.stringify(filters));
+    console.log('query='+JSON.stringify(filters));
     //console.log('sort='+JSON.stringify(sort));
 
     // RUN
