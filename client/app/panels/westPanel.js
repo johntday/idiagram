@@ -12,10 +12,6 @@ Template.westPanel.destroyed = function() {
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.westPanel.events({
-    'click #westLeftArrowBtnID': function(e){
-        e.preventDefault();
-        toggleWestPanel();
-    },
     'change #westPanelID': function(e){
         e.preventDefault();
         westPanelForm.set('template', $(e.currentTarget).val());
