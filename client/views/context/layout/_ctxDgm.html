@@ -1,42 +1,47 @@
 <template name="_ctxDgm">
-    <h4>Context Diagram
-        <a id="context-help">
-            <i class="fa fa-question-circle"></i>
-        </a>
-        &middot; <a href="#" class="scroll-to" data-where="powergraph-help" title="Scroll to Summary Diagram">Summary Diagram</a>
-        &middot; <a href="#" class="scroll-to" data-where="dotpowergraph-help" title="Scroll to Grid Diagram">Grid Diagram</a>
-    </h4>
-    <div id="context"></div>
-    <h4><a href="#" class="scroll-top" title="Scroll to Context Diagram">Context Diagram</a>
-        &middot; Summary Diagram
-        <a id="powergraph-help">
-            <i class="fa fa-question-circle"></i>
-        </a>
-        &middot; <a href="#" class="scroll-to" data-where="dotpowergraph-help" title="Scroll to Grid Diagram">Grid Diagram</a>
-    </h4>
-    <div id="powergraph"></div>
-    <h4><a href="#" class="scroll-top" title="Scroll to Context Diagram">Context Diagram</a>
-        &middot; <a href="#" class="scroll-to" data-where="powergraph-help" title="Scroll to Summary Diagram">Summary Diagram</a>
-        &middot; Grid Diagram
-        <a id="dotpowergraph-help">
-            <i class="fa fa-question-circle"></i>
-        </a>
-    </h4>
-    <div class="col col-md-10">
-        <div id="dotpowergraph"></div>
-    </div>
-    <div class="col col-md-2">
-        <h4>Legend</h4>
-        <table class="table table-striped table-condensed table-bordered">
-            <tbody>
-            {{#each nodes}}
-                <tr>
-                    <th scope="row">{{name}}</th>
-                    <td>{{ref}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#contextTab" aria-controls="contextTab" role="tab" data-toggle="tab">Context Diagram</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Summary Diagram</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Grid Diagram</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="contextTab">
+            <div id="context"></div>
+            <h4><a id="context-help">
+                <i class="fa fa-question-circle"></i>
+            </a></h4>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div id="powergraph"></div>
+            <h4><a id="powergraph-help">
+                <i class="fa fa-question-circle"></i>
+            </a></h4>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <div class="col col-md-10">
+                <div id="dotpowergraph"></div>
+            </div>
+            <div class="col col-md-2">
+                <h4>Legend
+                    <a id="dotpowergraph-help">
+                        <i class="fa fa-question-circle"></i>
+                    </a>
+                </h4>
+                <table class="table table-striped table-condensed table-bordered">
+                    <tbody>
+                    {{#each nodes}}
+                        <tr>
+                            <th scope="row">{{name}}</th>
+                            <td>{{ref}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 </template>

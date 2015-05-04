@@ -42,7 +42,7 @@
   "alert":                true,
   "collapse":             false,
   "scrollspy":            false,
-  "tab":                  false,
+  "tab":                  true,
   "transition":           true,
 
   "utilities":            false,
