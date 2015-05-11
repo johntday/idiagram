@@ -184,6 +184,7 @@ Template.ctxDgm.rendered = function() {
 };
 var drawDiagram = function(options){
     if (!isDirty()) return false;
+    $('a[href="#contextTab"]').tab('show')
     var graph, $code = $('#codeID'), diagramType = reactiveDict.get('diagramType');
     options = options || {};
     _.extend(options, {
@@ -202,7 +203,6 @@ var drawDiagram = function(options){
         graph = ContextDiagramUtils.parseCode( $code.get(0), options.showParseErr );
         reactiveDict.set('nodes', graph.nodes);
         FlatGraph(graph, options);
-        PowerGraph(ContextDiagramUtils.cloneGraph(graph), poptions);
         DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), doptions));
     } catch (err){
         if (options.showParseErr)

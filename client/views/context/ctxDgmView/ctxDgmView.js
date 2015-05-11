@@ -83,8 +83,6 @@ Template.ctxDgmView.rendered = function() {
         };
         FlatGraph(graph, options);
 
-        PowerGraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#powergraph'}));
-
         DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#dotpowergraph'})));
     }, 200);
 };
