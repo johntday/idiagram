@@ -102,14 +102,14 @@ Template.ctxDgm.events({
         e.preventDefault();
         adjustTextArea( $(e.target) );
 
-        if (isDirty() && e.which == 13) {
-            drawDiagram(null);
-            setDirty(false);
-            setSaved(false);
-        } else if (e.which != 13) {
+        //if (isDirty() && e.which == 13) {
+        //    drawDiagram(null);
+        //    setDirty(false);
+        //    setSaved(false);
+        //} else if (e.which != 13) {
             setDirty(true);
             setSaved(true);
-        }
+        //}
     },
     'keyup #titleID': function(e) {
         e.preventDefault();
