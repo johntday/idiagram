@@ -193,17 +193,15 @@ var drawDiagram = function(options){
         graphSelector: '#context',
         showParseErr: options.catchParseErr || true
     });
-    var poptions = _.extend(_.clone(options), {graphSelector: '#powergraph'});
-    var doptions = _.extend(_.clone(options), {graphSelector: '#dotpowergraph'});
+    var doptions = _.extend(_.clone(options), {height: 600, graphSelector: '#dotpowergraph'});
     $(options.graphSelector).html('');
-    $(poptions.graphSelector).html('');
     $(doptions.graphSelector).html('');
 
     try {
         graph = ContextDiagramUtils.parseCode( $code.get(0), options.showParseErr );
         reactiveDict.set('nodes', graph.nodes);
         FlatGraph(graph, options);
-        DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), doptions));
+        DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph)), doptions);
     } catch (err){
         if (options.showParseErr)
             throwError(err);

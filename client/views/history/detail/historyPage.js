@@ -64,7 +64,7 @@ Template.historyPage.rendered = function() {
             };
             FlatGraph(graph, options);
 
-            DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph), _.extend(options, {graphSelector: '#dotpowergraph'})));
+            DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph)), _.extend(options, {height: 600, graphSelector: '#dotpowergraph'}));
         }, 200);
     }else {
         try {
