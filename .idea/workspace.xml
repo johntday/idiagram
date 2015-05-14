@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js" line="11" />
+    <bookmark url="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js" line="12" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa8d0793-9c0a-4337-8ef7-75012689e275" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-114x114.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-120x120.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-144x144.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-152x152.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-57x57.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-60x60.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-72x72.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon-76x76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/apple-touch-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon-160x160.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon-16x16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon-192x192.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon-32x32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon-96x96.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicons/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/app/app.layout.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/app.bootstrap.js" afterPath="$PROJECT_DIR$/server/app.bootstrap.js" />
+    <list default="true" id="aa8d0793-9c0a-4337-8ef7-75012689e275" name="Default" comment="migrate to windows dev">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.entry.js" afterPath="$PROJECT_DIR$/client/app/app.entry.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.events.js" afterPath="$PROJECT_DIR$/client/app/app.events.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.layout.html" afterPath="$PROJECT_DIR$/client/app/app.layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/collections/diagrams.js" afterPath="$PROJECT_DIR$/lib/collections/diagrams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js" afterPath="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/app.router.js" afterPath="$PROJECT_DIR$/lib/app.router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/lib/app.startup.js" afterPath="$PROJECT_DIR$/client/lib/app.startup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.less" afterPath="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.mixins.import.less" afterPath="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.mixins.import.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/splash/landingPage.html" afterPath="$PROJECT_DIR$/client/views/splash/landingPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/raphael-2.1.2.js" afterPath="$PROJECT_DIR$/client/raphael-2.1.2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/sequence-diagram-min-1.0.4.js" afterPath="$PROJECT_DIR$/client/sequence-diagram-min-1.0.4.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/workflows.entry.js" afterPath="$PROJECT_DIR$/server/workflows.entry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="idiagram.iws" />
@@ -40,89 +31,126 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="idiagram" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="packages" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.meteor/packages">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.76">
+              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.05685619">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ernie" />
+        <entry key="$PROJECT_DIR$" value="d3" />
       </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm.js" />
-        <option value="$PROJECT_DIR$/.meteor/packages" />
-        <option value="$PROJECT_DIR$/server/pagination/diagrams.js" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmListItem.html" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmList.html" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmList.js" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmList.js" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmList.html" />
-        <option value="$PROJECT_DIR$/server/publications/diagrams.js" />
-        <option value="$PROJECT_DIR$/client/helpers/errors.js" />
-        <option value="$PROJECT_DIR$/lib/validation.js" />
-        <option value="$PROJECT_DIR$/server/methods/diagrams.js" />
-        <option value="$PROJECT_DIR$/client/helpers/sequenceDiagramUtil.js" />
-        <option value="$PROJECT_DIR$/server/app.environment.js" />
-        <option value="$PROJECT_DIR$/lib/collections/users.js" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmListItem.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignIn.scss" />
-        <option value="$PROJECT_DIR$/client/app/navbars/navbarFooter.html" />
-        <option value="$PROJECT_DIR$/lib/commonUtils.js" />
-        <option value="$PROJECT_DIR$/client/app/navbars/navbarHeader.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.less" />
-        <option value="$PROJECT_DIR$/client/app/navbars/navbarHeader.html" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/private/config/config.json" />
-        <option value="$PROJECT_DIR$/server/workflows.entry.js" />
-        <option value="$PROJECT_DIR$/server/config.js" />
-        <option value="$PROJECT_DIR$/client/app/app.entry.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignUp/entrySignUpPage.html" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/entrySignUp/entrySignUpPage.js" />
-        <option value="$PROJECT_DIR$/server/accounts.entry.js" />
-        <option value="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.json" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.html" />
-        <option value="$PROJECT_DIR$/client/views/cheatSheet/cheatSheet.html" />
-        <option value="$PROJECT_DIR$/client/views/cheatSheet/cheatSheet.js" />
-        <option value="$PROJECT_DIR$/client/app/westPanel.html" />
-        <option value="$PROJECT_DIR$/server/app.startup.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/forgotPassword/forgotPassword.html" />
-        <option value="$PROJECT_DIR$/lib/app.router.js" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.html" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmListItem.html" />
+        <option value="$PROJECT_DIR$/client/views/home/homeNewUser.js" />
+        <option value="$PROJECT_DIR$/packages/colontest/flatgraph.txt" />
+        <option value="$PROJECT_DIR$/client/lib/common.client.utils.js" />
+        <option value="$PROJECT_DIR$/client/lib/util.context.diagram.js" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgm/display/_ctxDgm.html" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgm/display/_ctxDgm.js" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.less" />
+        <option value="$PROJECT_DIR$/client/views/context/layout/_ctxDgmLegend.html" />
+        <option value="$PROJECT_DIR$/client/views/tags/tagsEdit.js" />
+        <option value="$PROJECT_DIR$/client/views/static/aboutPage.html" />
+        <option value="$PROJECT_DIR$/lib/app.constants.js" />
+        <option value="$PROJECT_DIR$/client/app/panels/topPanel.js" />
+        <option value="$PROJECT_DIR$/client/app/panels/topPanel.html" />
+        <option value="$PROJECT_DIR$/client/lib/form.westPanel.js" />
         <option value="$PROJECT_DIR$/client/views/static/cheatSheet/cheatSheet.html" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.js" />
-        <option value="$PROJECT_DIR$/lib/userUtils.js" />
-        <option value="$PROJECT_DIR$/client/views/accounts/resetPassword/resetPassword.html" />
-        <option value="$PROJECT_DIR$/server/app.bootstrap.js" />
-        <option value="$PROJECT_DIR$/client/app/app.layout.html" />
-        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js" />
-        <option value="$PROJECT_DIR$/lib/DefaultProperties.js" />
+        <option value="$PROJECT_DIR$/client/views/static/cheatSheet/tagsPanel.js" />
+        <option value="$PROJECT_DIR$/client/views/static/cheatSheet/tagsPanel.html" />
+        <option value="$PROJECT_DIR$/lib/commonUtils.js" />
+        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/list/seqDgmList.js" />
+        <option value="$PROJECT_DIR$/client/app/navbars/navbarHeader.js" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.html" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgmView/ctxDgmView.html" />
+        <option value="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/list/seqDgmList.html" />
+        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.html" />
+        <option value="$PROJECT_DIR$/client/views/history/detail/historyPage.html" />
+        <option value="$PROJECT_DIR$/client/views/home/homePage.html" />
+        <option value="$PROJECT_DIR$/client/app/panels/westPanel.js" />
+        <option value="$PROJECT_DIR$/client/app/panels/westPanel.html" />
+        <option value="$PROJECT_DIR$/client/app/panels/eastPanel.html" />
+        <option value="$PROJECT_DIR$/client/views/history/list/historyList.js" />
+        <option value="$PROJECT_DIR$/client/views/history/list/historyList.html" />
+        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.html" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgmInfo.html" />
+        <option value="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmInfo.html" />
+        <option value="$PROJECT_DIR$/client/app/navbars/navbarHeader.html" />
+        <option value="$PROJECT_DIR$/client/stylesheets/custom.bootstrap.json" />
+        <option value="$PROJECT_DIR$/packages/colontest/colon.js" />
         <option value="$PROJECT_DIR$/lib/collections/diagrams.js" />
+        <option value="$PROJECT_DIR$/client/sequence-diagram-min-1.0.4.js" />
+        <option value="$PROJECT_DIR$/packages/colontest/package.js" />
+        <option value="$PROJECT_DIR$/.meteor/versions" />
+        <option value="$PROJECT_DIR$/packages/colontest/flatgraph.js" />
+        <option value="$PROJECT_DIR$/client/lib/form.ctxDgm.js" />
+        <option value="$PROJECT_DIR$/client/views/context/layout/_ctxDgm.js" />
+        <option value="$PROJECT_DIR$/client/views/context/layout/_ctxDgm.html" />
+        <option value="$PROJECT_DIR$/packages/colontest/dotpowergraph.js" />
+        <option value="$PROJECT_DIR$/client/views/history/detail/historyPage.js" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgmView/ctxDgmView.js" />
+        <option value="$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.js" />
+        <option value="$PROJECT_DIR$/.meteor/packages" />
+        <option value="$PROJECT_DIR$/package.txt" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="NamedScopeManager">
+    <scope name="idiagram" pattern="!file[idiagram]:.idea//*&amp;&amp;!file[idiagram]:.meteor//*&amp;&amp;!file[idiagram]:public//*&amp;&amp;!file:client/jquery-ui-sortable.js&amp;&amp;!file:client/raphael-2.1.2.js&amp;&amp;!file:client/semantic.ui.sidebar.js&amp;&amp;!file:client/sequence-diagram-min-1.0.4.js" />
+    <scope name="myidiagram" pattern="file[idiagram]:*/&amp;&amp;!file[idiagram]:.idea//*&amp;&amp;!file[idiagram]:.meteor//*&amp;&amp;!file[idiagram]:packages//*" />
+    <order />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-213" />
-    <option name="y" value="-1058" />
-    <option name="width" value="1920" />
-    <option name="height" value="1058" />
+    <option name="x" value="-8" />
+    <option name="y" value="-1088" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -147,52 +175,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="idiagram">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="idiagram">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="client">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="idiagram">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="client">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,11 +271,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -304,168 +282,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="idiagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="idiagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="idiagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collections" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sequence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seqDgmView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sequence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seqDgm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sequence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="segDgmList" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idiagram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -485,6 +327,53 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="idiagram">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="idiagram">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="idiagram">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -516,23 +405,25 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1065" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/workspace.xml" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/views/diagram/sequence/seqDgm/seqDgm.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="util.co&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/lib/util.context.diagram.js&#10;che&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/views/static/cheatSheet/cheatSheet.html&#10;custom&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/stylesheets/custom.bootstrap.less&#10;apps&#9;FILE&#9;file:///Users/johnday/github/idiagram/lib/AppState.js&#10;app&#9;FILE&#9;file:///Users/johnday/github/idiagram/lib/AppState.js&#10;com&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/helpers/commonClientUtils.js&#10;type&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/views/typeahead/typeahead.html&#10;appp&#9;FILE&#9;file:///Users/johnday/github/idiagram/lib/AppProperties.js&#10;Cre&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/helpers/CreditPurchase.js&#10;diagram&#9;FILE&#9;file:///Users/johnday/github/idiagram/lib/collections/diagrams.js&#10;land&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/views/static/landingPage.html&#10;landi&#9;FILE&#9;file:///Users/johnday/github/idiagram/client/views/static/landingPage.html" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images/img" />
-      <recent name="$PROJECT_DIR$/client/app" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView" />
-      <recent name="$PROJECT_DIR$/client/views/cheatSheet" />
+      <recent name="$PROJECT_DIR$/client/views/context/ctxDgm/display" />
+      <recent name="$PROJECT_DIR$/packages/colontest" />
+      <recent name="$PROJECT_DIR$/public/test" />
+      <recent name="$PROJECT_DIR$/packages/network/lib" />
+      <recent name="$PROJECT_DIR$/packages/network/lib/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images/img" />
-      <recent name="$PROJECT_DIR$/client/views/static" />
-      <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/client/helpers" />
-      <recent name="$PROJECT_DIR$/client/views/diagram/sequence/segDgmList" />
+      <recent name="$PROJECT_DIR$/client/app/panels/tags" />
+      <recent name="$PROJECT_DIR$/client/app/panels" />
+      <recent name="$PROJECT_DIR$/client/views/context" />
+      <recent name="$PROJECT_DIR$/client/views/context/ctxDgm" />
+      <recent name="$PROJECT_DIR$/client/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -546,14 +437,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JsTestDriver-test-runner" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
@@ -574,7 +465,6 @@
       <envs />
       <method />
     </configuration>
-    <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -587,165 +477,348 @@
       <option name="number" value="Default" />
       <updated>1424043621456</updated>
     </task>
-    <task id="LOCAL-00001" summary="original">
-      <created>1424043666609</created>
-      <option name="number" value="00001" />
+    <task id="LOCAL-00129" summary="history">
+      <created>1427253294180</created>
+      <option name="number" value="00129" />
       <option name="project" value="LOCAL" />
-      <updated>1424043666609</updated>
+      <updated>1427253294180</updated>
     </task>
-    <task id="LOCAL-00002" summary="original">
-      <created>1424043688419</created>
-      <option name="number" value="00002" />
+    <task id="LOCAL-00130" summary="view">
+      <created>1427402527958</created>
+      <option name="number" value="00130" />
       <option name="project" value="LOCAL" />
-      <updated>1424043688419</updated>
+      <updated>1427402527958</updated>
     </task>
-    <task id="LOCAL-00003" summary="original">
-      <created>1424138678514</created>
-      <option name="number" value="00003" />
+    <task id="LOCAL-00131" summary="sidebar">
+      <created>1427403024515</created>
+      <option name="number" value="00131" />
       <option name="project" value="LOCAL" />
-      <updated>1424138678514</updated>
+      <updated>1427403024515</updated>
     </task>
-    <task id="LOCAL-00004" summary="original">
-      <created>1424139996770</created>
-      <option name="number" value="00004" />
+    <task id="LOCAL-00132" summary="view">
+      <created>1427418013490</created>
+      <option name="number" value="00132" />
       <option name="project" value="LOCAL" />
-      <updated>1424139996770</updated>
+      <updated>1427418013491</updated>
     </task>
-    <task id="LOCAL-00005" summary="original">
-      <created>1424141121182</created>
-      <option name="number" value="00005" />
+    <task id="LOCAL-00133" summary="view">
+      <created>1427418177013</created>
+      <option name="number" value="00133" />
       <option name="project" value="LOCAL" />
-      <updated>1424141121182</updated>
+      <updated>1427418177014</updated>
     </task>
-    <task id="LOCAL-00006" summary="original">
-      <created>1424142316458</created>
-      <option name="number" value="00006" />
+    <task id="LOCAL-00134" summary="view">
+      <created>1427424761262</created>
+      <option name="number" value="00134" />
       <option name="project" value="LOCAL" />
-      <updated>1424142316458</updated>
+      <updated>1427424761262</updated>
     </task>
-    <task id="LOCAL-00007" summary="original">
-      <created>1424143763577</created>
-      <option name="number" value="00007" />
+    <task id="LOCAL-00135" summary="view">
+      <created>1428099977835</created>
+      <option name="number" value="00135" />
       <option name="project" value="LOCAL" />
-      <updated>1424143763577</updated>
+      <updated>1428099977836</updated>
     </task>
-    <task id="LOCAL-00008" summary="original">
-      <created>1424144395067</created>
-      <option name="number" value="00008" />
+    <task id="LOCAL-00136" summary="view">
+      <created>1428724798095</created>
+      <option name="number" value="00136" />
       <option name="project" value="LOCAL" />
-      <updated>1424144395068</updated>
+      <updated>1428724798095</updated>
     </task>
-    <task id="LOCAL-00009" summary="added seqDgm input fields and reactive actions">
-      <created>1425097303737</created>
-      <option name="number" value="00009" />
+    <task id="LOCAL-00137" summary="view">
+      <created>1429142296341</created>
+      <option name="number" value="00137" />
       <option name="project" value="LOCAL" />
-      <updated>1425097303737</updated>
+      <updated>1429142296342</updated>
     </task>
-    <task id="LOCAL-00010" summary="added seqDgm input fields and reactive actions">
-      <created>1425097362257</created>
-      <option name="number" value="00010" />
+    <task id="LOCAL-00138" summary="view">
+      <created>1429155953349</created>
+      <option name="number" value="00138" />
       <option name="project" value="LOCAL" />
-      <updated>1425097362257</updated>
+      <updated>1429155953349</updated>
     </task>
-    <task id="LOCAL-00011" summary="added seqDgm input fields and reactive actions">
-      <created>1425097515820</created>
-      <option name="number" value="00011" />
+    <task id="LOCAL-00139" summary="view">
+      <created>1429160648807</created>
+      <option name="number" value="00139" />
       <option name="project" value="LOCAL" />
-      <updated>1425097515820</updated>
+      <updated>1429160648807</updated>
     </task>
-    <task id="LOCAL-00012" summary="add error checking on manual redraw">
-      <created>1425104407804</created>
-      <option name="number" value="00012" />
+    <task id="LOCAL-00140" summary="view">
+      <created>1429166692497</created>
+      <option name="number" value="00140" />
       <option name="project" value="LOCAL" />
-      <updated>1425104407804</updated>
+      <updated>1429166692497</updated>
     </task>
-    <task id="LOCAL-00013" summary="added list page">
-      <created>1425193692754</created>
-      <option name="number" value="00013" />
+    <task id="LOCAL-00141" summary="view">
+      <created>1429167496943</created>
+      <option name="number" value="00141" />
       <option name="project" value="LOCAL" />
-      <updated>1425193692754</updated>
+      <updated>1429167496943</updated>
     </task>
-    <task id="LOCAL-00014" summary="added link from list to detail page">
-      <created>1425195808971</created>
-      <option name="number" value="00014" />
+    <task id="LOCAL-00142" summary="view">
+      <created>1429170642737</created>
+      <option name="number" value="00142" />
       <option name="project" value="LOCAL" />
-      <updated>1425195808972</updated>
+      <updated>1429170642737</updated>
     </task>
-    <task id="LOCAL-00015" summary="added create, and list">
-      <created>1425280829251</created>
-      <option name="number" value="00015" />
+    <task id="LOCAL-00143" summary="view">
+      <created>1429175676969</created>
+      <option name="number" value="00143" />
       <option name="project" value="LOCAL" />
-      <updated>1425280829251</updated>
+      <updated>1429175676970</updated>
     </task>
-    <task id="LOCAL-00016" summary="added create, and list">
-      <created>1425311952958</created>
-      <option name="number" value="00016" />
+    <task id="LOCAL-00144" summary="view">
+      <created>1429209092500</created>
+      <option name="number" value="00144" />
       <option name="project" value="LOCAL" />
-      <updated>1425311952958</updated>
+      <updated>1429209092500</updated>
     </task>
-    <task id="LOCAL-00017" summary="update header">
-      <created>1425314760571</created>
-      <option name="number" value="00017" />
+    <task id="LOCAL-00145" summary="view">
+      <created>1429221369631</created>
+      <option name="number" value="00145" />
       <option name="project" value="LOCAL" />
-      <updated>1425314760571</updated>
+      <updated>1429221369631</updated>
     </task>
-    <task id="LOCAL-00018" summary="fix sign-in page centering&#10;">
-      <created>1425329605224</created>
-      <option name="number" value="00018" />
+    <task id="LOCAL-00146" summary="view">
+      <created>1429226372136</created>
+      <option name="number" value="00146" />
       <option name="project" value="LOCAL" />
-      <updated>1425329605224</updated>
+      <updated>1429226372136</updated>
     </task>
-    <task id="LOCAL-00019" summary="remove signUpCode">
-      <created>1425334232044</created>
-      <option name="number" value="00019" />
+    <task id="LOCAL-00147" summary="view">
+      <created>1429227020094</created>
+      <option name="number" value="00147" />
       <option name="project" value="LOCAL" />
-      <updated>1425334232044</updated>
+      <updated>1429227020094</updated>
     </task>
-    <task id="LOCAL-00020" summary="fix update">
-      <created>1425341311510</created>
-      <option name="number" value="00020" />
+    <task id="LOCAL-00148" summary="view">
+      <created>1429291235160</created>
+      <option name="number" value="00148" />
       <option name="project" value="LOCAL" />
-      <updated>1425341311510</updated>
+      <updated>1429291235160</updated>
     </task>
-    <task id="LOCAL-00021" summary="fix private setter">
-      <created>1425341806166</created>
-      <option name="number" value="00021" />
+    <task id="LOCAL-00149" summary="view">
+      <created>1429291250159</created>
+      <option name="number" value="00149" />
       <option name="project" value="LOCAL" />
-      <updated>1425341806166</updated>
+      <updated>1429291250159</updated>
     </task>
-    <task id="LOCAL-00022" summary="add view only, cheat sheet, bootstrap">
-      <created>1425365879718</created>
-      <option name="number" value="00022" />
+    <task id="LOCAL-00150" summary="view">
+      <created>1429293539113</created>
+      <option name="number" value="00150" />
       <option name="project" value="LOCAL" />
-      <updated>1425365879718</updated>
+      <updated>1429293539113</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00151" summary="view">
+      <created>1429320907798</created>
+      <option name="number" value="00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1429320907798</updated>
+    </task>
+    <task id="LOCAL-00152" summary="view">
+      <created>1429321339256</created>
+      <option name="number" value="00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1429321339256</updated>
+    </task>
+    <task id="LOCAL-00153" summary="view">
+      <created>1429324018966</created>
+      <option name="number" value="00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1429324018966</updated>
+    </task>
+    <task id="LOCAL-00154" summary="view">
+      <created>1429400160616</created>
+      <option name="number" value="00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1429400160616</updated>
+    </task>
+    <task id="LOCAL-00155" summary="view">
+      <created>1429402561554</created>
+      <option name="number" value="00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1429402561554</updated>
+    </task>
+    <task id="LOCAL-00156" summary="view">
+      <created>1429404883773</created>
+      <option name="number" value="00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1429404883773</updated>
+    </task>
+    <task id="LOCAL-00157" summary="view">
+      <created>1429498474216</created>
+      <option name="number" value="00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1429498474216</updated>
+    </task>
+    <task id="LOCAL-00158" summary="view">
+      <created>1429565260736</created>
+      <option name="number" value="00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1429565260737</updated>
+    </task>
+    <task id="LOCAL-00159" summary="view">
+      <created>1429571348265</created>
+      <option name="number" value="00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1429571348265</updated>
+    </task>
+    <task id="LOCAL-00160" summary="view">
+      <created>1429571927720</created>
+      <option name="number" value="00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1429571927720</updated>
+    </task>
+    <task id="LOCAL-00161" summary="view">
+      <created>1429573011739</created>
+      <option name="number" value="00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1429573011739</updated>
+    </task>
+    <task id="LOCAL-00162" summary="view">
+      <created>1429631599032</created>
+      <option name="number" value="00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1429631599033</updated>
+    </task>
+    <task id="LOCAL-00163" summary="view">
+      <created>1429826282765</created>
+      <option name="number" value="00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1429826282765</updated>
+    </task>
+    <task id="LOCAL-00164" summary="view">
+      <created>1429915804364</created>
+      <option name="number" value="00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1429915804365</updated>
+    </task>
+    <task id="LOCAL-00165" summary=" remove log">
+      <created>1429916220190</created>
+      <option name="number" value="00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1429916220190</updated>
+    </task>
+    <task id="LOCAL-00166" summary="nav">
+      <created>1429919269059</created>
+      <option name="number" value="00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1429919269059</updated>
+    </task>
+    <task id="LOCAL-00167" summary="view">
+      <created>1429941128119</created>
+      <option name="number" value="00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1429941128119</updated>
+    </task>
+    <task id="LOCAL-00168" summary="view">
+      <created>1429941454857</created>
+      <option name="number" value="00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1429941454857</updated>
+    </task>
+    <task id="LOCAL-00169" summary="view">
+      <created>1430776572048</created>
+      <option name="number" value="00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1430776572049</updated>
+    </task>
+    <task id="LOCAL-00170" summary="view">
+      <created>1431340677413</created>
+      <option name="number" value="00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1431340677413</updated>
+    </task>
+    <task id="LOCAL-00171" summary="view">
+      <created>1431341923905</created>
+      <option name="number" value="00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1431341923905</updated>
+    </task>
+    <task id="LOCAL-00172" summary="view">
+      <created>1431342788212</created>
+      <option name="number" value="00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1431342788212</updated>
+    </task>
+    <task id="LOCAL-00173" summary="view">
+      <created>1431394642304</created>
+      <option name="number" value="00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1431394642305</updated>
+    </task>
+    <task id="LOCAL-00174" summary="view">
+      <created>1431397186873</created>
+      <option name="number" value="00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1431397186873</updated>
+    </task>
+    <task id="LOCAL-00175" summary="view">
+      <created>1431446525297</created>
+      <option name="number" value="00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1431446525297</updated>
+    </task>
+    <task id="LOCAL-00176" summary="migrate to windows dev">
+      <created>1431643669091</created>
+      <option name="number" value="00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1431643669092</updated>
+    </task>
+    <task id="LOCAL-00177" summary="migrate to windows dev">
+      <created>1431643752885</created>
+      <option name="number" value="00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1431643752885</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-213" y="-1058" width="1920" height="1058" extended-state="6" />
+    <frame x="-8" y="-1088" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32541323" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19599578" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32747933" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19694576" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3253886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19694576" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815734" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30020705" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3167702" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30331263" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32815734" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1716693" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31780538" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19694576" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -761,352 +834,426 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
-    <MESSAGE value="original" />
-    <MESSAGE value="added seqDgm input fields and reactive actions" />
-    <MESSAGE value="add error checking on manual redraw" />
-    <MESSAGE value="added list page" />
-    <MESSAGE value="added link from list to detail page" />
-    <MESSAGE value="added create, and list" />
-    <MESSAGE value="update header" />
-    <MESSAGE value="fix sign-in page centering&#10;" />
-    <MESSAGE value="remove signUpCode" />
-    <MESSAGE value="fix update" />
-    <MESSAGE value="fix private setter" />
-    <MESSAGE value="add view only, cheat sheet, bootstrap" />
-    <option name="LAST_COMMIT_MESSAGE" value="add view only, cheat sheet, bootstrap" />
+    <MESSAGE value="counts" />
+    <MESSAGE value="stuff" />
+    <MESSAGE value="google+" />
+    <MESSAGE value="home" />
+    <MESSAGE value="google" />
+    <MESSAGE value="fix history listing by user" />
+    <MESSAGE value="refactor!!!" />
+    <MESSAGE value="seo" />
+    <MESSAGE value="typeahead" />
+    <MESSAGE value="fix appState" />
+    <MESSAGE value="tags" />
+    <MESSAGE value="refactor tags" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="admin and about" />
+    <MESSAGE value="splash" />
+    <MESSAGE value="search" />
+    <MESSAGE value="search sort" />
+    <MESSAGE value="feedback" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="history" />
+    <MESSAGE value="sidebar" />
+    <MESSAGE value=" remove log" />
+    <MESSAGE value="nav" />
+    <MESSAGE value="view" />
+    <MESSAGE value="migrate to windows dev" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrate to windows dev" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/README.md">
+    <entry file="file://$PROJECT_DIR$/.meteor/packages">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05076142" vertical-offset="0" max-vertical-offset="591">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1684435" vertical-offset="562" max-vertical-offset="1500">
-          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarFooter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1758794" vertical-offset="0" max-vertical-offset="597">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/commonUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.015991472" vertical-offset="0" max-vertical-offset="938">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15991472" vertical-offset="0" max-vertical-offset="938">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignUp/entrySignUpPage.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24563318" vertical-offset="0" max-vertical-offset="916">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031982943" vertical-offset="0" max-vertical-offset="938">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/ui.helpers.js">
+    <entry file="file://$PROJECT_DIR$/package.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35181236" vertical-offset="0" max-vertical-offset="938">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entry.js">
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38379532" vertical-offset="0" max-vertical-offset="938">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/accountButtons/accountButtons.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049234137" vertical-offset="0" max-vertical-offset="914">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes.uploads.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="938">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/app.entry.js">
+    <entry file="file://$PROJECT_DIR$/lib/app.constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26484752" vertical-offset="0" max-vertical-offset="623">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.33582088">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.less">
+    <entry file="file://$PROJECT_DIR$/client/lib/form.westPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.032822758" vertical-offset="0" max-vertical-offset="914">
+        <state vertical-scroll-proportion="0.031982943">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarHeader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041484717" vertical-offset="292" max-vertical-offset="1440">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignUp/entrySignUpPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42030567" vertical-offset="80" max-vertical-offset="1260">
-          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47489083" vertical-offset="0" max-vertical-offset="916">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignIn/entrySignInPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2393617" vertical-offset="0" max-vertical-offset="940">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/entrySignUp/entrySignUpPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11556982" vertical-offset="1128" max-vertical-offset="1920">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/methods/diagrams.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15957446" vertical-offset="0" max-vertical-offset="940">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.meteor/packages">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11500548" vertical-offset="0" max-vertical-offset="913">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/custom.bootstrap.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2367531" vertical-offset="0" max-vertical-offset="887">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11487965" vertical-offset="0" max-vertical-offset="914">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/static/aboutPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="938">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/westPanel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049234137" vertical-offset="0" max-vertical-offset="914">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.environment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.015991472" vertical-offset="0" max-vertical-offset="938">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/workflows.entry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="938">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/forgotPassword/forgotPassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29475984" vertical-offset="0" max-vertical-offset="916">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/accounts.entry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/static/cheatSheet/cheatSheet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25531915" vertical-offset="0" max-vertical-offset="940">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmListItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12765957" vertical-offset="0" max-vertical-offset="940">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmListItem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.180131" vertical-offset="0" max-vertical-offset="916">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11462882" vertical-offset="0" max-vertical-offset="916">
-          <caret line="7" column="91" selection-start-line="7" selection-start-column="91" selection-end-line="7" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/static/cheatSheet/cheatSheet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13100436" vertical-offset="0" max-vertical-offset="916">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.42669585">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.html">
+    <entry file="file://$PROJECT_DIR$/client/views/tags/tagsEdit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62227076" vertical-offset="105" max-vertical-offset="1215">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.1119403">
+          <caret line="7" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/collections/users.js">
+    <entry file="file://$PROJECT_DIR$/client/app/panels/tags/tagsPanel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11170213" vertical-offset="0" max-vertical-offset="940">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/userUtils.js">
+    <entry file="file://$PROJECT_DIR$/client/app/panels/tags/tagsPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22340426" vertical-offset="0" max-vertical-offset="940">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5425532" vertical-offset="0" max-vertical-offset="940">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/accounts/resetPassword/resetPassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32751092" vertical-offset="0" max-vertical-offset="916">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/app.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.832" vertical-offset="3260" max-vertical-offset="4200">
-          <caret line="253" column="29" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.047872342" vertical-offset="0" max-vertical-offset="940">
-          <caret line="3" column="83" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/seqDgmList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2393617" vertical-offset="0" max-vertical-offset="940">
-          <caret line="15" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.031982943">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5265958" vertical-offset="105" max-vertical-offset="3360">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.46375266">
+          <caret line="100" column="25" selection-start-line="100" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/app.layout.html">
+    <entry file="file://$PROJECT_DIR$/client/lib/app.startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6058952" vertical-offset="0" max-vertical-offset="916">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.14392324">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DefaultProperties.js">
+    <entry file="file://$PROJECT_DIR$/lib/commonUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11170213" vertical-offset="0" max-vertical-offset="940">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.28784648">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3060686">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/list/seqDgmList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57387865">
+          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/history/detail/historyPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020435967">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgm/seqDgm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020435967">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/segDgmList/list/seqDgmList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020435967">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/topPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019788919">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/topPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/home/homePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020435967">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/eastPanel.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/eastPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15831135">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/westPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27704486">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/eastPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22479564">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/panels/westPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.040871933">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgmView/seqDgmView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73433244">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgmInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85694826">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/diagram/sequence/seqDgmInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.040871933">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarFooter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/navbars/navbarHeader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4482289">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/custom.bootstrap.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4482289">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgmView/ctxDgmView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04157549">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34463894">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/collections/diagrams.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36702126" vertical-offset="0" max-vertical-offset="975">
-          <caret line="23" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41577825">
+          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/history/list/historyList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46375266">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/history/list/historyList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3938731">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/sequence-diagram-min-1.0.4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lib/util.context.diagram.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3326226">
+          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lib/form.diagram.search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15991472">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lib/form.history.search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/layout/_ctxDgm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/layout/_ctxDgm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28784648">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/history/detail/historyPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6801706">
+          <caret line="66" column="137" selection-start-line="66" selection-start-column="137" selection-end-line="66" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgmView/ctxDgmView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47228146">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.meteor/versions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42215088">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/context/ctxDgm/ctxDgm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9027778">
+          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view.js.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.meteor/packages">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.76">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05685619">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>myidiagram</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="idiagram" />
+            <scope name="myidiagram" />
+          </order>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
