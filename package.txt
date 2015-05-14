@@ -1,1 +1,1 @@
-mklink /J C:\github\idiagram\packages C:\github\colontest
+mklink /J C:\github\idiagram\packages\colontest C:\github\colontest
