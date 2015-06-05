@@ -1,0 +1,60 @@
+    <template name="comment">
+    <div class="page">
+        <div class="content">
+
+            <div class="col col-md-6 col-md-offset-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Feedback
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="subjectID" class="col-md-1 control-label">Subject</label>
+                                <div class="col-md-11">
+                                    <select id="subjectID" class="form-control">
+                                        <option value="Bug">Bug</option>
+                                        <option value="Feature Request">Feature Request</option>
+                                        <option value="Comment">Comment</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="titleID" class="col-md-1 control-label">Title</label>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" id="titleID" placeholder="My Title" value="{{title}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="descriptionID" class="control-label">Description</label>
+                                    <textarea id="descriptionID" class="form-control" rows="3">{{description}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="privateID" type="checkbox"> <b>Mark as private.</b>  Only Admin can see.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col col-md-12">
+                                    <button type="button" class="btn btn-primary" id="saveBtnID"> Save </button>
+                                    <a class="btn btn-default" href="/">Cancel</a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</template>
+

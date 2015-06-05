@@ -51,6 +51,9 @@
                             </ul>
                         </li>
                         <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
+                        {{#if currentUser}}
+                            <li><a href="/comment"><i class="fa fa-comment"></i> Feedback</a></li>
+                        {{/if}}
                         {{#if showProductionDB}}
                             <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
                         {{/if}}
