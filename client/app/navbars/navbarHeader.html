@@ -57,6 +57,9 @@
                         {{#if showProductionDB}}
                             <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
                         {{/if}}
+                        {{#if isAdmin}}
+                            <li><a href="/comments"><i class="fa fa-comment"></i> List</a></li>
+                        {{/if}}
                     </ul>
 
                 </div>

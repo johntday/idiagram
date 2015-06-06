@@ -1,0 +1,100 @@
+<template name="feedbackList">
+
+    <div id="feedbackListPage" class="page">
+        <div class="content">
+
+            <div class="col col-md-5">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Search
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="searchTextID" placeholder="Search Title">
+                                </div>
+                            </div>
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="starredID" value="option1"> <strong>Starred</strong> <i class="fa fa-star"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="private" id="allID" value="all"> <strong>All</strong>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="private" id="privateID" value="private"> <strong>Private</strong> <i class="fa fa-lock"></i>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="private" id="publicID" value="public"> <strong>Public</strong> <i class="fa fa-unlock"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="hideOtherPublicID" value="option1"> <strong>Only Show My Comments</strong>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    {{> tagsEdit colLabelSize="2" colFieldSize="10" tags=tags options=options}}
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col col-md-7">
+
+                <div class="row">
+                    <div class="panel panel-info">
+                        <div class="panel-body bg-info">
+
+                            <div class="col-sm-2">
+                                <h4>Sort</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <select id="sortBtnID" class="form-control">
+                                    <option value="title">Title</option>
+                                    <option value="modifiedAt">Modified Date</option>
+                                    <option value="createdAt">Create Date</option>
+                                    <option value="updatedAt">Update Date</option>
+                                    <option value="username">Created By</option>
+                                    <option value="starCnt">Most Stars</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sortDir" id="sort1ID" value="1"> <strong>Asc</strong>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sortDir" id="sort-1ID" value="-1"> <strong>Desc</strong>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="list-group">
+                        {{> pages}}
+                    </div>
+                    {{> pagesNav}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

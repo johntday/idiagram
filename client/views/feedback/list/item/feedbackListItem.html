@@ -1,0 +1,18 @@
+<template name="feedbackListItem">
+    <a href="/comment/{{_id}}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{title}} {{#if private}}<i class="fa fa-lock" title="private"></i>{{/if}}
+            <div class="pull-right">
+                <a id="starBtnID" href="#"><span class="badge">{{starCnt}}</span><i class="fa fa-{{star}} fa-2x"></i></a>
+            </div>
+        </h4>
+        <p class="list-group-item-text">
+            <span class="label label-primary">{{username}}</span>
+            <small>modified</small>
+            <span class="badge">{{agoTime modifiedAt}}</span>
+
+            <span class="padded">
+            {{> tagsDisplay}}
+            </span>
+        </p>
+    </a>
+</template>
