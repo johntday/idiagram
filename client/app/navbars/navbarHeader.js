@@ -16,5 +16,8 @@ Template.navbarHeader.helpers({
     },
     showProductionDB: function(){
         return CommonClient.isProduction() && isAdmin();
+    },
+    isDeviceSupported: function(){
+        return Meteor.Device.isDesktop() || Meteor.Device.isTablet();
     }
 });

@@ -21,6 +21,7 @@ benjaminrh:event-hooks
 # ----------------------------------
 # UTILS
 momentjs:moment
+mystor:device-detection
 # ----------------------------------
 # COLLECTION
 # ----------------------------------

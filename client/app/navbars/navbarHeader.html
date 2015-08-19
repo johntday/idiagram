@@ -1,4 +1,5 @@
 <template name="navbarHeader">
+    {{#if isDeviceSupported}}
     <div id="navbarHeader">
         <nav id="navbarHeaderNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -40,25 +41,23 @@
                     <ul class="nav navbar-nav">
                         {{#if currentUser}}
                             <li><a id="navID" href="#" title="Toggle nav toolbar"><i class="fa fa-bars"></i></a> </li>
-                        {{/if}}
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-plus-circle"></i> Create <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a id="seqCreate" href="#">Sequence Diagram</a></li>
-                                <li><a id="ctxCreate" href="#">Context Diagram</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
-                        {{#if currentUser}}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-plus-circle"></i> Create <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a id="seqCreate" href="#">Sequence Diagram</a></li>
+                                    <li><a id="ctxCreate" href="#">Context Diagram</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
                             <li><a href="/comment"><i class="fa fa-comment"></i> Feedback</a></li>
-                        {{/if}}
-                        {{#if showProductionDB}}
-                            <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
-                        {{/if}}
-                        {{#if isAdmin}}
-                            <li><a href="/comments"><i class="fa fa-comment"></i> List</a></li>
+                            {{#if showProductionDB}}
+                                <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
+                            {{/if}}
+                            {{#if isAdmin}}
+                                <li><a href="/comments"><i class="fa fa-comment"></i> List</a></li>
+                            {{/if}}
                         {{/if}}
                     </ul>
 
@@ -66,4 +65,8 @@
             </div>
         </nav>
     </div>
+    {{else}}
+            Sorry, this app is only supported on Desktop, laptop, or tablet.
+            <br>:(
+    {{/if}}
 </template>
