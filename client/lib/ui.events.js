@@ -43,5 +43,26 @@ CommonTemplateEvents = function(){
         });
     };
 
+    oPublic['click #actCreate'] = function(e){
+        e.preventDefault();
+
+        if(!Meteor.user()){
+            throwError('You must login to create a diagram');
+            return false;
+        }
+
+        // CREATE OBJECT
+        var doc = Constants.actDefault;
+
+        Meteor.call('Diagrams.insert', doc, function(error, _id) {
+            if(error){
+                throwError(error.reason);
+                console.log("navbarHeader.js/3", "Diagrams.insert", {'error': error, 'retValue': _id});
+            }else{
+                Router.go('/diagram/' + _id);
+            }
+        });
+    };
+
     return oPublic;
 }();

@@ -35,6 +35,9 @@ var drawDiagram = function(type, code, manual, refocus){
         if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
+        } else if (type=='act') {
+            var htmlString = ContextDiagramUtils.activity(code, style);
+            $('#diagram').html(htmlString);
         } else if (type=='seq') {
             diagram = Diagram.parse(code);
             diagram.drawSVG('diagram', options);
@@ -44,7 +47,7 @@ var drawDiagram = function(type, code, manual, refocus){
         setDirty(false);
     } catch (err) {
         if (manual) {
-            if (type=='ctx') {
+            if (type=='ctx' || type=='act') {
                 console.log("seqDgm.drawDiagram: ", type, code, manual, refocus);
             } else if (type=='seq') {
                 var $element = $('#codeID').get(0);
@@ -296,7 +299,7 @@ var actions = function () {
 
             if (reactiveDict.get('type') == 'seq')
                 var diagram = Diagram.parse( code );
-            // TODO:  validate for ctx
+            // TODO:  validate for ctx and act
         } catch (err) {
             var $element = $('#codeID').get(0);
             var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
