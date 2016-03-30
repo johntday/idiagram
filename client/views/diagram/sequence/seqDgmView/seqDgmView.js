@@ -69,8 +69,8 @@ Template.seqDgmView.rendered = function() {
         var type = this.data.type;
 
         $('#diagram').html('');
-        $('#htmlHeader').html( $('#htmlHeaderID').val() );
-        $('#htmlFooter').html( $('#htmlFooterID').val() );
+        $('#htmlHeader').html( this.data.htmlHeader );
+        $('#htmlFooter').html( this.data.htmlFooter );
 
         if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
