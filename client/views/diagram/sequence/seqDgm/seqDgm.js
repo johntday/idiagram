@@ -30,10 +30,7 @@ var drawDiagram = function(type, code, manual, refocus){
 
         $('#diagram').html('');
 
-        if (type=='img') {
-            var htmlString = ImageDiagramUtils.parseCode(code);
-            $('#diagram').html(htmlString);
-        } else if (type=='ctx') {
+        if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
         } else if (type=='seq') {
@@ -45,7 +42,7 @@ var drawDiagram = function(type, code, manual, refocus){
         setDirty(false);
     } catch (err) {
         if (manual) {
-            if (type=='ctx' || type=='img') {
+            if (type=='ctx') {
                 console.log("seqDgm.drawDiagram: ", type, code, manual, refocus);
             } else if (type=='seq') {
                 var $element = $('#codeID').get(0);
@@ -75,7 +72,7 @@ var toggleBoxWidth = function(){
     reactiveDict.set('boxWidth', boxWidth);
     reactiveDict.set('diagramWidth', (12 - boxWidth));
 };
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------im----------------------------------------------------------------*/
 Template.seqDgmPage.helpers({
     titleLabel: function () {
         return reactiveDict.get('title');

@@ -70,10 +70,7 @@ Template.seqDgmView.rendered = function() {
 
         $('#diagram').html('');
 
-        if (type=='img'){
-            var htmlString = ImageDiagramUtils.parseCode(code);
-            $('#diagram').html(htmlString);
-        } else if (type=='ctx') {
+        if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
         } else if (type=='seq') {
