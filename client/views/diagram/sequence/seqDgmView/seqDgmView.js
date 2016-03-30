@@ -70,15 +70,16 @@ Template.seqDgmView.rendered = function() {
 
         $('#diagram').html('');
 
-        if (type=='seq'){
-            var options = {theme: style};
-            var diagram = Diagram.parse( code );
-            diagram.drawSVG('diagram', options);
+        if (type=='img'){
+            var htmlString = ImageDiagramUtils.parseCode(code);
+            $('#diagram').html(htmlString);
         } else if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
-        } else {
-            console.log("seqDgmView.js/4", "rendered", "invalid type="+type);
+        } else if (type=='seq') {
+            var options = {theme: style};
+            var diagram = Diagram.parse( code );
+            diagram.drawSVG('diagram', options);
         }
     } catch (err) {
         throwError("Sorry, I cannot understand your diagram text");

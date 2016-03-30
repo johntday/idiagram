@@ -30,6 +30,7 @@ Meteor.startup(function() {
 
         var diagram = {
             title: 'Simple Example'
+            , type: 'seq'
             , description: 'Simple Example'
             , style: 'simple'
             , code: sExample1

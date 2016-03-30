@@ -3,6 +3,7 @@
 Template.navbarHeader.events({
     'click #seqCreate': CommonTemplateEvents['click #seqCreate'],
     'click #ctxCreate': CommonTemplateEvents['click #ctxCreate'],
+    'click #imgCreate': CommonTemplateEvents['click #imgCreate'],
     'click #navID': function(e){
         e.preventDefault();
         toggleWestPanel();

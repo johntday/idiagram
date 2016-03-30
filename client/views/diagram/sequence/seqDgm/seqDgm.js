@@ -30,29 +30,30 @@ var drawDiagram = function(type, code, manual, refocus){
 
         $('#diagram').html('');
 
-        if (type=='seq') {
-            diagram = Diagram.parse(code);
-            diagram.drawSVG('diagram', options);
+        if (type=='img') {
+            var htmlString = ImageDiagramUtils.parseCode(code);
+            $('#diagram').html(htmlString);
         } else if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
-        } else {
-            console.log("seqDgm.drawDiagram: invalid type=" + type);
+        } else if (type=='seq') {
+            diagram = Diagram.parse(code);
+            diagram.drawSVG('diagram', options);
         }
 
         $('#redrawBtnID').addClass('disabled');
         setDirty(false);
     } catch (err) {
         if (manual) {
-            if (type=='seq') {
+            if (type=='ctx' || type=='img') {
+                console.log("seqDgm.drawDiagram: ", type, code, manual, refocus);
+            } else if (type=='seq') {
                 var $element = $('#codeID').get(0);
                 var lineNum = SequenceDiagramUtils.selectLineOfFirstError($element);
                 if (lineNum)
                     throwError("Sorry, I cannot understand line number " + (lineNum + 1) + " of your diagram text\nTake a look at the Cheat Sheet");
                 else
                     throwError("Sorry, I cannot understand your diagram text\nTake a look at the Cheat Sheet");
-            } else if (type=='ctx') {
-                console.log("seqDgm.drawDiagram: ", type, code, manual, refocus);
             }
         }
     }
@@ -206,7 +207,7 @@ Template.seqDgmPage.rendered = function() {
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
-    reactiveDict.set('type',  this.data.type);
+    reactiveDict.set('type',  this.data.type)   || 'seq'; // default to 'seq' for older
     reactiveDict.set('boxWidth', 4);
     reactiveDict.set('diagramWidth', (12 - 4));
     reactiveDict.set('typeaheadTags', []);
