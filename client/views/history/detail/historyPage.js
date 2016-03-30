@@ -53,6 +53,8 @@ Template.historyPage.rendered = function() {
         var type = doc.type;
 
         $('#diagram').html('');
+        $('#htmlHeader').html( $('#htmlHeaderID').val() );
+        $('#htmlFooter').html( $('#htmlFooterID').val() );
 
         if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
