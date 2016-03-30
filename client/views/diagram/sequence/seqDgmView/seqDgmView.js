@@ -64,11 +64,22 @@ Template.seqDgmView.rendered = function() {
     $("form").submit(function() { return false; });
 
     try {
-        var options = {theme: this.data.style};
+        var style = this.data.style;
         var code = this.data.code;
-        var diagram = Diagram.parse( code );
+        var type = this.data.type;
+
         $('#diagram').html('');
-        diagram.drawSVG('diagram', options);
+
+        if (type=='seq'){
+            var options = {theme: style};
+            var diagram = Diagram.parse( code );
+            diagram.drawSVG('diagram', options);
+        } else if (type=='ctx') {
+            var htmlString = ContextDiagramUtils.parseCode(code, style);
+            $('#diagram').html(htmlString);
+        } else {
+            console.log("seqDgmView.js/4", "rendered", "invalid type="+type);
+        }
     } catch (err) {
         throwError("Sorry, I cannot understand your diagram text");
     }
@@ -81,7 +92,7 @@ var actions = function () {
         e.preventDefault();
         Meteor.call('Diagrams.copy', data._id, function(error, _id) {
             if(error){
-                console.log("seqDgm.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
+                console.log("seqDgmView.js/3", "Diagrams.copy", {'error': error, 'retValue': _id});
                 throwError(error.reason);
             }else{
                 throwSuccess('Diagram copied');

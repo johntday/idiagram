@@ -47,16 +47,12 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a id="seqCreate" href="#">Sequence Diagram</a></li>
-                                    <li><a id="ctxCreate" href="#">Context Diagram</a></li>
+                                    <li><a id="ctxCreate" href="#">Class Diagram</a></li>
                                 </ul>
                             </li>
                             <li><a href="/diagrams"><i class="fa fa-search"></i> Search</a></li>
-                            <li><a href="/comment"><i class="fa fa-comment"></i> Feedback</a></li>
                             {{#if showProductionDB}}
                                 <li><a href="https://addons-sso.heroku.com/apps/idiagram/addons/mongolab:sandbox"><i class="fa fa-user-secret"></i> Admin</a></li>
-                            {{/if}}
-                            {{#if isAdmin}}
-                                <li><a href="/comments"><i class="fa fa-comment"></i> List</a></li>
                             {{/if}}
                         {{/if}}
                     </ul>
