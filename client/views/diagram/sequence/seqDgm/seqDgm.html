@@ -43,6 +43,20 @@
                                     </div>
                                 </div>
                             </div>
+                            {{#if isAdmin}}
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="htmlHeaderID" class="control-label">Header HTML</label>
+                                        <textarea id="htmlHeaderID" class="form-control" rows="1">{{htmlHeader}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="htmlFooterID" class="control-label">Footer HTML</label>
+                                        <textarea id="htmlFooterID" class="form-control" rows="1">{{htmlFooter}}</textarea>
+                                    </div>
+                                </div>
+                            {{/if}}
 
                             {{> tagsEdit colLabelSize="2" colFieldSize="10" tags=this.tags options=options}}
 
@@ -85,7 +99,9 @@
                 <h2>{{titleLabel}}</h2>
 
 
+                <div id="htmlHeader"></div>
                 <div id="diagram"></div>
+                <div id="htmlFooter"></div>
 
             </div>
 

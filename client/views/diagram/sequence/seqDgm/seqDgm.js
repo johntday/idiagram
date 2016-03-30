@@ -29,6 +29,8 @@ var drawDiagram = function(type, code, manual, refocus){
         var diagram;
 
         $('#diagram').html('');
+        $('#htmlHeader').html( $('#htmlHeaderID').val() );
+        $('#htmlFooter').html( $('#htmlFooterID').val() );
 
         if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
@@ -72,7 +74,7 @@ var toggleBoxWidth = function(){
     reactiveDict.set('boxWidth', boxWidth);
     reactiveDict.set('diagramWidth', (12 - boxWidth));
 };
-/*--------------------------------------------------------------im----------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
 Template.seqDgmPage.helpers({
     titleLabel: function () {
         return reactiveDict.get('title');
@@ -150,6 +152,18 @@ Template.seqDgmPage.events({
             setSaved(true);
         }
     },
+    'keyup #htmlHeaderID': function(e) {
+        e.preventDefault();
+        adjustTextArea( $(e.target) );
+        setDirty(true);
+        setSaved(true);
+    },
+    'keyup #htmlFooterID': function(e) {
+        e.preventDefault();
+        adjustTextArea( $(e.target) );
+        setDirty(true);
+        setSaved(true);
+    },
     'click #shareBtnID': function(e) {
         e.preventDefault();
         growl(/*'Copy me...\n' + */Meteor.absoluteUrl() + 'view/' + this._id,{
@@ -204,7 +218,7 @@ Template.seqDgmPage.rendered = function() {
 
     reactiveDict.set('title', this.data.title);
     reactiveDict.set('style', this.data.style);
-    reactiveDict.set('type',  this.data.type)   || 'seq'; // default to 'seq' for older
+    reactiveDict.set('type',  this.data.type);
     reactiveDict.set('boxWidth', 4);
     reactiveDict.set('diagramWidth', (12 - 4));
     reactiveDict.set('typeaheadTags', []);
@@ -267,6 +281,8 @@ var actions = function () {
             , code: code
             , private: $('#privateID').prop('checked')
             , type: reactiveDict.get('type')
+            , htmlHeader: $('#htmlHeaderID').val()
+            , htmlFooter: $('#htmlFooterID').val()
         };
 
         // VALIDATE
