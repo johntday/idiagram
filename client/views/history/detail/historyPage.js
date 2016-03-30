@@ -1,4 +1,3 @@
-var _setTimeoutID;
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.helpers({
     canEdit: function(){
@@ -6,9 +5,6 @@ Template.historyPage.helpers({
     },
     actionDesc: function(){
         return Historys.actionDescription(this);
-    },
-    isCtxDgm: function(){
-        return this.doc.type == 'ctx';
     }
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -18,7 +14,6 @@ Template.historyPage.created = function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.destroyed = function() {
     historySearchForm.setDocId(null);
-    Meteor.clearTimeout( _setTimeoutID );
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.events({
@@ -51,30 +46,26 @@ Template.historyPage.events({
 });
 /*------------------------------------------------------------------------------------------------------------------------------*/
 Template.historyPage.rendered = function() {
-    var doc = this.data.doc;
+    try {
+        var doc = this.data.doc;
+        var style = doc.style;
+        var code = doc.code;
+        var type = doc.type;
 
-    if (doc.type == 'ctx'){
-        _setTimeoutID = Meteor.setTimeout(function(){
-            var graph = ContextDiagramUtils.parseCode( doc.code, true );
-            var options = {
-                width: $('#test').width(),
-                height: 500,
-                graphSelector: '#context',
-                showParseErr: true
-            };
-            FlatGraph(graph, options);
+        $('#diagram').html('');
 
-            DotPowerGraph(ContextDiagramUtils.transformToDigraph(ContextDiagramUtils.cloneGraph(graph)), _.extend(options, {height: 600, graphSelector: '#dotpowergraph'}));
-        }, 200);
-    }else {
-        try {
-            var options = {theme: doc.style};
-            var diagram = Diagram.parse(doc.code);
-            $('#diagram').html('');
+        if (type=='seq'){
+            var options = {theme: style};
+            var diagram = Diagram.parse( code );
             diagram.drawSVG('diagram', options);
-        } catch (err) {
-            throwError("Sorry, I cannot understand your diagram text");
+        } else if (type=='ctx') {
+            var htmlString = ContextDiagramUtils.parseCode(code, style);
+            $('#diagram').html(htmlString);
+        } else {
+            console.log("historyPage.js/4", "rendered", "invalid type="+type);
         }
+    } catch (err) {
+        throwError("Sorry, I cannot understand your diagram text");
     }
 };
 /*------------------------------------------------------------------------------------------------------------------------------*/
