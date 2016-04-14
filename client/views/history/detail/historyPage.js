@@ -59,6 +59,9 @@ Template.historyPage.rendered = function() {
         if (type=='ctx') {
             var htmlString = ContextDiagramUtils.parseCode(code, style);
             $('#diagram').html(htmlString);
+        } else if (type=='act') {
+            var htmlString = ContextDiagramUtils.activity(code, style);
+            $('#diagram').html(htmlString);
         } else if (type=='seq') {
             var options = {theme: style};
             var diagram = Diagram.parse( code );
